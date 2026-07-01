@@ -1,0 +1,50 @@
+# Visual Studio
+.vs/
+*.VC.db
+*.VC.opendb
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build folders
+Debug/
+Release/
+x64/
+x86/
+bin/
+obj/
+ipch/
+
+# Visual Studio generated files
+*.ilk
+*.log
+*.obj
+*.pch
+*.pdb
+*.idb
+*.tlog
+*.lastbuildstate
+*.cache
+*.tmp
+*.temp
+
+# Executables
+*.exe
+*.dll
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# NuGet
+packages/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# ReSharper
+_ReSharper*/
+*.DotSettings.user
