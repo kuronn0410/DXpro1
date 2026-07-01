@@ -16,6 +16,10 @@ bin/
 obj/
 ipch/
 
+# DirectX libraries
+DirectXInc/
+DirectXLib/
+
 # Visual Studio generated files
 *.ilk
 *.log
