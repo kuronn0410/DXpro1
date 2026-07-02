@@ -4,6 +4,7 @@
 #include "win.h"
 #include "main.h"
 #include <Windows.h>
+#include "WindowState.h"//ウィンドウの状態を保持する変数
 #pragma endregion
 
 
@@ -39,8 +40,17 @@ LRESULT CALLBACK window_proc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 {
 	switch (message)//渡されたメッセージから，イベントの種類を解析する
 	{
-	case WM_DESTROY:   //ウィンドウ破壊された
-		finish = true; //終了フラグを立てる
+		case WM_SIZE:
+			// 最小化中は幅・高さが0になるので更新しない
+			if (wParam != SIZE_MINIMIZED)
+			{
+				g_windowWidth = LOWORD(lParam);
+				g_windowHeight = HIWORD(lParam);
+			}
+			return 0;
+		case WM_DESTROY:   //ウィンドウ破壊された
+			finish = true; //終了フラグを立てる
+			return 0;
 	}
 	return DefWindowProc(hWnd, message, wParam, lParam);//デフォルトの処理
 }
@@ -60,6 +70,10 @@ void window_initialize(HINSTANCE hWnd)
 	wc.lpszMenuName = NULL;//ウィンドウにつけるメニューはなし
 	wc.lpszClassName = WIN_TITLE;//ウィンドウバーのタイトル
 
+	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+	wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1); // 白背景
+	wc.lpszMenuName = NULL;
+
 	break_point_false(RegisterClassEx(&wc));//ウィンドウを登録する
 }
 
@@ -68,7 +82,7 @@ void window_create(HINSTANCE hWin, int nCmdShow)
 {
 	DWORD style = WS_OVERLAPPEDWINDOW;//ウィンドウは標準のスタイル
 
-	RECT rec = { 0, 0, WIN_W, WIN_H };//プレイ画面サイズ 
+	RECT rec = { 0, 0, g_windowWidth, g_windowHeight };//プレイ画面サイズ 
 	AdjustWindowRect(&rec, style, FALSE);//ウィンドウサイズ
 
 	//ウィンドウの生成
@@ -84,9 +98,24 @@ void window_create(HINSTANCE hWin, int nCmdShow)
 void win_resize(int width, int height)
 {
 	RECT rec = { 0, 0, width, height };//プレイ画面サイズ 
+
+	g_windowWidth = width;
+	g_windowHeight = height;
+
 	DWORD style = WS_OVERLAPPEDWINDOW;//ウィンドウは標準のスタイル
 	AdjustWindowRect(&rec, style, FALSE);//ウィンドウサイズ
-	SetWindowPos(h_WIN, NULL, 0, 0, rec.right - rec.left, rec.bottom - rec.top, SWP_NOMOVE | SWP_NOZORDER);
+	SetWindowPos(
+		h_WIN,
+		NULL,
+		0,
+		0,
+		rec.right - rec.left,
+		rec.bottom - rec.top,
+		SWP_NOMOVE | SWP_NOZORDER
+	);
+
+	InvalidateRect(h_WIN, NULL, TRUE);
+	UpdateWindow(h_WIN);
 }
 
 #pragma endregion

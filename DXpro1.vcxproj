@@ -23,6 +23,7 @@
     <ClCompile Include="program\input.cpp" />
     <ClCompile Include="program\main.cpp" />
     <ClCompile Include="program\win.cpp" />
+    <ClCompile Include="program\WindowState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="program\dx2.h" />
@@ -30,6 +31,8 @@
     <ClInclude Include="program\input.h" />
     <ClInclude Include="program\main.h" />
     <ClInclude Include="program\win.h" />
+    <ClInclude Include="program\WindowConfig.h" />
+    <ClInclude Include="program\WindowState.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
