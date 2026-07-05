@@ -17,7 +17,7 @@ bool BackgroundInitialize()
     {
         return false;
     }
-
+    //登録
     result = D3DXCreateTextureFromFile(
         g_device,
         "sorce\\Shiba.png",
@@ -42,10 +42,12 @@ void BackgroundDraw()
     {
         return;
     }
-
+	//画像を保存するための構造体を作成
     D3DSURFACE_DESC imageInfo = {};
+    //登録済みの画像から情報を取得
     backgroundTexture->GetLevelDesc(0, &imageInfo);
 
+	//ウィンドウの幅と高さを画像の幅と高さで割ってスケーリングする
     float scaleX =
         static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width);
 

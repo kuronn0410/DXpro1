@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="program\cpp\background.cpp" />
     <ClCompile Include="program\cpp\dx.cpp" />
+    <ClCompile Include="program\cpp\Finalize.cpp" />
     <ClCompile Include="program\cpp\Game\GameMain.cpp" />
     <ClCompile Include="program\cpp\Game\Player.cpp" />
     <ClCompile Include="program\cpp\Game\PlayerMove.cpp" />
@@ -28,6 +29,7 @@
     <ClCompile Include="program\cpp\Initialize.cpp" />
     <ClCompile Include="program\cpp\input.cpp" />
     <ClCompile Include="program\cpp\main.cpp" />
+    <ClCompile Include="program\cpp\TimeManager.cpp" />
     <ClCompile Include="program\cpp\win.cpp" />
     <ClCompile Include="program\cpp\WindowState.cpp" />
   </ItemGroup>
@@ -41,6 +43,7 @@
     <ClInclude Include="program\header\Initialize.h" />
     <ClInclude Include="program\header\input.h" />
     <ClInclude Include="program\header\main.h" />
+    <ClInclude Include="program\header\TimeManager.h" />
     <ClInclude Include="program\header\win.h" />
     <ClInclude Include="program\header\WindowConfig.h" />
     <ClInclude Include="program\header\WindowState.h" />

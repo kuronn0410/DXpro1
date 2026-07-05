@@ -6,6 +6,11 @@
 
 static IDirect3DTexture9* playerTexture = nullptr;
 static ID3DXSprite* playerSprite = nullptr;
+float scaleX = 0.0f;
+float scaleY = 0.0f;
+float centerX = 0.0f;
+float centerY = 0.0f;
+
 
 bool player_initialize()
 {
@@ -61,11 +66,9 @@ void player_draw()
     playerTexture->GetLevelDesc(0, &imageInfo);
 
 	//画面サイズに合わせてスケーリングするための倍率を計算
-    float scaleX =
-        static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width)*0.25f;
+    scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width)*0.25f;
 
-    float scaleY =
-        static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height)* 0.25f;
+    scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height)* 0.25f;
     
 
 	D3DXVECTOR2 scale(scaleX, scaleY);
@@ -81,6 +84,9 @@ void player_draw()
         0.0f,
         &position
     );
+
+    centerX = position.x + imageInfo.Width * scale.x * 0.5f;
+    centerY = position.y + imageInfo.Height * scale.y * 0.5f;
 
     playerSprite->Begin(D3DXSPRITE_ALPHABLEND);
     playerSprite->SetTransform(&Matrix);
