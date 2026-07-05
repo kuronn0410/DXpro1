@@ -12,4 +12,6 @@ void window_initialize(HINSTANCE hWnd);
 void window_create(HINSTANCE hWin, int nCmdShow);
 //ウィンドウサイズ変更関数
 void win_resize(int width, int height);
+
+void WindowInitialize(HINSTANCE hWnd);
 extern bool finish;

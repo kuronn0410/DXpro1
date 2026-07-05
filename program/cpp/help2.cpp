@@ -1,5 +1,5 @@
 #pragma region ヘッダ
-#include "help1.h"
+#include "header\help1.h"
 #pragma endregion
 
 #pragma region デバッグ用関数定義

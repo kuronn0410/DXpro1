@@ -19,20 +19,35 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="program\help2.cpp" />
-    <ClCompile Include="program\input.cpp" />
-    <ClCompile Include="program\main.cpp" />
-    <ClCompile Include="program\win.cpp" />
-    <ClCompile Include="program\WindowState.cpp" />
+    <ClCompile Include="program\cpp\background.cpp" />
+    <ClCompile Include="program\cpp\dx.cpp" />
+    <ClCompile Include="program\cpp\Game\GameMain.cpp" />
+    <ClCompile Include="program\cpp\Game\Player.cpp" />
+    <ClCompile Include="program\cpp\Game\PlayerMove.cpp" />
+    <ClCompile Include="program\cpp\help2.cpp" />
+    <ClCompile Include="program\cpp\Initialize.cpp" />
+    <ClCompile Include="program\cpp\input.cpp" />
+    <ClCompile Include="program\cpp\main.cpp" />
+    <ClCompile Include="program\cpp\win.cpp" />
+    <ClCompile Include="program\cpp\WindowState.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="program\dx2.h" />
-    <ClInclude Include="program\help1.h" />
-    <ClInclude Include="program\input.h" />
-    <ClInclude Include="program\main.h" />
-    <ClInclude Include="program\win.h" />
-    <ClInclude Include="program\WindowConfig.h" />
-    <ClInclude Include="program\WindowState.h" />
+    <ClInclude Include="program\header\background.h" />
+    <ClInclude Include="program\header\dx2.h" />
+    <ClInclude Include="program\header\Game\GameMain.h" />
+    <ClInclude Include="program\header\Game\Player.h" />
+    <ClInclude Include="program\header\Game\PlayerMove.h" />
+    <ClInclude Include="program\header\help1.h" />
+    <ClInclude Include="program\header\Initialize.h" />
+    <ClInclude Include="program\header\input.h" />
+    <ClInclude Include="program\header\main.h" />
+    <ClInclude Include="program\header\win.h" />
+    <ClInclude Include="program\header\WindowConfig.h" />
+    <ClInclude Include="program\header\WindowState.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Users\24rd179\Downloads\soccer.png" />
+    <Image Include="sorce\Shiba.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -104,11 +119,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)DirectXLib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d9.lib;d3dx9.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -119,11 +136,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)DirectXLib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d9.lib;d3dx9.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -132,11 +151,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)DirectXLib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d9.lib;d3dx9.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -147,11 +168,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)DirectXLib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d9.lib;d3dx9.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

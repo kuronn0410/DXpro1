@@ -1,10 +1,12 @@
 #pragma region ヘッダ
-#include "dx2.h"
-#include "help1.h"
-#include "win.h"
-#include "main.h"
+#include "header\dx2.h"
+#include "header\help1.h"
+#include "header\win.h"
+#include "header\main.h"
 #include <Windows.h>
-#include "WindowState.h"//ウィンドウの状態を保持する変数
+#include "header/Game/Player.h"
+#include "header\WindowState.h"//ウィンドウの状態を保持する変数
+#include "header\background.h"
 #pragma endregion
 
 
@@ -16,6 +18,12 @@ bool finish = false;//プレイ終了フラグ
 
 
 #pragma region ウィンドウ関数定義
+
+void WindowInitialize(HINSTANCE hWnd)
+{
+	window_initialize(hWnd);
+	window_create(hWnd, SW_SHOW);
+}
 
 void WindowUpdate()
 {
@@ -42,10 +50,19 @@ LRESULT CALLBACK window_proc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 	{
 		case WM_SIZE:
 			// 最小化中は幅・高さが0になるので更新しない
+			// ウィンドウサイズが変更されたときの処理
 			if (wParam != SIZE_MINIMIZED)
 			{
 				g_windowWidth = LOWORD(lParam);
 				g_windowHeight = HIWORD(lParam);
+				BackgroundOnLostDevice();
+				PlayerOnLostDevice();
+
+				if (DirectXResize(g_windowWidth, g_windowHeight))
+				{
+					BackgroundOnResetDevice();
+					PlayerOnResetDevice();
+				}
 			}
 			return 0;
 		case WM_DESTROY:   //ウィンドウ破壊された
@@ -97,21 +114,23 @@ void window_create(HINSTANCE hWin, int nCmdShow)
 
 void win_resize(int width, int height)
 {
-	RECT rec = { 0, 0, width, height };//プレイ画面サイズ 
+	RECT rec = { 0, 0, width, height };//プレイ画面サイズ {left,top,right,bottom};
 
 	g_windowWidth = width;
 	g_windowHeight = height;
 
 	DWORD style = WS_OVERLAPPEDWINDOW;//ウィンドウは標準のスタイル
 	AdjustWindowRect(&rec, style, FALSE);//ウィンドウサイズ
+	// ウィンドウのサイズを変更(API)ウィンドウの現在位置と重なり順は維持し、サイズだけ変更する
 	SetWindowPos(
-		h_WIN,
+		h_WIN,//変更対象のウィンドウ
 		NULL,
-		0,
-		0,
-		rec.right - rec.left,
-		rec.bottom - rec.top,
-		SWP_NOMOVE | SWP_NOZORDER
+		0, 0,//新しいウィンドウ位置のX座標とY座標
+		rec.right - rec.left,//幅
+		rec.bottom - rec.top,//高さ
+		SWP_NOMOVE | SWP_NOZORDER//変更方法を指定する
+		/*SWP_NOMOVE：ウィンドウ位置を変えない
+		SWP_NOZORDER：ほかのウィンドウとの重なり順を変えない*/
 	);
 
 	InvalidateRect(h_WIN, NULL, TRUE);

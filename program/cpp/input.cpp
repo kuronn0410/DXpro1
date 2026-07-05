@@ -1,8 +1,8 @@
 //インプットに関する処理を行うファイルです。
 
-#include "input.h"
+#include "header\input.h"
 #include <Windows.h>
-#include "win.h"
+#include "header\win.h"
 
 static bool previous = false;
 static bool largeWindow = false;
