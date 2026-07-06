@@ -3,12 +3,13 @@
 #pragma region ヘッダ
 #include <Windows.h>
 #include "header\win.h"
-#include "header\input.h"
+#include "header\InputManager.h"
 #include "header\background.h"
 #include "header\dx2.h"
 #include "header\initialize.h"
 #include "header/Game/Player.h"
 #include "header/Game/GameMain.h"
+#include "Library\Input\Input.h"
 #include "header/TimeManager.h"
 
 //ウィンドウ用メイン関数
@@ -24,6 +25,7 @@ int APIENTRY WinMain(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, 
 	{
 		Time::Update();
 		InputUpdate();
+		InputManagerUpdate();
 		WindowUpdate();
 		DrawBegin();
 		BackgroundDraw();

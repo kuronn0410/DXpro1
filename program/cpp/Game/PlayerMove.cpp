@@ -1,10 +1,9 @@
 #include "header/Game/Player.h"
-#include "header/input.h"
 #include "header/Game/PlayerMove.h"
 #include "header/WindowState.h"
 #include "header/TimeManager.h"
+#include "Library\Input\Input.h"
 #include <Windows.h>
-#include <iostream>
 
 float moveX = 0.0f; // X方向の進む量
 float moveY = 0.0f; // Y方向の進む量
@@ -14,7 +13,8 @@ float player_y = 0.0f; // プレイヤーのY座標
 
 float timer = 0.0f;
 float endTime = 3.0f;
-bool isMoving = false;
+bool isXMoving = false;
+bool isYMoving = false;
 
 
 bool oldleft = false; // 左キーが押されていたかどうか
@@ -57,108 +57,113 @@ bool CanMoveY(float moveY)
 
 void player_move_left()
 {
-	if (isMoving)
+	if (isXMoving)
 	{
 		return;
 	}
 
 	moveX = -1.5f * scaleX * 1000.0f;
 	timer = 0.0f;
-	isMoving = true;
+	isXMoving = true;
 }
 
 
 void player_move_right()
 {
-	moveX = 1.5f * scaleX * 1000; // 右に移動
-	if(CanMoveX(moveX))
+	if (isXMoving)
 	{
-		player_x += moveX; // 右に移動
+		return;
 	}
+	moveX = 1.5f * scaleX * 1000; // 右に移動
+	timer = 0.0f;
+	isXMoving = true;
 }
 
 void player_move_up()
 {
-	moveY = -1.5f * scaleY * 1000; // 上に移動
-	if (CanMoveY(moveY))
+	if (isYMoving)
 	{
-		player_y += moveY; // 上に移動
-	}
-	
+		return;
+	}	
+	moveY = -1.5f * scaleY * 1000; // 上に移動
+	timer = 0.0f;
+	isYMoving = true;
 }
 
 void player_move_down()
 {
-	moveY = 1.5f * scaleY * 1000; // 下に移動
-	if(CanMoveY(moveY))
+	if (isYMoving)
 	{
-		player_y += moveY; // 下に移動
+		return;
 	}
+	moveY = 1.5f * scaleY * 1000; // 下に移動
+	timer = 0.0f;
+	isYMoving = true;
 }
 
 
 void player_move_update()
 {
-	if (!isMoving)
+	if (!isXMoving && !isYMoving)
 	{
 		return;
 	}
 
-	float movement =
-		(moveX / endTime) * Time::deltaTime;
+	float movementX =(moveX / endTime) * Time::deltaTime;
+	float movementY = (moveY / endTime) * Time::deltaTime;
 
-	if (!CanMoveX(movement))
+	if (!CanMoveX(movementX))
 	{
-		isMoving = false;
+		isXMoving = false;
 		return;
 	}
 
-	player_x += movement;
+	if(!CanMoveY(movementY))
+	{
+		isYMoving = false;
+		return;
+	}
+
+	if(isXMoving)
+	{
+		player_x += movementX;
+	}
+	else if(isYMoving)
+	{
+		player_y += movementY;
+	}
+
 	timer += Time::deltaTime;
 
 	if (timer >= endTime)
 	{
-		isMoving = false;
+		isXMoving = false;
+		isYMoving = false;
 		timer = 0.0f;
 	}
 }
 
 void player_move()
 {
-	// 現在のキーの状態を取得
-	bool nowleft = (GetAsyncKeyState(VK_LEFT) & 0x8000) != 0;
-	bool nowright = (GetAsyncKeyState(VK_RIGHT) & 0x8000) != 0;
-	bool nowup = (GetAsyncKeyState(VK_UP) & 0x8000) != 0;
-	bool nowdown = (GetAsyncKeyState(VK_DOWN) & 0x8000) != 0;
-
-	// プレイヤーの移動処理をここに記述
-	if (!nowleft && oldleft)
+	if (GetKeyUp(VK_LEFT))
 	{
-		// 左キーが押されていた場合の処理
-		player_move_left();	
-		
+		player_move_left();
 	}
-	if (!nowright && oldright)
+
+	if (GetKeyUp(VK_RIGHT))
 	{
-		// 右キーが押されていた場合の処理
 		player_move_right();
 	}
-	if (!nowup && oldup)
+
+	if (GetKeyUp(VK_UP))
 	{
-		// 上キーが押されていた場合の処理
 		player_move_up();
 	}
-	if (!nowdown && olddown)
+
+	if (GetKeyUp(VK_DOWN))
 	{
-		// 下キーが押されていた場合の処理
 		player_move_down();
 	}
-
-	oldleft = nowleft;
-	oldright = nowright;
-	oldup = nowup;
-	olddown = nowdown;
-
 }
 
 

@@ -27,11 +27,12 @@
     <ClCompile Include="program\cpp\Game\PlayerMove.cpp" />
     <ClCompile Include="program\cpp\help2.cpp" />
     <ClCompile Include="program\cpp\Initialize.cpp" />
-    <ClCompile Include="program\cpp\input.cpp" />
+    <ClCompile Include="program\cpp\InputManager.cpp" />
     <ClCompile Include="program\cpp\main.cpp" />
     <ClCompile Include="program\cpp\TimeManager.cpp" />
     <ClCompile Include="program\cpp\win.cpp" />
     <ClCompile Include="program\cpp\WindowState.cpp" />
+    <ClCompile Include="program\Library\Input\Input.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="program\header\background.h" />
@@ -41,12 +42,13 @@
     <ClInclude Include="program\header\Game\PlayerMove.h" />
     <ClInclude Include="program\header\help1.h" />
     <ClInclude Include="program\header\Initialize.h" />
-    <ClInclude Include="program\header\input.h" />
+    <ClInclude Include="program\header\InputManager.h" />
     <ClInclude Include="program\header\main.h" />
     <ClInclude Include="program\header\TimeManager.h" />
     <ClInclude Include="program\header\win.h" />
     <ClInclude Include="program\header\WindowConfig.h" />
     <ClInclude Include="program\header\WindowState.h" />
+    <ClInclude Include="program\Library\Input\Input.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Users\24rd179\Downloads\soccer.png" />

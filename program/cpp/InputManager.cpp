@@ -1,15 +1,16 @@
 //インプットに関する処理を行うファイルです。
 
-#include "header\input.h"
+#include "header\InputManager.h"
 #include <Windows.h>
 #include "header\win.h"
+#include "Library\Input\Input.h"
 
 static bool previous = false;
 static bool largeWindow = false;
 
-void InputUpdate()
+void InputManagerUpdate()
 {
-	bool current = (GetAsyncKeyState('1') & 0x8000) != 0;
+	bool current = (GetKey('1')) != 0;
 	if (current && !previous)
 	{
 		largeWindow = !largeWindow;

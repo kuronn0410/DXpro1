@@ -2,7 +2,6 @@
 #pragma region ƒwƒbƒ_
 #include <Windows.h>
 #include "header\win.h"
-#include "header\input.h"
 #include "header\background.h"
 #include "header\dx2.h"
 #include "header\Game/Player.h"
