@@ -12,12 +12,11 @@ float player_x = 0.0f; // プレイヤーのX座標
 float player_y = 0.0f; // プレイヤーのY座標
 
 Timer moveTimer;
-float deltaTime = 0.02f;
+float deltaTime = 0.01f;
 float finisheTime = 3.0f;
 
 bool isXMoving = false;
 bool isYMoving = false;
-
 
 
 bool oldleft = false; // 左キーが押されていたかどうか
@@ -26,7 +25,7 @@ bool oldup = false; // 上キーが押されていたかどうか
 bool olddown = false; // 下キーが押されていたかどうか
 
 
-
+// プレイヤーがX方向に移動できるかどうかを判定する関数
 bool CanMoveX(float moveX)
 {
 	// プレイヤーの座標がウィンドウの範囲を超えないように制限
@@ -41,6 +40,7 @@ bool CanMoveX(float moveX)
 	return true;
 }
 
+// プレイヤーがY方向に移動できるかどうかを判定する関数
 bool CanMoveY(float moveY)
 {
 	// プレイヤーの座標がウィンドウの範囲を超えないように制限
@@ -55,7 +55,6 @@ bool CanMoveY(float moveY)
 	}
 	return true;
 }
-
 
 
 void player_move_left()
@@ -107,9 +106,6 @@ void player_move_down()
 
 void player_move_update()
 {
-	
-	
-
 	if (!isXMoving && !isYMoving)
 	{
 		return;
@@ -135,7 +131,7 @@ void player_move_update()
 	{
 		player_x += movementX;
 	}
-	else if(isYMoving)
+	if(isYMoving)
 	{
 		player_y += movementY;
 	}

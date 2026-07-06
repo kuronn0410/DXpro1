@@ -10,12 +10,11 @@
 #include "header/Game/Player.h"
 #include "header/Game/GameMain.h"
 #include "Library\Input\Input.h"
-#include "header/TimeManager.h"
+
 
 //ウィンドウ用メイン関数
 int APIENTRY WinMain(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
 {
-	Time::Init();
 	// 初期化処理
 	initialize(hWnd, hPrevInstance, lpCmdLine, nCmdShow);
 	
@@ -23,7 +22,6 @@ int APIENTRY WinMain(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, 
 	MSG msg;
 	while (!finish)
 	{
-		Time::Update();
 		InputUpdate();
 		InputManagerUpdate();
 		WindowUpdate();
