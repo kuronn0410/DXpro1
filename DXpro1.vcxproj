@@ -33,6 +33,7 @@
     <ClCompile Include="program\cpp\win.cpp" />
     <ClCompile Include="program\cpp\WindowState.cpp" />
     <ClCompile Include="program\Library\Input\Input.cpp" />
+    <ClCompile Include="program\Library\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="program\header\background.h" />
@@ -49,6 +50,7 @@
     <ClInclude Include="program\header\WindowConfig.h" />
     <ClInclude Include="program\header\WindowState.h" />
     <ClInclude Include="program\Library\Input\Input.h" />
+    <ClInclude Include="program\Library\Timer\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Users\24rd179\Downloads\soccer.png" />

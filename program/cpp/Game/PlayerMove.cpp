@@ -1,7 +1,7 @@
 #include "header/Game/Player.h"
 #include "header/Game/PlayerMove.h"
 #include "header/WindowState.h"
-#include "header/TimeManager.h"
+#include "Library\Timer\Timer.h"
 #include "Library\Input\Input.h"
 #include <Windows.h>
 
@@ -11,10 +11,13 @@ float moveY = 0.0f; // Y方向の進む量
 float player_x = 0.0f; // プレイヤーのX座標
 float player_y = 0.0f; // プレイヤーのY座標
 
-float timer = 0.0f;
-float endTime = 3.0f;
+Timer moveTimer;
+float deltaTime = 0.02f;
+float finisheTime = 3.0f;
+
 bool isXMoving = false;
 bool isYMoving = false;
+
 
 
 bool oldleft = false; // 左キーが押されていたかどうか
@@ -63,7 +66,7 @@ void player_move_left()
 	}
 
 	moveX = -1.5f * scaleX * 1000.0f;
-	timer = 0.0f;
+	moveTimer.Start(finisheTime);
 	isXMoving = true;
 }
 
@@ -75,7 +78,7 @@ void player_move_right()
 		return;
 	}
 	moveX = 1.5f * scaleX * 1000; // 右に移動
-	timer = 0.0f;
+	moveTimer.Start(finisheTime);
 	isXMoving = true;
 }
 
@@ -86,7 +89,7 @@ void player_move_up()
 		return;
 	}	
 	moveY = -1.5f * scaleY * 1000; // 上に移動
-	timer = 0.0f;
+	moveTimer.Start(finisheTime);
 	isYMoving = true;
 }
 
@@ -97,26 +100,30 @@ void player_move_down()
 		return;
 	}
 	moveY = 1.5f * scaleY * 1000; // 下に移動
-	timer = 0.0f;
+	moveTimer.Start(finisheTime);
 	isYMoving = true;
 }
 
 
 void player_move_update()
 {
+	
+	
+
 	if (!isXMoving && !isYMoving)
 	{
 		return;
 	}
 
-	float movementX =(moveX / endTime) * Time::deltaTime;
-	float movementY = (moveY / endTime) * Time::deltaTime;
+	float movementX =(moveX / finisheTime) * deltaTime;
+	float movementY = (moveY / finisheTime) * deltaTime;
 
 	if (!CanMoveX(movementX))
 	{
 		isXMoving = false;
 		return;
 	}
+
 
 	if(!CanMoveY(movementY))
 	{
@@ -133,14 +140,19 @@ void player_move_update()
 		player_y += movementY;
 	}
 
-	timer += Time::deltaTime;
+	moveTimer.Update(deltaTime);
+	//timer += Time::deltaTime;
 
-	if (timer >= endTime)
+	
+	if (moveTimer.IsFinished())
 	{
 		isXMoving = false;
 		isYMoving = false;
-		timer = 0.0f;
+		moveX = 0.0f;
+		moveY = 0.0f;
 	}
+		
+	
 }
 
 void player_move()
