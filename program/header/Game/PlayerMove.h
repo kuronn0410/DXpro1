@@ -10,3 +10,4 @@ extern float centerX;
 extern float centerY;
 // プレイヤーの移動処理を行う関数
 void player_move();
+

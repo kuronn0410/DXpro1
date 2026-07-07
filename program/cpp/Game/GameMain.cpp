@@ -11,5 +11,4 @@ void game_initialize()
 void game_main()
 {
 	player_update();
-	player_move_update();
 }
