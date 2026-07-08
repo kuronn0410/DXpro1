@@ -1,6 +1,6 @@
 //実体をつくって保存する
 
-#include "header\dx2.h"
+#include "header\Graphics\dx2.h"
 
 IDirect3D9* g_direct3D = nullptr;// Direct3D9オブジェクトのポインタを保持する
 IDirect3DDevice9* g_device = nullptr;// Direct3D9デバイスのポインタを保持する

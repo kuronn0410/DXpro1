@@ -1,5 +1,5 @@
 #pragma region ƒwƒbƒ_
-#include "header\dx2.h"
+#include "header\Graphics\dx2.h"
 #include "header\help1.h"
 #include "header\win.h"
 #include "header\main.h"

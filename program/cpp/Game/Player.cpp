@@ -1,5 +1,5 @@
 #include "header/Game/Player.h"
-#include "header/dx2.h"
+#include "header\Graphics\dx2.h"
 #include "header/WindowState.h"
 #include "header/Game/PlayerMove.h"
 
@@ -45,13 +45,7 @@ bool player_initialize()
 	return SUCCEEDED(result);
 }
 
-void player_update()
-{
-	// プレイヤーの更新処理をここに記述
-    player_move();
-    player_draw();
-    
-}
+
 
 void player_draw()
 {

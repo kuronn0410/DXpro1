@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="program\cpp\background.cpp" />
-    <ClCompile Include="program\cpp\dx.cpp" />
+    <ClCompile Include="program\cpp\Graphics\dx.cpp" />
     <ClCompile Include="program\cpp\Finalize.cpp" />
     <ClCompile Include="program\cpp\Game\GameMain.cpp" />
     <ClCompile Include="program\cpp\Game\OneTurn\PlayerAction.cpp" />
@@ -39,7 +39,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="program\header\background.h" />
-    <ClInclude Include="program\header\dx2.h" />
+    <ClInclude Include="program\header\Finalize.h" />
+    <ClInclude Include="program\header\Graphics\dx2.h" />
     <ClInclude Include="program\header\Game\GameMain.h" />
     <ClInclude Include="program\header\Game\OneTurn\PlayerAction.h" />
     <ClInclude Include="program\header\Game\OneTurn\TurnEnd.h" />

@@ -3,8 +3,9 @@
 #include <Windows.h>
 #include "header\win.h"
 #include "header\background.h"
-#include "header\dx2.h"
+#include "header\Graphics\dx2.h"
 #include "header\Game/Player.h"
+#include "header\Game/GameMain.h"
 #include "header\initialize.h"
 
 
@@ -26,5 +27,5 @@ int initialize(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nC
 	player_initialize();
 	return 0;
 
-
+	GameInitialize();
 }

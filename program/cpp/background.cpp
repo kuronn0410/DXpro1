@@ -1,5 +1,5 @@
 #include "header\WindowState.h"
-#include "header\dx2.h"
+#include "header\Graphics\dx2.h"
 
 #pragma region ”wŒi•`‰æ—p
 static IDirect3DTexture9* backgroundTexture = nullptr;

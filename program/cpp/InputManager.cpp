@@ -10,6 +10,7 @@ static bool largeWindow = false;
 
 void InputManagerUpdate()
 {
+	InputUpdate();
 	bool current = (GetKey('1')) != 0;
 	if (current && !previous)
 	{
