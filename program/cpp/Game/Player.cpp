@@ -48,8 +48,9 @@ bool player_initialize()
 void player_update()
 {
 	// プレイヤーの更新処理をここに記述
-    player_draw();
     player_move();
+    player_draw();
+    
 }
 
 void player_draw()

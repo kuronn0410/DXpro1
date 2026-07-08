@@ -23,8 +23,11 @@
     <ClCompile Include="program\cpp\dx.cpp" />
     <ClCompile Include="program\cpp\Finalize.cpp" />
     <ClCompile Include="program\cpp\Game\GameMain.cpp" />
+    <ClCompile Include="program\cpp\Game\OneTurn\PlayerAction.cpp" />
+    <ClCompile Include="program\cpp\Game\OneTurn\TurnEnd.cpp" />
     <ClCompile Include="program\cpp\Game\Player.cpp" />
     <ClCompile Include="program\cpp\Game\PlayerMove.cpp" />
+    <ClCompile Include="program\cpp\Game\OneTurn\TurnManager.cpp" />
     <ClCompile Include="program\cpp\help2.cpp" />
     <ClCompile Include="program\cpp\Initialize.cpp" />
     <ClCompile Include="program\cpp\InputManager.cpp" />
@@ -38,8 +41,11 @@
     <ClInclude Include="program\header\background.h" />
     <ClInclude Include="program\header\dx2.h" />
     <ClInclude Include="program\header\Game\GameMain.h" />
+    <ClInclude Include="program\header\Game\OneTurn\PlayerAction.h" />
+    <ClInclude Include="program\header\Game\OneTurn\TurnEnd.h" />
     <ClInclude Include="program\header\Game\Player.h" />
     <ClInclude Include="program\header\Game\PlayerMove.h" />
+    <ClInclude Include="program\header\Game\OneTurn\TurnManager.h" />
     <ClInclude Include="program\header\help1.h" />
     <ClInclude Include="program\header\Initialize.h" />
     <ClInclude Include="program\header\InputManager.h" />
