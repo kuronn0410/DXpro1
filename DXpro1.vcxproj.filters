@@ -33,9 +33,6 @@
     <ClCompile Include="program\cpp\background.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="program\cpp\dx.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="program\cpp\Game\Player.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -66,11 +63,14 @@
     <ClCompile Include="program\cpp\Game\OneTurn\TurnEnd.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="program\cpp\Graphics\dx.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="program\cpp\Game\PlayerDraw.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="program\header\dx2.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="program\header\help1.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -117,6 +117,12 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="program\header\Game\OneTurn\TurnEnd.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="program\header\Finalize.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="program\header\Graphics\dx2.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

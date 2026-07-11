@@ -1,12 +1,30 @@
 #pragma once
+#include "header/Graphics/dx2.h"
 
-extern float scaleX;
-extern float scaleY;
+// Player.h
+class Player
+{
+public:
+    bool Initialize();
+    void Update();
+    void Draw();
+    void Finalize();
 
-bool player_initialize();
-void player_update();
-void player_draw();
-void player_finalize();
+    void OnLostDevice();
+    void OnResetDevice();
 
-void PlayerOnLostDevice();
-void PlayerOnResetDevice();
+    float GetScaleX() const;
+    float GetScaleY() const;
+    float centerX = 0.0f;
+    float centerY = 0.0f;
+
+private:
+    IDirect3DTexture9* playerTexture = nullptr;
+    ID3DXSprite* playerSprite = nullptr;
+    float scaleX = 0.0f;
+    float scaleY = 0.0f;
+   
+
+//private:
+//    PlayerMove move;
+};

@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="program\cpp\background.cpp" />
+    <ClCompile Include="program\cpp\Game\PlayerDraw.cpp" />
     <ClCompile Include="program\cpp\Graphics\dx.cpp" />
     <ClCompile Include="program\cpp\Finalize.cpp" />
     <ClCompile Include="program\cpp\Game\GameMain.cpp" />

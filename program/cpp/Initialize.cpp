@@ -8,7 +8,7 @@
 #include "header\Game/GameMain.h"
 #include "header\initialize.h"
 
-
+extern Player player; // プレイヤーオブジェクトのインスタンス
 
 int initialize(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
 {
@@ -24,7 +24,7 @@ int initialize(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nC
 	{
 		return -1;
 	}
-	player_initialize();
+	player.Initialize();
 	return 0;
 
 	GameInitialize();

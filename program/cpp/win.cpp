@@ -9,6 +9,7 @@
 #include "header\background.h"
 #pragma endregion
 
+extern Player player; // プレイヤーオブジェクトのインスタンス
 
 #pragma region ウィンドウ静的定義
 HWND h_WIN = NULL;//プレイ中のウィンドウ
@@ -56,12 +57,12 @@ LRESULT CALLBACK window_proc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 				g_windowWidth = LOWORD(lParam);
 				g_windowHeight = HIWORD(lParam);
 				BackgroundOnLostDevice();
-				PlayerOnLostDevice();
+				player.OnLostDevice();
 
 				if (DirectXResize(g_windowWidth, g_windowHeight))
 				{
 					BackgroundOnResetDevice();
-					PlayerOnResetDevice();
+					player.OnResetDevice();
 				}
 			}
 			return 0;

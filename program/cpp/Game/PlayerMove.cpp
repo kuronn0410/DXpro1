@@ -1,86 +1,62 @@
 #include "header/Game/Player.h"
 #include "header/Game/PlayerMove.h"
 #include "header/WindowState.h"
-#include "Library\Timer\Timer.h"
 #include "Library\Input\Input.h"
 #include <Windows.h>
 
-float moveX = 0.0f; // X方向の進む量
-float moveY = 0.0f; // Y方向の進む量
-float actualMovementX = 0.0f; // 実際に移動する量
-float actualMovementY = 0.0f; // 実際に移動する量
-float checkX = 0.0f; // 壁に到達したかどうかを確認するための変数
-float checkY = 0.0f; // 壁に到達したかどうかを確認するための変数
-
-float player_x = 0.0f; // プレイヤーのX座標
-float player_y = 0.0f; // プレイヤーのY座標
-
-Timer moveTimer;
-//Timer movetimer
-float deltaTime = 0.01f;
-float finisheTime = 3.0f;
-//壁までの移動時間を計算するための変数
-float moveTime = 0.0f;
-
-bool isXMoving = false;
-bool isYMoving = false;
-bool reflecting_moveX = false; // 反射移動中かどうか
-bool reflecting_moveY = false; // 反射移動中かどうか
-
-bool oldleft = false; // 左キーが押されていたかどうか
-bool oldright = false; // 右キーが押されていたかどうか
-bool oldup = false; // 上キーが押されていたかどうか
-bool olddown = false; // 下キーが押されていたかどうか
-
-
+extern Player player;
 // プレイヤーがX方向に移動できるかどうかを判定する関数
-float LimitMoveX(float moveX)
+void PlayerMove::Update()
+{
+	player_move();
+}
+float PlayerMove::LimitMoveX(float moveX)
 {
 	//移動後のプレイヤーの中心座標を計算
-	float nextCenterX = centerX + moveX;
+	float nextCenterX = player.centerX + moveX;
 	// プレイヤーの座標がウィンドウの範囲を超えないように制限
 	if (nextCenterX > g_windowWidth)
 	{
 		//右端までの距離だけ返す
-		return g_windowWidth - centerX;
+		return g_windowWidth - player.centerX;
 	}
 	else if (nextCenterX < 0)
 	{
 		//左端までの距離だけ返す
-		return -centerX;
+		return -player.centerX;
 	}
 	return moveX;
 }
 
 // プレイヤーがY方向に移動できるかどうかを判定する関数
-float LimitMoveY(float moveY)
+float PlayerMove::LimitMoveY(float moveY)
 {
 	// 移動後のプレイヤーの中心座標を計算
-	float nextCenterY = centerY + moveY;
+	float nextCenterY = player.centerY + moveY;
 	// プレイヤーの座標がウィンドウの範囲を超えないように制限	
 	
 	if (nextCenterY > g_windowHeight)
 	{
 		//下端までの距離だけ返す
-		return g_windowHeight - centerY;
+		return g_windowHeight - player.centerY;
 	}
 	else if (nextCenterY < 0)
 	{
 		//上端までの距離だけ返す
-		return -centerY;
+		return -player.centerY;
 	}
 	return moveY;
 }
 
 
-void player_move_left()
+void PlayerMove::player_move_left()
 {
 	if (isXMoving)
 	{
 		return;
 	}
 
-	moveX = -1.5f * scaleX * 1000.0f;
+	moveX = -1.5f * player.GetScaleX() * 1000;
 	actualMovementX = LimitMoveX(moveX);//壁又は普通の移動量を計算
 	checkX = moveX - actualMovementX;
 
@@ -91,13 +67,13 @@ void player_move_left()
 }
 
 
-void player_move_right()
+void PlayerMove::player_move_right()
 {
 	if (isXMoving)
 	{
 		return;
 	}
-	moveX = 1.5f * scaleX * 1000; // 右に移動
+	moveX = 1.5f * player.GetScaleX() * 1000; // 右に移動
 	actualMovementX = LimitMoveX(moveX);// 移動後のプレイヤーの中心座標を計算
 	checkX = moveX - actualMovementX;
 	moveTime = finisheTime*(actualMovementX/ moveX);
@@ -105,13 +81,13 @@ void player_move_right()
 	isXMoving = true;
 }
 
-void player_move_up()
+void PlayerMove::player_move_up()
 {
 	if (isYMoving)
 	{
 		return;
 	}	
-	moveY = -1.5f * scaleY * 1000; // 上に移動
+	moveY = -1.5f * player.GetScaleY() * 1000; // 上に移動
 	actualMovementY = LimitMoveY(moveY);// 移動後のプレイヤーの中心座標を計算
 	checkY = moveY - actualMovementY;
 	moveTime = finisheTime * (actualMovementY / moveY);
@@ -119,13 +95,13 @@ void player_move_up()
 	isYMoving = true;
 }
 
-void player_move_down()
+void PlayerMove::player_move_down()
 {
 	if (isYMoving)
 	{
 		return;
 	}
-	moveY = 1.5f * scaleY * 1000; // 下に移動
+	moveY = 1.5f * player.GetScaleY() * 1000; // 下に移動
 	actualMovementY = LimitMoveY(moveY);// 移動後のプレイヤーの中心座標を計算
 	checkY = moveY - actualMovementY;
 	moveTime = finisheTime * (actualMovementY / moveY);
@@ -136,7 +112,7 @@ void player_move_down()
 
 //指定された方向移動するだけ
 //壁までの移動
-void player_move_update()
+void PlayerMove::player_move_update()
 {
 	if (!isXMoving && !isYMoving)
 	{
@@ -175,7 +151,7 @@ void player_move_update()
 }
 
 //壁に当たったときに逆方向に移動する関数
-void player_inversemove_update()
+void PlayerMove::player_inversemove_update()
 {
 	
 	//反射移動中でなければ何もしない
@@ -209,7 +185,7 @@ void player_inversemove_update()
 	}
 }
 
-void player_move()
+void PlayerMove::player_move()
 {
 	if (GetKeyUp(VK_LEFT))
 	{
