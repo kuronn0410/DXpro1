@@ -5,7 +5,7 @@
 class InputManager
 {
 public:
-	void InputManagerUpdate();
+	void Update();
 	
 private:
 	void ScaleChange();

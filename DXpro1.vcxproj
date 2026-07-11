@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Game\Enemy\Enemy.cpp" />
+    <ClCompile Include="Source\Game\Enemy\EnemyDraw.cpp" />
     <ClCompile Include="Source\Game\Player\PlayerDealDamage.cpp" />
     <ClCompile Include="Source\Game\Player\PlayerHitEnemy.cpp" />
     <ClCompile Include="Source\Graphics\background.cpp" />
@@ -41,6 +43,7 @@
     <ClCompile Include="Library\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Game\Enemy\Enemy.h" />
     <ClInclude Include="Source\Game\Player\PlayerDealDamage.h" />
     <ClInclude Include="Source\Game\Player\PlayerHitEnemy.h" />
     <ClInclude Include="Source\Graphics\background.h" />
@@ -64,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Users\24rd179\Downloads\soccer.png" />
+    <Image Include="Assets\Textures\Gorl.png" />
     <Image Include="Assets\Textures\Shiba.png" />
     <Image Include="Assets\Textures\soccer.png" />
   </ItemGroup>

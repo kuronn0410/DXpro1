@@ -12,7 +12,7 @@
 extern TurnManager turnManager; // ターン管理オブジェクトのインスタンス
 extern PlayerMove playerMove; // プレイヤーの移動管理オブジェクトのインスタンス
 extern PlayerActionManager playerActionManager; // プレイヤーの行動管理オブジェクトのインスタンス
-void InputManager::InputManagerUpdate()
+void InputManager::Update()
 {
 	InputUpdate();
 	ScaleChange();

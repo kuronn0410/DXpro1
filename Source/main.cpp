@@ -42,7 +42,7 @@ int APIENTRY WinMain(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, 
 	MSG msg;
 	while (!finish)
 	{
-		inputManager.InputManagerUpdate();
+		inputManager.Update();
 		Update();
 		Draw();
 	}

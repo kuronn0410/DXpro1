@@ -75,6 +75,12 @@
     <ClCompile Include="Source\Game\Player\PlayerHitEnemy.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Game\Enemy\Enemy.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Enemy\EnemyDraw.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Utility\help1.h">
@@ -137,6 +143,9 @@
     <ClInclude Include="Source\Game\Player\PlayerHitEnemy.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Game\Enemy\Enemy.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Textures\Shiba.png">
@@ -146,6 +155,9 @@
       <Filter>リソース ファイル</Filter>
     </Image>
     <Image Include="Assets\Textures\soccer.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\Gorl.png">
       <Filter>リソース ファイル</Filter>
     </Image>
   </ItemGroup>
