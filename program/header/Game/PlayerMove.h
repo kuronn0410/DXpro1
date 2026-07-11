@@ -1,6 +1,6 @@
 
 #pragma once
-#include "Library\Timer\Timer.h"
+#include "Timer/Timer.h"
 
 // PlayerMove.h
 class PlayerMove

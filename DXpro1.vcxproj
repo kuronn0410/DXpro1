@@ -35,8 +35,8 @@
     <ClCompile Include="program\cpp\main.cpp" />
     <ClCompile Include="program\cpp\win.cpp" />
     <ClCompile Include="program\cpp\WindowState.cpp" />
-    <ClCompile Include="program\Library\Input\Input.cpp" />
-    <ClCompile Include="program\Library\Timer\Timer.cpp" />
+    <ClCompile Include="Library\Input\Input.cpp" />
+    <ClCompile Include="Library\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="program\header\background.h" />
@@ -55,12 +55,12 @@
     <ClInclude Include="program\header\win.h" />
     <ClInclude Include="program\header\WindowConfig.h" />
     <ClInclude Include="program\header\WindowState.h" />
-    <ClInclude Include="program\Library\Input\Input.h" />
-    <ClInclude Include="program\Library\Timer\Timer.h" />
+    <ClInclude Include="Library\Input\Input.h" />
+    <ClInclude Include="Library\Timer\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Users\24rd179\Downloads\soccer.png" />
-    <Image Include="sorce\Shiba.png" />
+    <Image Include="Assets\Textures\Shiba.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -132,7 +132,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program;$(ProjectDir)Library</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -149,7 +149,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program;$(ProjectDir)Library</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -164,7 +164,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program;$(ProjectDir)Library</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -181,7 +181,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program;$(ProjectDir)Library</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

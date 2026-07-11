@@ -3,7 +3,7 @@
 #include "header\InputManager.h"
 #include <Windows.h>
 #include "header\win.h"
-#include "Library\Input\Input.h"
+#include "Input\Input.h"
 
 static bool previous = false;
 static bool largeWindow = false;

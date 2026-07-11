@@ -1,7 +1,7 @@
 #include "header/Game/Player.h"
 #include "header/Game/PlayerMove.h"
 #include "header/WindowState.h"
-#include "Library\Input\Input.h"
+#include "Input/Input.h"
 #include <Windows.h>
 
 extern Player player;

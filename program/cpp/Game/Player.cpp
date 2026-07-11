@@ -23,7 +23,7 @@ bool Player::Initialize()
     //PNG‰æ‘œ‚ğ“Ç‚İ‚Ş‚½‚ß‚ÉD3DXCreateTextureFromFileŠÖ”‚ğg—p
     result = D3DXCreateTextureFromFile(
         g_device,
-        "sorce\\soccer.png",
+        "Assets\\Textures\\soccer.png",
         &playerTexture
     );
 

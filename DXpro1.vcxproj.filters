@@ -48,10 +48,10 @@
     <ClCompile Include="program\cpp\Finalize.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="program\Library\Input\Input.cpp">
+    <ClCompile Include="Library\Input\Input.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="program\Library\Timer\Timer.cpp">
+    <ClCompile Include="Library\Timer\Timer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="program\cpp\Game\OneTurn\TurnManager.cpp">
@@ -104,10 +104,10 @@
     <ClInclude Include="program\header\Game\PlayerMove.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="program\Library\Input\Input.h">
+    <ClInclude Include="Library\Input\Input.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="program\Library\Timer\Timer.h">
+    <ClInclude Include="Library\Timer\Timer.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="program\header\Game\OneTurn\TurnManager.h">
@@ -127,7 +127,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="sorce\Shiba.png">
+    <Image Include="Assets\Textures\Shiba.png">
       <Filter>リソース ファイル</Filter>
     </Image>
     <Image Include="..\..\..\..\Users\24rd179\Downloads\soccer.png">

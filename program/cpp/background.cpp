@@ -20,7 +20,7 @@ bool BackgroundInitialize()
     //“o˜^
     result = D3DXCreateTextureFromFile(
         g_device,
-        "sorce\\Shiba.png",
+        "Assets\\Textures\\Shiba.png",
         &backgroundTexture
     );
 
