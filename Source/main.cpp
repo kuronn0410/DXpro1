@@ -15,6 +15,8 @@ mainの関数
 WindowsとGameの更新処理を呼び出す
 */
 
+InputManager inputManager; // インプットマネージャーのインスタンス
+
 void Update()
 {
 	DrawBegin();
@@ -40,7 +42,7 @@ int APIENTRY WinMain(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, 
 	MSG msg;
 	while (!finish)
 	{
-		InputManagerUpdate();
+		inputManager.InputManagerUpdate();
 		Update();
 		Draw();
 	}

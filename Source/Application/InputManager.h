@@ -1,5 +1,17 @@
 //input.h
 #pragma once
-void ScaleChange();
-void ChangeState();
-void InputManagerUpdate();
+
+
+class InputManager
+{
+public:
+	void InputManagerUpdate();
+	
+private:
+	void ScaleChange();
+	void ChangeState();
+	bool previous = false;
+	bool largeWindow = false;
+	bool playerTurn = false;
+	bool previousTurn = false;
+};

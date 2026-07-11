@@ -19,19 +19,29 @@ enum class ActionState
     End
 };
 
-// ターン管理クラス
-extern int currentTurn;
-// 現在のターン状態
-extern TurnState currentTurnState;
 
-// 現在の行動状態
-extern ActionState currentActionState;
+class TurnManager
+{
+public:
+    void SetTurnState(TurnState state);
+    // 状態変更
+    void SetActionState(ActionState state);
+    // ターン管理クラス
+    int currentTurn;
 
-//プレーヤーのアクションフェーズの流れを管理する
-void UpdateAction();
-//現在のターンを進める関数
-void UpdateTurn();
-// 状態変更
-void SetTurnState(TurnState state);
-// 状態変更
-void SetActionState(ActionState state);
+    //プレーヤーのアクションフェーズの流れを管理する
+    void UpdateAction();
+    //現在のターンを進める関数
+    void UpdateTurn();
+    // 状態変更
+    // 現在のターン状態
+    TurnState currentTurnState;
+
+    // 現在の行動状態
+    ActionState currentActionState;
+    
+private:
+   
+
+};
+

@@ -8,7 +8,7 @@
 ゲームのメイン処理
 ターンの進行やプレイヤーの更新、描画などを管理する
 */
-
+TurnManager turnManager; // ターン管理オブジェクトのインスタンス
 Player player; // プレイヤーオブジェクトのインスタンス
 
 void GameInitialize()
@@ -19,10 +19,10 @@ void GameInitialize()
 
 void GameUpdate()
 {
-	UpdateTurn();
+	turnManager.UpdateTurn();
 	//プレーヤーの更新処理を呼び出す
-	if (currentTurnState == TurnState::PlayerAction &&
-		currentActionState == ActionState::Move)
+	if (turnManager.currentTurnState == TurnState::PlayerAction &&
+		turnManager.currentActionState == ActionState::Move)
 	{
 		player.Update();
 	}

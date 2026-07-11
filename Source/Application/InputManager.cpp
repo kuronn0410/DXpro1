@@ -6,12 +6,10 @@
 #include "Input/Input.h"
 #include "Game/Turn/TurnManager.h"
 
-static bool previous = false;
-static bool largeWindow = false;
-static bool playerTurn = false;
-static bool previousTurn = false;
 
-void InputManagerUpdate()
+extern TurnManager turnManager; // ターン管理オブジェクトのインスタンス
+
+void InputManager::InputManagerUpdate()
 {
 	InputUpdate();
 	ScaleChange();
@@ -19,7 +17,7 @@ void InputManagerUpdate()
 }
 
 
-void ScaleChange()
+void InputManager::ScaleChange()
 {
 	bool current = (GetKey('1')) != 0;
 	if (current && !previous)
@@ -39,7 +37,7 @@ void ScaleChange()
 	previous = current;
 }
 
-void ChangeState()
+void InputManager::ChangeState()
 {
 	bool currentTurn = (GetKey('2')) != 0;
 	if (currentTurn && !previousTurn)
@@ -48,18 +46,18 @@ void ChangeState()
 		//もし大きかったら小サイズに戻す
 		if (playerTurn)
 		{
-			SetTurnState(TurnState::PlayerAction);
+			turnManager.SetTurnState(TurnState::PlayerAction);
 
 			// 状態変更
-			SetActionState(ActionState::Move);
+			turnManager.SetActionState(ActionState::Move);
 			
 		}
 		else
 		{
-			SetTurnState( TurnState::TurnStart);
+			turnManager.SetTurnState( TurnState::TurnStart);
 			
 			// 状態変更
-			SetActionState( ActionState::None);
+			turnManager.SetActionState( ActionState::None);
 			
 		}
 	}

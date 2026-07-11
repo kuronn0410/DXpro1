@@ -7,7 +7,7 @@ TurnState currentTurnState = TurnState::TurnStart;
 // Œ»İ‚Ìs“®ó‘Ô
 ActionState currentActionState = ActionState::None;
 
-void UpdateTurn()
+void TurnManager::UpdateTurn()
 {
 	switch (currentTurnState)
 	{
@@ -28,7 +28,7 @@ void UpdateTurn()
 	}
 }
 
-void UpdateAction()
+void TurnManager::UpdateAction()
 {
 	switch (currentActionState)
 	{
@@ -47,12 +47,12 @@ void UpdateAction()
 
 
 // ó‘Ô•ÏX
-void SetTurnState(TurnState state)
+void TurnManager::SetTurnState(TurnState state)
 {
 	currentTurnState = state;
 }
 // ó‘Ô•ÏX
-void SetActionState(ActionState state)
+void TurnManager::SetActionState(ActionState state)
 {
 	currentActionState = state;
 }
