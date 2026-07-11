@@ -1,9 +1,9 @@
 //インプットに関する処理を行うファイルです。
 
-#include "header\InputManager.h"
+#include "Application/InputManager.h"
 #include <Windows.h>
-#include "header\win.h"
-#include "Input\Input.h"
+#include "Window/win.h"
+#include "Input/Input.h"
 
 static bool previous = false;
 static bool largeWindow = false;

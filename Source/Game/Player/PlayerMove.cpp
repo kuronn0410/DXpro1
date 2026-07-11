@@ -1,6 +1,6 @@
-#include "header/Game/Player.h"
-#include "header/Game/PlayerMove.h"
-#include "header/WindowState.h"
+#include "Game/Player/Player.h"
+#include "Game/Player/PlayerMove.h"
+#include "Window/WindowState.h"
 #include "Input/Input.h"
 #include <Windows.h>
 

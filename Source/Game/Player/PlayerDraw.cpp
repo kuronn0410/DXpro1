@@ -1,12 +1,7 @@
-#include "header/Game/Player.h"
-#include "header\Graphics\dx2.h"
-#include "header/WindowState.h"
-#include "header/Game/PlayerMove.h"
+#include "Game/Player/Player.h"
+#include "Window/WindowState.h"
+#include "Game/Player/PlayerMove.h"
 
-//float scaleX = 0.0f;
-//float scaleY = 0.0f;
-//float centerX = 0.0f;
-//float centerY = 0.0f;
 
 extern PlayerMove playerMove;
 

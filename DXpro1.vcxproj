@@ -19,48 +19,49 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="program\cpp\background.cpp" />
-    <ClCompile Include="program\cpp\Game\PlayerDraw.cpp" />
-    <ClCompile Include="program\cpp\Graphics\dx.cpp" />
-    <ClCompile Include="program\cpp\Finalize.cpp" />
-    <ClCompile Include="program\cpp\Game\GameMain.cpp" />
-    <ClCompile Include="program\cpp\Game\OneTurn\PlayerAction.cpp" />
-    <ClCompile Include="program\cpp\Game\OneTurn\TurnEnd.cpp" />
-    <ClCompile Include="program\cpp\Game\Player.cpp" />
-    <ClCompile Include="program\cpp\Game\PlayerMove.cpp" />
-    <ClCompile Include="program\cpp\Game\OneTurn\TurnManager.cpp" />
-    <ClCompile Include="program\cpp\help2.cpp" />
-    <ClCompile Include="program\cpp\Initialize.cpp" />
-    <ClCompile Include="program\cpp\InputManager.cpp" />
-    <ClCompile Include="program\cpp\main.cpp" />
-    <ClCompile Include="program\cpp\win.cpp" />
-    <ClCompile Include="program\cpp\WindowState.cpp" />
+    <ClCompile Include="Source\Graphics\background.cpp" />
+    <ClCompile Include="Source\Game\Player\PlayerDraw.cpp" />
+    <ClCompile Include="Source\Graphics\dx.cpp" />
+    <ClCompile Include="Source\Application\Finalize.cpp" />
+    <ClCompile Include="Source\Game\GameMain.cpp" />
+    <ClCompile Include="Source\Game\Turn\PlayerAction.cpp" />
+    <ClCompile Include="Source\Game\Turn\TurnEnd.cpp" />
+    <ClCompile Include="Source\Game\Player\Player.cpp" />
+    <ClCompile Include="Source\Game\Player\PlayerMove.cpp" />
+    <ClCompile Include="Source\Game\Turn\TurnManager.cpp" />
+    <ClCompile Include="Source\Utility\help2.cpp" />
+    <ClCompile Include="Source\Application\Initialize.cpp" />
+    <ClCompile Include="Source\Application\InputManager.cpp" />
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Window\win.cpp" />
+    <ClCompile Include="Source\Window\WindowState.cpp" />
     <ClCompile Include="Library\Input\Input.cpp" />
     <ClCompile Include="Library\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="program\header\background.h" />
-    <ClInclude Include="program\header\Finalize.h" />
-    <ClInclude Include="program\header\Graphics\dx2.h" />
-    <ClInclude Include="program\header\Game\GameMain.h" />
-    <ClInclude Include="program\header\Game\OneTurn\PlayerAction.h" />
-    <ClInclude Include="program\header\Game\OneTurn\TurnEnd.h" />
-    <ClInclude Include="program\header\Game\Player.h" />
-    <ClInclude Include="program\header\Game\PlayerMove.h" />
-    <ClInclude Include="program\header\Game\OneTurn\TurnManager.h" />
-    <ClInclude Include="program\header\help1.h" />
-    <ClInclude Include="program\header\Initialize.h" />
-    <ClInclude Include="program\header\InputManager.h" />
-    <ClInclude Include="program\header\main.h" />
-    <ClInclude Include="program\header\win.h" />
-    <ClInclude Include="program\header\WindowConfig.h" />
-    <ClInclude Include="program\header\WindowState.h" />
+    <ClInclude Include="Source\Graphics\background.h" />
+    <ClInclude Include="Source\Application\Finalize.h" />
+    <ClInclude Include="Source\Graphics\dx2.h" />
+    <ClInclude Include="Source\Game\GameMain.h" />
+    <ClInclude Include="Source\Game\Turn\PlayerAction.h" />
+    <ClInclude Include="Source\Game\Turn\TurnEnd.h" />
+    <ClInclude Include="Source\Game\Player\Player.h" />
+    <ClInclude Include="Source\Game\Player\PlayerMove.h" />
+    <ClInclude Include="Source\Game\Turn\TurnManager.h" />
+    <ClInclude Include="Source\Utility\help1.h" />
+    <ClInclude Include="Source\Application\Initialize.h" />
+    <ClInclude Include="Source\Application\InputManager.h" />
+    <ClInclude Include="Source\main.h" />
+    <ClInclude Include="Source\Window\win.h" />
+    <ClInclude Include="Source\Window\WindowConfig.h" />
+    <ClInclude Include="Source\Window\WindowState.h" />
     <ClInclude Include="Library\Input\Input.h" />
     <ClInclude Include="Library\Timer\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Users\24rd179\Downloads\soccer.png" />
     <Image Include="Assets\Textures\Shiba.png" />
+    <Image Include="Assets\Textures\soccer.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -132,7 +133,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program;$(ProjectDir)Library</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)Library;$(ProjectDir)Source</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -149,7 +150,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program;$(ProjectDir)Library</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)Library;$(ProjectDir)Source</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -164,7 +165,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program;$(ProjectDir)Library</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)Library;$(ProjectDir)Source</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -181,7 +182,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)program;$(ProjectDir)Library</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)DirectXInc;%(AdditionalIncludeDirectories);$(ProjectDir)Library;$(ProjectDir)Source</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

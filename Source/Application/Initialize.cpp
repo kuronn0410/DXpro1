@@ -1,12 +1,12 @@
 
 #pragma region ヘッダ
 #include <Windows.h>
-#include "header\win.h"
-#include "header\background.h"
-#include "header\Graphics\dx2.h"
-#include "header\Game/Player.h"
-#include "header\Game/GameMain.h"
-#include "header\initialize.h"
+#include "Window/win.h"
+#include "Graphics/background.h"
+#include "Graphics/dx2.h"
+#include "Game/Player/Player.h"
+#include "Game/GameMain.h"
+#include "Application/initialize.h"
 
 extern Player player; // プレイヤーオブジェクトのインスタンス
 

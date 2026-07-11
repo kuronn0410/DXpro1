@@ -2,14 +2,13 @@
 
 #pragma region ƒwƒbƒ_
 #include <Windows.h>
-#include "header\win.h"
-#include "header\InputManager.h"
-#include "header\background.h"
-#include "header\Graphics\dx2.h"
-#include "header\initialize.h"
-#include "header/Game/Player.h"
-#include "header/Game/GameMain.h"
-#include "header\Finalize.h"
+#include "Window/win.h"
+#include "Application/InputManager.h"
+#include "Graphics/background.h"
+#include "Graphics/dx2.h"
+#include "Application/initialize.h"
+#include "Game/GameMain.h"
+#include "Application/Finalize.h"
 
 
 void Update()

@@ -1,6 +1,6 @@
-#include "header/Game/GameMain.h"
-#include "header/Game/Player.h"	
-#include "header/Game/PlayerMove.h"
+#include "Game/GameMain.h"
+#include "Game/Player/Player.h"	
+#include "Game/Player/PlayerMove.h"
 
 Player player; // プレイヤーオブジェクトのインスタンス
 

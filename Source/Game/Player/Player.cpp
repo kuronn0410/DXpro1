@@ -1,7 +1,6 @@
-#include "header/Game/Player.h"
-#include "header\Graphics\dx2.h"
-#include "header/WindowState.h"
-#include "header/Game/PlayerMove.h"
+#include "Game/Player/Player.h"
+#include "Window/WindowState.h"
+#include "Game/Player/PlayerMove.h"
 
 PlayerMove playerMove;
 

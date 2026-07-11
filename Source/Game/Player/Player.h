@@ -1,5 +1,5 @@
 #pragma once
-#include "header/Graphics/dx2.h"
+#include "Graphics/dx2.h"
 
 // Player.h
 class Player
@@ -15,7 +15,7 @@ public:
 
     float GetScaleX() const;
     float GetScaleY() const;
-    float centerX = 0.0f;
+     float centerX = 0.0f;
     float centerY = 0.0f;
 
 private:

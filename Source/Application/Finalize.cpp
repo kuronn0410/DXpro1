@@ -1,6 +1,6 @@
-#include "header/Game/Player.h"
-#include "header\background.h"
-#include "header\Graphics\dx2.h"
+#include "Game/Player/Player.h"
+#include "Graphics/background.h"
+#include "Graphics/dx2.h"
 
 extern Player player; // プレイヤーオブジェクトのインスタンス
 

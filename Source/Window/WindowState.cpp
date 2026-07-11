@@ -1,6 +1,6 @@
 //実体をつくって保存する
-#include "header\WindowState.h"
-#include "header\WindowConfig.h"
+#include "Window/WindowState.h"
+#include "Window/WindowConfig.h"
 
 // ウィンドウの幅と高さを保持する変数
 int g_windowWidth = WindowConfig::StartWidth;

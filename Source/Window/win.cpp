@@ -1,12 +1,11 @@
 #pragma region ヘッダ
-#include "header\Graphics\dx2.h"
-#include "header\help1.h"
-#include "header\win.h"
-#include "header\main.h"
+#include "Graphics/dx2.h"
+#include "Utility/help1.h"
+#include "Window/win.h"
 #include <Windows.h>
-#include "header/Game/Player.h"
-#include "header\WindowState.h"//ウィンドウの状態を保持する変数
-#include "header\background.h"
+#include "Game/Player/Player.h"
+#include "Window/WindowState.h"//ウィンドウの状態を保持する変数
+#include "Graphics/background.h"
 #pragma endregion
 
 extern Player player; // プレイヤーオブジェクトのインスタンス

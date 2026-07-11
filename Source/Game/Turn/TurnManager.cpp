@@ -1,4 +1,4 @@
-#include "header/Game/OneTurn/TurnManager.h"
+#include "Game/Turn/TurnManager.h"
 
 int currentTurn = 0; // 現在のターンを管理する変数
 // 現在のターン状態
