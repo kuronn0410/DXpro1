@@ -10,6 +10,10 @@
 #include "Game/GameMain.h"
 #include "Application/Finalize.h"
 
+/*
+main‚ÌŠÖ”
+Windows‚ÆGame‚ÌXVˆ—‚ğŒÄ‚Ño‚·
+*/
 
 void Update()
 {
