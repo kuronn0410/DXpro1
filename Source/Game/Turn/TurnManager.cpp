@@ -1,4 +1,5 @@
 #include "Game/Turn/TurnManager.h"
+#include "Game/Turn/TurnEnd.h"
 
 int currentTurn = 0; // 現在のターンを管理する変数
 // 現在のターン状態
@@ -22,6 +23,7 @@ void TurnManager::UpdateTurn()
 	case TurnState::EnemyAction:
 		break;
 	case TurnState::TurnEnd:
+		TurnEndCheck();
 		break;
 	default:
 		break;

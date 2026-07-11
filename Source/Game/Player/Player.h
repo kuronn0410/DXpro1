@@ -23,8 +23,5 @@ private:
     ID3DXSprite* playerSprite = nullptr;
     float scaleX = 0.0f;
     float scaleY = 0.0f;
-   
-
-//private:
-//    PlayerMove move;
+	
 };

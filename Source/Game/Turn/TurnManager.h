@@ -27,7 +27,7 @@ public:
     // 状態変更
     void SetActionState(ActionState state);
     // ターン管理クラス
-    int currentTurn;
+    int currentTurn = 0;
 
     //プレーヤーのアクションフェーズの流れを管理する
     void UpdateAction();

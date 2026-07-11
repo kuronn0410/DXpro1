@@ -147,6 +147,10 @@ void PlayerMove::player_move_update()
 		{
 			moveTimer.Start(finisheTime - moveTime);
 		}
+		else
+		{
+			isMoved = true;
+		}
 	}
 }
 
@@ -182,11 +186,17 @@ void PlayerMove::player_inversemove_update()
 		checkY = 0.0f;
 		moveX = 0.0f;
 		moveY = 0.0f;
+
+		isMoved = true; // ˆê“x“®‚¢‚½‚±‚Æ‚ð‹L˜^
 	}
 }
 
 void PlayerMove::player_move()
 {
+	if(isMoved)
+	{
+		return;
+	}
 	if (GetKeyUp(VK_LEFT))
 	{
 		player_move_left();

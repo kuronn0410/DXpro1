@@ -11,6 +11,7 @@ public:
 	float player_x; // プレイヤーのX座標
 	// プレイヤーのY座標を保持する変数
 	float player_y; // プレイヤーのY座標
+	bool isMoved = false; // 一度動いたかどうかを判断する
 
 private:
 	

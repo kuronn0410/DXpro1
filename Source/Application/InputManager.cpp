@@ -5,9 +5,11 @@
 #include "Window/win.h"
 #include "Input/Input.h"
 #include "Game/Turn/TurnManager.h"
+#include "Game/Player/PlayerMove.h"
 
 
 extern TurnManager turnManager; // ターン管理オブジェクトのインスタンス
+extern PlayerMove playerMove; // プレイヤーの移動管理オブジェクトのインスタンス
 
 void InputManager::InputManagerUpdate()
 {
@@ -47,6 +49,7 @@ void InputManager::ChangeState()
 		if (playerTurn)
 		{
 			turnManager.SetTurnState(TurnState::PlayerAction);
+			
 
 			// 状態変更
 			turnManager.SetActionState(ActionState::Move);
@@ -54,8 +57,9 @@ void InputManager::ChangeState()
 		}
 		else
 		{
-			turnManager.SetTurnState( TurnState::TurnStart);
-			
+			turnManager.SetTurnState( TurnState::TurnEnd);
+			//ターンエンド時にプレイヤーの移動フラグをリセットする
+			playerMove.isMoved = false;
 			// 状態変更
 			turnManager.SetActionState( ActionState::None);
 			
