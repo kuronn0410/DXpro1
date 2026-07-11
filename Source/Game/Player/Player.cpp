@@ -42,6 +42,7 @@ bool Player::Initialize()
 void Player::Update()
 {
     playerMove.Update();
+
 }
 
 void Player::Finalize()

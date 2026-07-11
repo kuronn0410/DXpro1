@@ -19,12 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Game\Player\PlayerDealDamage.cpp" />
+    <ClCompile Include="Source\Game\Player\PlayerHitEnemy.cpp" />
     <ClCompile Include="Source\Graphics\background.cpp" />
     <ClCompile Include="Source\Game\Player\PlayerDraw.cpp" />
     <ClCompile Include="Source\Graphics\dx.cpp" />
     <ClCompile Include="Source\Application\Finalize.cpp" />
     <ClCompile Include="Source\Game\GameMain.cpp" />
-    <ClCompile Include="Source\Game\Turn\PlayerAction.cpp" />
+    <ClCompile Include="Source\Game\Turn\PlayerActionManager.cpp" />
     <ClCompile Include="Source\Game\Turn\TurnEnd.cpp" />
     <ClCompile Include="Source\Game\Player\Player.cpp" />
     <ClCompile Include="Source\Game\Player\PlayerMove.cpp" />
@@ -39,11 +41,13 @@
     <ClCompile Include="Library\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Game\Player\PlayerDealDamage.h" />
+    <ClInclude Include="Source\Game\Player\PlayerHitEnemy.h" />
     <ClInclude Include="Source\Graphics\background.h" />
     <ClInclude Include="Source\Application\Finalize.h" />
     <ClInclude Include="Source\Graphics\dx2.h" />
     <ClInclude Include="Source\Game\GameMain.h" />
-    <ClInclude Include="Source\Game\Turn\PlayerAction.h" />
+    <ClInclude Include="Source\Game\Turn\PlayerActionManager.h" />
     <ClInclude Include="Source\Game\Turn\TurnEnd.h" />
     <ClInclude Include="Source\Game\Player\Player.h" />
     <ClInclude Include="Source\Game\Player\PlayerMove.h" />

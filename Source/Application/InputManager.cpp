@@ -6,11 +6,12 @@
 #include "Input/Input.h"
 #include "Game/Turn/TurnManager.h"
 #include "Game/Player/PlayerMove.h"
+#include "Game/Turn/PlayerActionManager.h"
 
 
 extern TurnManager turnManager; // ターン管理オブジェクトのインスタンス
 extern PlayerMove playerMove; // プレイヤーの移動管理オブジェクトのインスタンス
-
+extern PlayerActionManager playerActionManager; // プレイヤーの行動管理オブジェクトのインスタンス
 void InputManager::InputManagerUpdate()
 {
 	InputUpdate();
@@ -49,10 +50,8 @@ void InputManager::ChangeState()
 		if (playerTurn)
 		{
 			turnManager.SetTurnState(TurnState::PlayerAction);
-			
-
 			// 状態変更
-			turnManager.SetActionState(ActionState::Move);
+			playerActionManager.SetActionState(ActionState::Move);
 			
 		}
 		else
@@ -61,7 +60,7 @@ void InputManager::ChangeState()
 			//ターンエンド時にプレイヤーの移動フラグをリセットする
 			playerMove.isMoved = false;
 			// 状態変更
-			turnManager.SetActionState( ActionState::None);
+			playerActionManager.SetActionState( ActionState::None);
 			
 		}
 	}
