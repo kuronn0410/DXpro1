@@ -23,6 +23,7 @@
     <ClCompile Include="Source\Game\Enemy\EnemyDraw.cpp" />
     <ClCompile Include="Source\Game\Player\PlayerDealDamage.cpp" />
     <ClCompile Include="Source\Game\Player\PlayerHitEnemy.cpp" />
+    <ClCompile Include="Source\Game\Turn\EnemyActionManager.cpp" />
     <ClCompile Include="Source\Graphics\background.cpp" />
     <ClCompile Include="Source\Game\Player\PlayerDraw.cpp" />
     <ClCompile Include="Source\Graphics\dx.cpp" />
@@ -46,6 +47,7 @@
     <ClInclude Include="Source\Game\Enemy\Enemy.h" />
     <ClInclude Include="Source\Game\Player\PlayerDealDamage.h" />
     <ClInclude Include="Source\Game\Player\PlayerHitEnemy.h" />
+    <ClInclude Include="Source\Game\Turn\EnemyActionManager.h" />
     <ClInclude Include="Source\Graphics\background.h" />
     <ClInclude Include="Source\Application\Finalize.h" />
     <ClInclude Include="Source\Graphics\dx2.h" />
@@ -67,7 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Users\24rd179\Downloads\soccer.png" />
-    <Image Include="Assets\Textures\Gorl.png" />
+    <Image Include="Assets\Textures\Goal.png" />
     <Image Include="Assets\Textures\Shiba.png" />
     <Image Include="Assets\Textures\soccer.png" />
   </ItemGroup>

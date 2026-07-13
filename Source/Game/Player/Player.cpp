@@ -1,29 +1,34 @@
 #include "Game/Player/Player.h"
-#include "Window/WindowState.h"
+//#include "Window/WindowState.h"
 #include "Game/Player/PlayerMove.h"
 
 PlayerMove playerMove;
 
 bool Player::Initialize()
 {
-    // プレイヤーの初期化処理をここに記述
-     // D3DXCreateSprite関数を使用してスプライトを作成
+    /*
+    スプライト作成
+    作成したスプライトに
+
+    */
+   
+    // DirectXにスプライトを作ってもらい、その結果を playerSprite に入れてもらう
     HRESULT result = D3DXCreateSprite(
-        g_device,
-        &playerSprite
+        g_device,//g_deviceが管理している描画環境を使って
+        &playerSprite // 作ったSpriteのアドレスをplayerSpriteに入れてもらう
     );
+
     //API関数の呼び出しが失敗した場合、falseを返す
     if (FAILED(result))
     {
         return false;
     }
 
-
     //PNG画像を読み込むためにD3DXCreateTextureFromFile関数を使用
     result = D3DXCreateTextureFromFile(
-        g_device,
-        "Assets\\Textures\\soccer.png",
-        &playerTexture
+        g_device,//g_deviceが管理している描画環境を使って
+        "Assets\\Textures\\soccer.png",//読み込むPNG画像のパスを指定
+		&playerTexture//作ったTextureのアドレスをplayerTextureに入れてもらう
     );
 
     if (FAILED(result))
@@ -35,7 +40,6 @@ bool Player::Initialize()
     }
 
     return SUCCEEDED(result);
-	return true;
 }
 
 

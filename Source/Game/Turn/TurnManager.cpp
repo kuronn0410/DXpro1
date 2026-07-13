@@ -35,8 +35,6 @@ void TurnManager::UpdateTurn()
 }
 
 
-
-
 // ó‘Ô•ÏX
 void TurnManager::SetTurnState(TurnState state)
 {

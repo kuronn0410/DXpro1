@@ -2,6 +2,7 @@
 #include "Game/Player/Player.h"	
 #include "Game/Player/PlayerMove.h"
 #include "Game/Turn/TurnManager.h"
+#include "Game/Enemy/Enemy.h"
 
 
 /*
@@ -10,28 +11,25 @@
 */
 TurnManager turnManager; // ターン管理オブジェクトのインスタンス
 extern Player player; // プレイヤーオブジェクトのインスタンス
+extern Enemy enemy; // 敵オブジェクトのインスタンス
 
 void GameInitialize()
 {
 	// ゲームの初期化処理をここに記述
 	player.Initialize();
+	enemy.Initialize();
 }
 
 void GameUpdate()
 {
 	turnManager.UpdateTurn();
-	//プレーヤーの更新処理を呼び出す
-	if (turnManager.currentTurnState == TurnState::PlayerAction /*&&
-		turnManager.currentActionState == ActionState::Move*/ )
-	{
-		//player.Update();
-	}
-
+	
 }
 void GameDraw()
 {
 	// プレイヤーの描画処理を呼び出す
 	player.Draw();
+	enemy.Draw();
 }
 
 
@@ -39,4 +37,5 @@ void GameFinalize()
 {
 	// ゲームの終了処理をここに記述
 	player.Finalize();
+	enemy.Finalize();
 }
