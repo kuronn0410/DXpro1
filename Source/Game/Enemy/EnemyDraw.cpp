@@ -1,5 +1,5 @@
 #include "Game/Enemy/Enemy.h"
-#include "Window/WindowState.h"
+
 
 
 void Enemy::Draw()
@@ -18,11 +18,7 @@ void Enemy::Draw()
         return;
     }
 
-    //init‚ÉˆÚ‚·
-    D3DSURFACE_DESC imageInfo = {};
-    EnemyTexture->GetLevelDesc(0, &imageInfo);
-
-
+ 
     scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width) * 0.25f;
     scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height) * 0.25f;
 

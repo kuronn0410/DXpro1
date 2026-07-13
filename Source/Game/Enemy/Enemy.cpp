@@ -19,7 +19,6 @@ bool Enemy::Initialize()
 	}
 
 	result = D3DXCreateTextureFromFile(
-
 		g_device,//g_deviceが管理している描画環境を使って
 		"Assets\\Textures\\Goal.png",//読み込むPNG画像のパスを指定
 		&EnemyTexture//作ったTextureのアドレスをEnemyTextureに入れてもらう
@@ -32,7 +31,26 @@ bool Enemy::Initialize()
 		EnemyTexture = nullptr;
 		return false;
 	}
+
+
+	//initに移す
+	
+	EnemyTexture->GetLevelDesc(0, &imageInfo);
+	scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width) * 0.25f;
+	scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height) * 0.25f;
+	// 敵の当たり判定の初期化
+	hitDetection.x = Enemy_X;
+	hitDetection.y = Enemy_Y;
+	hitDetection.width = static_cast<float>(imageInfo.Width) * scaleX;
+	hitDetection.height = static_cast<float>(imageInfo.Height) * scaleY;
+
+	
+
+	
 	return SUCCEEDED(result);
+
+
+
 }
 
 void Enemy::Update()
@@ -55,4 +73,10 @@ void Enemy::Finalize()
 		EnemySprite->Release();
 		EnemySprite = nullptr;
 	}
+}
+
+
+const HitDetection& Enemy::GetHitDetection() const
+{
+	return hitDetection;
 }

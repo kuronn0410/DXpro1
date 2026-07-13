@@ -1,5 +1,15 @@
 #pragma once
 #include "Graphics/dx2.h"
+#include "Window/WindowState.h"
+
+struct HitDetection
+{
+	float x;
+	float y;
+	float width;
+	float height;
+};
+
 class Enemy
 {
 public:
@@ -7,14 +17,8 @@ public:
 	void Update();
 	void Draw();
 	void Finalize();
+	const HitDetection& GetHitDetection() const;
 
-	//画像の中心座標を保持する変数
-	float centerX = 0.0f;
-	float centerY = 0.0f;
-	/*void OnLostDevice();
-	void OnResetDevice();
-	float GetScaleX() const;
-	float GetScaleY() const;*/
 private:
 	//テクスチャのアドレスを保持する変数
 	IDirect3DTexture9* EnemyTexture = nullptr;
@@ -32,6 +36,14 @@ private:
 
 	float scaleX = 0.0f;
 	float scaleY = 0.0f;
-	
-	
+
+	HitDetection hitDetection{};
+
+	//画像の中心座標を保持する変数
+	// *範囲追加後いらないかも
+	float centerX = 0.0f;
+	float centerY = 0.0f;
+
+	D3DSURFACE_DESC imageInfo = {};
 };
+

@@ -16,8 +16,10 @@ void PlayerHitEnemy::Update()
 
 void PlayerHitEnemy::HitEnemy()
 {
+	const HitDetection& enemyHit = enemy.GetHitDetection();
 	// プレーヤーが敵の座標に接触したかどうかを判定する処理をここに記述
-	if (playerMove.player_x == enemy.centerX && playerMove.player_y == enemy.centerY)
+	if (enemyHit.x < playerMove.player_x && playerMove.player_x < enemyHit.x + enemyHit.width &&
+		enemyHit.y < playerMove.player_y && playerMove.player_y < enemyHit.y + enemyHit.height)
 	{
 		int damage = playerDealDamage.PlayerDealDamages();
 		char buffer[128];
