@@ -1,14 +1,7 @@
 #pragma once
 #include "Graphics/dx2.h"
 #include "Window/WindowState.h"
-
-struct HitDetection
-{
-	float x;
-	float y;
-	float width;
-	float height;
-};
+#include "Game/Collision/HitDetection.h"
 
 class Enemy
 {
@@ -30,9 +23,9 @@ private:
 	-----------*/
 
 	//ìGÇÃXç¿ïW
-	float Enemy_X = 10.0f;
+	float Enemy_X = 0.0f;
 	//ìGÇÃYç¿ïW
-	float Enemy_Y = 10.0f;
+	float Enemy_Y = 0.0f;
 
 	float scaleX = 0.0f;
 	float scaleY = 0.0f;

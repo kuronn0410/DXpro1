@@ -11,7 +11,6 @@ bool Player::Initialize()
     作成したスプライトに
 
     */
-   
     // DirectXにスプライトを作ってもらい、その結果を playerSprite に入れてもらう
     HRESULT result = D3DXCreateSprite(
         g_device,//g_deviceが管理している描画環境を使って
@@ -38,6 +37,18 @@ bool Player::Initialize()
         playerTexture = nullptr;
         return false;
     }
+
+    //playerTextureが示してる画像の情報を取得して構造体に入れる
+    playerTexture->GetLevelDesc(0, &imageInfo);
+
+    //画面サイズに合わせてスケーリングするための倍率を計算
+    scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width) * 0.25f;
+    scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height) * 0.25f;
+
+    hitDetection.x = playerMove.player_x;
+    hitDetection.y = playerMove.player_y;
+    hitDetection.width = static_cast<float>(imageInfo.Width) * scaleX;
+    hitDetection.height = static_cast<float>(imageInfo.Height) * scaleY;
 
     return SUCCEEDED(result);
 }
@@ -91,4 +102,9 @@ float Player::GetScaleY() const
     return scaleY;
 }
 
+
+const HitDetection& Player::GetHitDetection() const
+{
+    return hitDetection;
+}
 

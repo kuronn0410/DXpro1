@@ -1,5 +1,5 @@
 #include "Game/Player/Player.h"
-#include "Window/WindowState.h"
+
 #include "Game/Player/PlayerMove.h"
 
 
@@ -14,15 +14,8 @@ void Player::Draw()
     {
         return;
     }
-    //構造体の用意
-    D3DSURFACE_DESC imageInfo = {};
-
-	//playerTextureが示してる画像の情報を取得して構造体に入れる
-    playerTexture->GetLevelDesc(0, &imageInfo);
-
-    //画面サイズに合わせてスケーリングするための倍率を計算
-    scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width) * 0.25f;
-    scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height) * 0.25f;
+    
+	
 
 
     //拡大率

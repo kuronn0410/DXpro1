@@ -1,5 +1,7 @@
 #pragma once
 #include "Graphics/dx2.h"
+#include "Window/WindowState.h"
+#include "Game/Collision/HitDetection.h"
 
 // Player.h
 class Player
@@ -18,10 +20,16 @@ public:
      float centerX = 0.0f;
     float centerY = 0.0f;
 
+    const HitDetection& GetHitDetection() const;
+
 private:
     IDirect3DTexture9* playerTexture = nullptr;
     ID3DXSprite* playerSprite = nullptr;
     float scaleX = 0.0f;
     float scaleY = 0.0f;
-	
+
+    //ç\ë¢ëÃÇÃópà”
+    D3DSURFACE_DESC imageInfo = {};
+
+    HitDetection hitDetection{};
 };
