@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Game\Collision\Collision.cpp" />
     <ClCompile Include="Source\Game\Enemy\Enemy.cpp" />
     <ClCompile Include="Source\Game\Enemy\EnemyDraw.cpp" />
     <ClCompile Include="Source\Game\Player\PlayerDealDamage.cpp" />
@@ -44,6 +45,8 @@
     <ClCompile Include="Library\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Game\Collision\Collision.h" />
+    <ClInclude Include="Source\Game\Collision\HitDetection.h" />
     <ClInclude Include="Source\Game\Enemy\Enemy.h" />
     <ClInclude Include="Source\Game\Player\PlayerDealDamage.h" />
     <ClInclude Include="Source\Game\Player\PlayerHitEnemy.h" />

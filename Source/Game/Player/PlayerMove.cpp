@@ -8,7 +8,9 @@ extern Player player;
 // ƒvƒŒƒCƒ„[‚ªX•ûŒü‚ÉˆÚ“®‚Å‚«‚é‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éŠÖ”
 void PlayerMove::Update()
 {
+	UpdatePosition();
 	player_move();
+	UpdatePosition();
 }
 float PlayerMove::LimitMoveX(float moveX)
 {
@@ -126,10 +128,13 @@ void PlayerMove::player_move_update()
 	if(isXMoving)
 	{
 		player_x += movementX;
+		UpdatePosition();
+
 	}
 	if(isYMoving)
 	{
 		player_y += movementY;
+		UpdatePosition();
 	}
 
 	moveTimer.Update(deltaTime);
@@ -171,10 +176,12 @@ void PlayerMove::player_inversemove_update()
 	if (reflecting_moveX)
 	{
 		player_x -= movementX;
+		UpdatePosition();
 	}
 	if (reflecting_moveY)
 	{
 		player_y -= movementY;
+		UpdatePosition();
 	}
 	moveTimer.Update(deltaTime);
 	if (moveTimer.IsFinished())
@@ -219,6 +226,20 @@ void PlayerMove::player_move()
 	player_move_update();
 	player_inversemove_update();
 		
+}
+
+
+const HitDetection& PlayerMove::GetHitDetection() const
+{
+	return hitDetection;
+}
+
+void PlayerMove::UpdatePosition()
+{
+	hitDetection.x = player_x;
+	hitDetection.y = player_y;
+	hitDetection.width = static_cast<float>(player.imageInfo.Width) * player.scaleX;
+	hitDetection.height = static_cast<float>(player.imageInfo.Height) * player.scaleY;
 }
 
 

@@ -1,6 +1,7 @@
 
 #pragma once
 #include "Timer/Timer.h"
+#include "Game/Collision/HitDetection.h"
 
 // PlayerMove.h
 class PlayerMove
@@ -12,6 +13,9 @@ public:
 	// プレイヤーのY座標を保持する変数
 	float player_y; // プレイヤーのY座標
 	bool isMoved = false; // 一度動いたかどうかを判断する
+	// プレイヤーの移動処理時の当たり判定に使用する数値の計算をする関数
+	void UpdatePosition();
+	const HitDetection& GetHitDetection() const;
 
 private:
 	
@@ -54,5 +58,7 @@ private:
 
 	void player_inversemove_update();
 	void player_move_update();
+
+	HitDetection hitDetection{};
 
 };

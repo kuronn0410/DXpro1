@@ -45,10 +45,7 @@ bool Player::Initialize()
     scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width) * 0.25f;
     scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height) * 0.25f;
 
-    hitDetection.x = playerMove.player_x;
-    hitDetection.y = playerMove.player_y;
-    hitDetection.width = static_cast<float>(imageInfo.Width) * scaleX;
-    hitDetection.height = static_cast<float>(imageInfo.Height) * scaleY;
+    playerMove.UpdatePosition();
 
     return SUCCEEDED(result);
 }
@@ -103,8 +100,5 @@ float Player::GetScaleY() const
 }
 
 
-const HitDetection& Player::GetHitDetection() const
-{
-    return hitDetection;
-}
+
 

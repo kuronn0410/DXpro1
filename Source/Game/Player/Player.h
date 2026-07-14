@@ -19,17 +19,15 @@ public:
     float GetScaleY() const;
      float centerX = 0.0f;
     float centerY = 0.0f;
-
-    const HitDetection& GetHitDetection() const;
+    //構造体の用意
+    D3DSURFACE_DESC imageInfo = {};
+    float scaleX = 0.0f;
+    float scaleY = 0.0f;
 
 private:
     IDirect3DTexture9* playerTexture = nullptr;
     ID3DXSprite* playerSprite = nullptr;
-    float scaleX = 0.0f;
-    float scaleY = 0.0f;
+    
 
-    //構造体の用意
-    D3DSURFACE_DESC imageInfo = {};
-
-    HitDetection hitDetection{};
+   
 };
