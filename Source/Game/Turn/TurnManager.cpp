@@ -1,6 +1,7 @@
 #include "Game/Turn/TurnManager.h"
 #include "Game/Turn/TurnEnd.h"
 #include "Game/Turn/PlayerActionManager.h"
+#include "Game/Turn/EnemyActionManager.h"
 
 int currentTurn = 0; // 現在のターンを管理する変数
 // 現在のターン状態
@@ -10,7 +11,7 @@ TurnState currentTurnState = TurnState::TurnStart;
 //ActionState currentActionState = ActionState::None;
 
 PlayerActionManager playerActionManager; // プレイヤーの行動管理オブジェクトのインスタンス
-
+EnemyActionManager enemyActionManager; // 敵の行動管理オブジェクトのインスタンス
 void TurnManager::UpdateTurn()
 {
 	switch (currentTurnState)
@@ -25,6 +26,7 @@ void TurnManager::UpdateTurn()
 		playerActionManager.UpdateAction();
 		break;
 	case TurnState::EnemyAction:
+		enemyActionManager.UpdateAction();
 		break;
 	case TurnState::TurnEnd:
 		TurnEndCheck();

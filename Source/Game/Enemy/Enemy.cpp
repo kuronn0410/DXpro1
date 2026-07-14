@@ -1,5 +1,8 @@
 #include "Game/Enemy/Enemy.h"
+#include "Game/GameConfig.h"
+#include "Game/Turn/TurnManager.h"
 
+extern TurnManager turnManager;
 bool Enemy::Initialize()
 {
 	/*
@@ -33,29 +36,30 @@ bool Enemy::Initialize()
 	}
 
 
+	enemyMove1.Enemy_X = GameConfig::EnemyStartX;
+	enemyMove1.Enemy_Y = GameConfig::EnemyStartY;
 	//initに移す
 	
 	EnemyTexture->GetLevelDesc(0, &imageInfo);
 	scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width) * 0.25f;
 	scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height) * 0.25f;
 	// 敵の当たり判定の初期化
-	hitDetection.x = Enemy_X;
-	hitDetection.y = Enemy_Y;
-	hitDetection.width = static_cast<float>(imageInfo.Width) * scaleX;
-	hitDetection.height = static_cast<float>(imageInfo.Height) * scaleY;
-
-	
-
-	
+	enemyMove1.UpdatePosition();
 	return SUCCEEDED(result);
-
-
-
 }
 
 void Enemy::Update()
 {
-	return;
+	enemyMove1.Update();
+	if (enemyMove1.isMoved)
+	{
+		turnManager.SetTurnState(TurnState::TurnEnd);
+		//ターンエンド時にプレイヤーの移動フラグをリセットする
+		enemyMove1.isMoved = false;
+		// 状態変更
+		//playerActionManager.SetActionState(ActionState::None);
+	}
+
 	// 敵の更新処理をここに記述
 }
 
@@ -75,8 +79,7 @@ void Enemy::Finalize()
 	}
 }
 
-
 const HitDetection& Enemy::GetHitDetection() const
 {
-	return hitDetection;
+	return enemyMove1.GetHitDetection();
 }

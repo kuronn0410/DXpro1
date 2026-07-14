@@ -2,6 +2,7 @@
 #include "Graphics/dx2.h"
 #include "Window/WindowState.h"
 #include "Game/Collision/HitDetection.h"
+#include "Game/Enemy/EnemyMove1.h"
 
 class Enemy
 {
@@ -11,8 +12,14 @@ public:
 	void Draw();
 	void Finalize();
 	const HitDetection& GetHitDetection() const;
+	D3DSURFACE_DESC imageInfo = {};
+
+	float scaleX = 0.0f;
+	float scaleY = 0.0f;
 
 private:
+	EnemyMove1 enemyMove1;
+	
 	//テクスチャのアドレスを保持する変数
 	IDirect3DTexture9* EnemyTexture = nullptr;
 	//スプライトのアドレスを保持する変数
@@ -22,21 +29,11 @@ private:
 	Draw関数で使用する変数
 	-----------*/
 
-	//敵のX座標
-	float Enemy_X = 0.0f;
-	//敵のY座標
-	float Enemy_Y = 0.0f;
-
-	float scaleX = 0.0f;
-	float scaleY = 0.0f;
-
-	HitDetection hitDetection{};
+	//HitDetection hitDetection{};
 
 	//画像の中心座標を保持する変数
 	// *範囲追加後いらないかも
 	float centerX = 0.0f;
 	float centerY = 0.0f;
-
-	D3DSURFACE_DESC imageInfo = {};
 };
 

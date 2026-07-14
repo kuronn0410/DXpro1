@@ -7,24 +7,21 @@ void EnemyActionManager::UpdateAction()
 {
 	switch (currentActionState)
 	{
-	case ActionState::None:
+	case EnemyActionState::None:
 		break;
-	case ActionState::Aim:
-		break;
-	case ActionState::Move:
+	case EnemyActionState::Move:
 
 		enemy.Update();
 		//playerHitEnemy.Update(); // プレイヤーが敵に当たったかどうかを更新
 		break;
-	case ActionState::End:
-
+	case EnemyActionState::End:
 		break;
 	default:
 		break;
 	}
 }
 
-void EnemyActionManager::SetActionState(ActionState state)
+void EnemyActionManager::SetActionState(EnemyActionState state)
 {
 	currentActionState = state;
 }

@@ -1,8 +1,14 @@
 #include "Game/Player/Player.h"
 //#include "Window/WindowState.h"
 #include "Game/Player/PlayerMove.h"
+#include "Game/GameConfig.h"
+#include "Game/Turn/TurnManager.h"
+#include "Game/Turn/EnemyActionManager.h"
 
 PlayerMove playerMove;
+extern TurnManager turnManager;
+
+extern EnemyActionManager enemyActionManager;
 
 bool Player::Initialize()
 {
@@ -38,6 +44,11 @@ bool Player::Initialize()
         return false;
     }
 
+    //初期化
+	playerMove.player_x = GameConfig::PlayerStartX;
+	playerMove.player_y = GameConfig::PlayerStartY;
+
+
     //playerTextureが示してる画像の情報を取得して構造体に入れる
     playerTexture->GetLevelDesc(0, &imageInfo);
 
@@ -54,6 +65,15 @@ bool Player::Initialize()
 void Player::Update()
 {
     playerMove.Update();
+
+    if (playerMove.isMoved)
+    {
+        turnManager.SetTurnState(TurnState::EnemyAction);
+        //ターンエンド時にプレイヤーの移動フラグをリセットする
+        playerMove.isMoved = false;
+        // 状態変更
+        enemyActionManager.SetActionState(EnemyActionState::Move);
+    }
 
 }
 

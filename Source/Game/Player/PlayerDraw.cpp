@@ -14,9 +14,7 @@ void Player::Draw()
     {
         return;
     }
-    
-	
-
+   
 
     //Šg‘å—¦
     D3DXVECTOR2 scale(scaleX, scaleY);

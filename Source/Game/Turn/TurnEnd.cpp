@@ -11,7 +11,6 @@ extern TurnManager turnManager; // ターン管理オブジェクトのインスタンス
 
 void TurnEndCheck()
 {
-	
 	turnManager.currentTurn++;
 	// デバッグ用に現在のターン数を出力
 	char buffer[128];

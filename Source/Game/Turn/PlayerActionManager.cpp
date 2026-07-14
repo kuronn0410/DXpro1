@@ -14,7 +14,6 @@ void PlayerActionManager::UpdateAction()
 	case ActionState::Aim:
 		break;
 	case ActionState::Move:
-
 		player.Update();
 		playerHitEnemy.Update(); // プレイヤーが敵に当たったかどうかを更新
 		break;

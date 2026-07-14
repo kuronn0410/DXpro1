@@ -27,7 +27,5 @@ public:
 private:
     IDirect3DTexture9* playerTexture = nullptr;
     ID3DXSprite* playerSprite = nullptr;
-    
-
    
 };

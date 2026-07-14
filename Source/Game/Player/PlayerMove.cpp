@@ -228,7 +228,6 @@ void PlayerMove::player_move()
 		
 }
 
-
 const HitDetection& PlayerMove::GetHitDetection() const
 {
 	return hitDetection;

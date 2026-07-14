@@ -10,22 +10,19 @@ void Enemy::Draw()
 
 
     */
-
 	//アドレスが入っていない場合は描画処理を行わない
     if (EnemySprite == nullptr ||
         EnemyTexture == nullptr)
     {
         return;
     }
-
- 
     scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width) * 0.25f;
     scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height) * 0.25f;
 
     //拡大率
     D3DXVECTOR2 scale(scaleX, scaleY);
     //敵の座標を構造体に入れる
-    D3DXVECTOR2 position(Enemy_X, Enemy_Y);
+    D3DXVECTOR2 position(enemyMove1.Enemy_X, enemyMove1.Enemy_Y);
     //計算結果の保存先
     D3DXMATRIX Matrix;
 
@@ -55,5 +52,5 @@ void Enemy::Draw()
         D3DCOLOR_XRGB(255, 255, 255)
     );
 
-    EnemySprite->End();
+    //EnemySprite->End();
 }

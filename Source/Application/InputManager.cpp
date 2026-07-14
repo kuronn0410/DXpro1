@@ -54,15 +54,6 @@ void InputManager::ChangeState()
 			playerActionManager.SetActionState(ActionState::Move);
 			
 		}
-		else
-		{
-			turnManager.SetTurnState( TurnState::TurnEnd);
-			//ターンエンド時にプレイヤーの移動フラグをリセットする
-			playerMove.isMoved = false;
-			// 状態変更
-			playerActionManager.SetActionState( ActionState::None);
-			
-		}
 	}
 
 	previousTurn = currentTurn;

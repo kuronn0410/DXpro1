@@ -22,6 +22,7 @@
     <ClCompile Include="Source\Game\Collision\Collision.cpp" />
     <ClCompile Include="Source\Game\Enemy\Enemy.cpp" />
     <ClCompile Include="Source\Game\Enemy\EnemyDraw.cpp" />
+    <ClCompile Include="Source\Game\Enemy\EnemyMove1.cpp" />
     <ClCompile Include="Source\Game\Player\PlayerDealDamage.cpp" />
     <ClCompile Include="Source\Game\Player\PlayerHitEnemy.cpp" />
     <ClCompile Include="Source\Game\Turn\EnemyActionManager.cpp" />
@@ -48,6 +49,8 @@
     <ClInclude Include="Source\Game\Collision\Collision.h" />
     <ClInclude Include="Source\Game\Collision\HitDetection.h" />
     <ClInclude Include="Source\Game\Enemy\Enemy.h" />
+    <ClInclude Include="Source\Game\Enemy\EnemyMove1.h" />
+    <ClInclude Include="Source\Game\GameConfig.h" />
     <ClInclude Include="Source\Game\Player\PlayerDealDamage.h" />
     <ClInclude Include="Source\Game\Player\PlayerHitEnemy.h" />
     <ClInclude Include="Source\Game\Turn\EnemyActionManager.h" />
