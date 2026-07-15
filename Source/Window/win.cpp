@@ -9,7 +9,7 @@
 #pragma endregion
 
 extern Player player; // プレイヤーオブジェクトのインスタンス
-
+extern Background background; // 背景オブジェクトのインスタンス
 #pragma region ウィンドウ静的定義
 HWND h_WIN = NULL;//プレイ中のウィンドウ
 const char* WIN_TITLE = "CGプログラミング";//ウィンドウバーのタイトル
@@ -55,12 +55,12 @@ LRESULT CALLBACK window_proc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 			{
 				g_windowWidth = LOWORD(lParam);
 				g_windowHeight = HIWORD(lParam);
-				BackgroundOnLostDevice();
+				background.OnLostDevice();
 				player.OnLostDevice();
 
 				if (DirectXResize(g_windowWidth, g_windowHeight))
 				{
-					BackgroundOnResetDevice();
+					background.OnResetDevice();
 					player.OnResetDevice();
 				}
 			}

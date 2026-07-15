@@ -3,6 +3,7 @@
 #include "Window/WindowState.h"
 #include "Game/Collision/HitDetection.h"
 #include "Game/Enemy/EnemyMove1.h"
+#include "Graphics/Sprite/Sprite.h"
 
 class Enemy
 {
@@ -18,13 +19,10 @@ public:
 	float scaleY = 0.0f;
 
 private:
+
+	Library::Graphics::Sprite sprite;
 	EnemyMove1 enemyMove1;
 	
-	//テクスチャのアドレスを保持する変数
-	IDirect3DTexture9* EnemyTexture = nullptr;
-	//スプライトのアドレスを保持する変数
-	ID3DXSprite* EnemySprite = nullptr;
-
 	/*---------
 	Draw関数で使用する変数
 	-----------*/

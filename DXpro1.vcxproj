@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Library\Graphics\Dx\Dx.cpp" />
     <ClCompile Include="Library\Graphics\Sprite\Sprite.cpp" />
     <ClCompile Include="Source\Game\Collision\Collision.cpp" />
     <ClCompile Include="Source\Game\Enemy\Enemy.cpp" />
@@ -48,7 +47,6 @@
     <ClCompile Include="Library\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Library\Graphics\Dx\Dx.h" />
     <ClInclude Include="Library\Graphics\Sprite\Sprite.h" />
     <ClInclude Include="Source\Game\Collision\Collision.h" />
     <ClInclude Include="Source\Game\Collision\HitDetection.h" />

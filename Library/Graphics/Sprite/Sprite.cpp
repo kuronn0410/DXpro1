@@ -1,103 +1,107 @@
 #include "Sprite.h"
-//DirectX9のヘッダーファイルをインクルード
-#include <d3dx9.h>
-#include "Graphics/dx2.h"
-
-
-void Sprite::Init()
+namespace Library
 {
-    ///*
-    //スプライト作成
-    //テクスチャ作成
-    //FAILED
-    //SUCCEEDED
-    //*/
-    //HRESULT result = D3DXCreateSprite(
-    //    g_device,//g_deviceが管理している描画環境を使って
-    //    &EnemySprite // 作ったSpriteのアドレスをEnemySpriteに入れてもらう
-    //);
+    namespace Graphics
+    {
+        bool Sprite::Init(IDirect3DDevice9* g_device, const char* filePath)
+        {
+            HRESULT result = D3DXCreateSprite(
+                g_device,//g_deviceが管理している描画環境を使って
+                &sprite // 作ったSpriteのアドレスをEnemySpriteに入れてもらう
+            );
 
-    //if (FAILED(result))
-    //{
-    //    return false;
-    //}
+            if (FAILED(result))
+            {
+                return false;
+            }
 
-    //result = D3DXCreateTextureFromFile(
-    //    g_device,//g_deviceが管理している描画環境を使って
-    //    "Assets\\Textures\\Goal.png",//読み込むPNG画像のパスを指定
-    //    &EnemyTexture//作ったTextureのアドレスをEnemyTextureに入れてもらう
-    //);
+            result = D3DXCreateTextureFromFile(
+                g_device,//g_deviceが管理している描画環境を使って
+                filePath,//読み込むPNG画像のパスを指定
+                &texture//作ったTextureのアドレスをEnemyTextureに入れてもらう
+            );
 
-    //if (FAILED(result))
-    //{
-    //    EnemySprite->Release();
-    //    EnemySprite = nullptr;
-    //    EnemyTexture = nullptr;
-    //    return false;
-    //}
+            if (FAILED(result))
+            {
+                sprite->Release();
+                sprite = nullptr;
+                texture = nullptr;
+                return false;
+            }
 
+            texture->GetLevelDesc(0, &imageInfo);
+            return SUCCEEDED(result);
+        }
 
-    //enemyMove1.Enemy_X = GameConfig::EnemyStartX;
-    //enemyMove1.Enemy_Y = GameConfig::EnemyStartY;
-    ////initに移す
-
-    //EnemyTexture->GetLevelDesc(0, &imageInfo);
-    //scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width) * 0.25f;
-    //scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height) * 0.25f;
-    //// 敵の当たり判定の初期化
-    //enemyMove1.UpdatePosition();
-    //return SUCCEEDED(result);
-}
-
-void Sprite::Draw()
-{
-    /*
-    imageInfo構造体を用意する
-    構造体に画像の情報を入れる
+        void Sprite::Draw(float posX, float posY, float scaleX, float scaleY)
+        {
+            /*
+            imageInfo構造体を用意する
+            構造体に画像の情報を入れる
 
 
-    //*/
-    ////アドレスが入っていない場合は描画処理を行わない
-    //if (EnemySprite == nullptr ||
-    //    EnemyTexture == nullptr)
-    //{
-    //    return;
-    //}
-    //scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width) * 0.25f;
-    //scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height) * 0.25f;
+            //*/
+            //アドレスが入っていない場合は描画処理を行わない
+            if (sprite == nullptr ||
+                texture == nullptr)
+            {
+                return;
+            }
 
-    ////拡大率
-    //D3DXVECTOR2 scale(scaleX, scaleY);
-    ////敵の座標を構造体に入れる
-    //D3DXVECTOR2 position(enemyMove1.Enemy_X, enemyMove1.Enemy_Y);
-    ////計算結果の保存先
-    //D3DXMATRIX Matrix;
+            //拡大率
+            D3DXVECTOR2 scale(scaleX, scaleY);
+            //敵の座標を構造体に入れる
+            D3DXVECTOR2 position(posX, posY);
+            //計算結果の保存先
+            D3DXMATRIX Matrix;
 
-    ////
-    //D3DXMatrixTransformation2D(
-    //    &Matrix,//計算結果の保存先アドレスを指定
-    //    nullptr,
-    //    0.0f,
-    //    &scale,
-    //    nullptr,
-    //    0.0f,
-    //    &position
-    //);
+            ////
+            D3DXMatrixTransformation2D(
+                &Matrix,//計算結果の保存先アドレスを指定
+                nullptr,
+                0.0f,
+                &scale,
+                nullptr,
+                0.0f,
+                &position
+            );
 
 
-    //centerX = position.x + imageInfo.Width * scale.x * 0.5f;
-    //centerY = position.y + imageInfo.Height * scale.y * 0.5f;
+            centerX = position.x + imageInfo.Width * scale.x * 0.5f;
+            centerY = position.y + imageInfo.Height * scale.y * 0.5f;
 
-    //EnemySprite->Begin(D3DXSPRITE_ALPHABLEND);
-    //EnemySprite->SetTransform(&Matrix);
+            sprite->Begin(D3DXSPRITE_ALPHABLEND);
+            sprite->SetTransform(&Matrix);
 
-    //EnemySprite->Draw(
-    //    EnemyTexture,
-    //    nullptr,
-    //    nullptr,
-    //    nullptr,
-    //    D3DCOLOR_XRGB(255, 255, 255)
-    //);
+            sprite->Draw(
+                texture,
+                nullptr,
+                nullptr,
+                nullptr,
+                D3DCOLOR_XRGB(255, 255, 255)
+            );
 
-    ////EnemySprite->End();
+            sprite->End();
+        }
+
+        void Sprite::Release()
+        {
+            if (texture != nullptr)
+            {
+                texture->Release();
+                texture = nullptr;
+            }
+
+            if (sprite != nullptr)
+            {
+                sprite->Release();
+                sprite = nullptr;
+            }
+        }
+
+        const D3DSURFACE_DESC& Sprite::GetImageInfo() const
+        {
+            return imageInfo;
+        }
+    }
 }

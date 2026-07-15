@@ -7,7 +7,7 @@
 #include "Game/GameMain.h"
 #include "Application/initialize.h"
 
-
+extern Background background; // 背景オブジェクトのインスタンス
 int initialize(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
 {
 	
@@ -18,7 +18,7 @@ int initialize(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nC
 		return -1;
 	}
 
-	if (!BackgroundInitialize())
+	if (!background.Initialize())
 	{
 		return -1;
 	}

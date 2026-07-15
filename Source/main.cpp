@@ -16,6 +16,7 @@ WindowsとGameの更新処理を呼び出す
 */
 
 InputManager inputManager; // インプットマネージャーのインスタンス
+Background background; // 背景オブジェクトのインスタンス
 
 void Update()
 {
@@ -27,7 +28,7 @@ void Update()
 void Draw()
 {
 	// 描画の更新処理をここに記述
-	BackgroundDraw();
+	background.Draw();
 	GameDraw();
 	DrawEnd();
 }

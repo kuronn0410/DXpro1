@@ -4,10 +4,10 @@
 #include "Game/GameMain.h"
 
 extern Player player; // プレイヤーオブジェクトのインスタンス
-
+extern Background background; // 背景オブジェクトのインスタンス
 void finalize()
 {
 	GameFinalize();
-	BackgroundFinalize();
+	background.Finalize();
 	DirectXFinalize();
 }
