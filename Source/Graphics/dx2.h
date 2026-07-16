@@ -10,7 +10,6 @@
 #define WIN_H 480 //ƒvƒŒƒC‰æ–Ê‚Ì‚‚³
 #pragma endregion
 
-
 #pragma region ”wŒi•`‰æ—p
 extern IDirect3D9* g_direct3D;
 extern IDirect3DDevice9* g_device;

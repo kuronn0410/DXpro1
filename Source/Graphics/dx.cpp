@@ -69,7 +69,6 @@ void DrawBegin()
 }
 
 
-
 void DrawEnd()
 {
     if (g_device == nullptr) return;

@@ -16,30 +16,6 @@ bool Background::Initialize()
     scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width);
     scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height);
 
-
-    //HRESULT result = D3DXCreateSprite(
-    //    g_device,
-    //    &backgroundSprite
-    //);
-
-    //if (FAILED(result))
-    //{
-    //    return false;
-    //}
-    ////登録
-    //result = D3DXCreateTextureFromFile(
-    //    g_device,
-    //    "Assets\\Textures\\Shiba.png",
-    //    &backgroundTexture
-    //);
-
-    //if (FAILED(result))
-    //{
-    //    backgroundSprite->Release();
-    //    backgroundSprite = nullptr;
-    //    return false;
-    //}
-
     return true;
 }
 
@@ -49,45 +25,7 @@ void Background::Draw()
     scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height);
 
     sprite.Draw(0, 0, scaleX, scaleY);
-	// 背景の描画処理をここに記述
-
- //   if (backgroundSprite == nullptr ||
- //       backgroundTexture == nullptr)
- //   {
- //       return;
- //   }
-	////画像を保存するための構造体を作成
- //   D3DSURFACE_DESC imageInfo = {};
- //   //登録済みの画像から情報を取得
- //   backgroundTexture->GetLevelDesc(0, &imageInfo);
-
-	////ウィンドウの幅と高さを画像の幅と高さで割ってスケーリングする
- //   float scaleX =
- //       static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width);
-
- //   float scaleY =
- //       static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height);
-
- //   D3DXMATRIX scaleMatrix;
- //   D3DXMatrixScaling(
- //       &scaleMatrix,
- //       scaleX,
- //       scaleY,
- //       0.5f
- //   );
-
-    /*backgroundSprite->Begin(D3DXSPRITE_ALPHABLEND);
-    backgroundSprite->SetTransform(&scaleMatrix);
-
-    backgroundSprite->Draw(
-        backgroundTexture,
-        nullptr,
-        nullptr,
-        nullptr,
-        D3DCOLOR_XRGB(255, 255, 255)
-    );
-
-    backgroundSprite->End();*/
+	
 }
 
 //一度画像を外すときに呼び出す関数
@@ -111,16 +49,5 @@ void Background::OnResetDevice()
 void Background::Finalize()
 {
 	sprite.Release();
-	//// 背景の終了処理をここに記述
- //   if (backgroundTexture != nullptr)
- //   {
- //       backgroundTexture->Release();
- //       backgroundTexture = nullptr;
- //   }
-
- //   if (backgroundSprite != nullptr)
- //   {
- //       backgroundSprite->Release();
- //       backgroundSprite = nullptr;
- //   }
+	
 }

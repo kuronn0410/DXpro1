@@ -1,7 +1,7 @@
 #include "Game/Collision/Collision.h"
 #include "Game/Collision/HitDetection.h"
 /// <summary>
-///	衝突判定
+///衝突判定　(キャラクター同士の当たり判定)
 /// </summary>
 /// <param name="a"> 敵</param>
 /// <param name="b"> プレイヤー</param>
@@ -16,4 +16,31 @@ bool IsHit(const HitDetection& a, const HitDetection& b)
 		return true;
 	}
 	return false;
+}
+/// <summary>
+///衝突判定　(壁とキャラ)
+/// </summary>
+/// <param name="a"> キャラクター</param>
+/// <returns></returns>
+bool IsInsideScreen(const HitDetection& a)
+{
+
+	return true;
+}
+
+/// <summary>
+///衝突判定　(壁とキャラ)
+/// </summary>
+/// <param name="a"> キャラクター</param>
+/// <returns></returns>
+bool IsOutsideScreen(const HitDetection& a)
+{
+	//// 画面外判定
+	//if (a.x + a.width < 0 || a.x > g_windowWidth ||
+	//	a.y + a.height < 0 || a.y > g_windowHeight)
+	//{
+	//	return true;
+	//}
+	//return false;
+	return true;
 }

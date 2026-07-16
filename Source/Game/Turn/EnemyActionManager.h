@@ -12,7 +12,6 @@ class EnemyActionManager
 public:
     void UpdateAction();
     void SetActionState(EnemyActionState state);
-
     EnemyActionState currentActionState;
 
 };
