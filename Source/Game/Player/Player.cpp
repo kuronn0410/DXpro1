@@ -17,37 +17,6 @@ bool Player::Initialize()
     {
         return false;
     }
-    /*
-    スプライト作成
-    作成したスプライトに
-
-    */
-    // DirectXにスプライトを作ってもらい、その結果を playerSprite に入れてもらう
-    //HRESULT result = D3DXCreateSprite(
-    //    g_device,//g_deviceが管理している描画環境を使って
-    //    &playerSprite // 作ったSpriteのアドレスをplayerSpriteに入れてもらう
-    //);
-
-    ////API関数の呼び出しが失敗した場合、falseを返す
-    //if (FAILED(result))
-    //{
-    //    return false;
-    //}
-
-    //PNG画像を読み込むためにD3DXCreateTextureFromFile関数を使用
-  //  result = D3DXCreateTextureFromFile(
-  //      g_device,//g_deviceが管理している描画環境を使って
-  //      "Assets\\Textures\\soccer.png",//読み込むPNG画像のパスを指定
-		//&playerTexture//作ったTextureのアドレスをplayerTextureに入れてもらう
-  //  );
-
-  //  if (FAILED(result))
-  //  {
-  //      playerSprite->Release();
-  //      playerSprite = nullptr;
-  //      playerTexture = nullptr;
-  //      return false;
-  //  }
 
     //初期化
 	playerMove.player_x = GameConfig::PlayerStartX;

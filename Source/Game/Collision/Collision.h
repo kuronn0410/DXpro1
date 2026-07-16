@@ -14,7 +14,7 @@ bool IsHit(const HitDetection& a, const HitDetection& b);
 /// </summary>
 /// <param name="a"></param>
 /// <returns></returns>
-bool IsInsideScreen(const HitDetection& a);
+bool IsInsideScreen(float windowWidth, float windowHeight,const HitDetection& a);
 /// <summary>
 ///Õ“Ë”»’è@(•Ç‚ÆƒLƒƒƒ‰)
 /// </summary>

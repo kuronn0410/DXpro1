@@ -22,10 +22,14 @@ bool IsHit(const HitDetection& a, const HitDetection& b)
 /// </summary>
 /// <param name="a"> キャラクター</param>
 /// <returns></returns>
-bool IsInsideScreen(const HitDetection& a)
+bool IsInsideScreen(float windowWidth,float windowHeight,const HitDetection& a)
 {
-
-	return true;
+	
+	return   
+		a.x >= 0.0f &&
+		a.y >= 0.0f &&
+		a.x + a.width <= windowWidth &&
+		a.y + a.height <= windowHeight;;
 }
 
 /// <summary>
