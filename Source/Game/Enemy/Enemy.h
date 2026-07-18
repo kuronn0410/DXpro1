@@ -4,6 +4,7 @@
 #include "Game/Collision/HitDetection.h"
 #include "Game/Enemy/EnemyMove1.h"
 #include "Graphics/Sprite/Sprite.h"
+#include "Game/CharacterStatus.h"
 
 class Enemy
 {
@@ -17,7 +18,8 @@ public:
 
 	float scaleX = 0.0f;
 	float scaleY = 0.0f;
-
+	void DamageToCharacter(int damage);
+	bool IsAlive = true;
 private:
 
 	Library::Graphics::Sprite sprite;
@@ -33,5 +35,7 @@ private:
 	// *”ÍˆÍ’Ç‰ÁŒã‚¢‚ç‚È‚¢‚©‚à
 	float centerX = 0.0f;
 	float centerY = 0.0f;
+
+	CharacterStatus enemyStatus{};
 };
 

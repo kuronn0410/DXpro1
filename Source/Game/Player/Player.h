@@ -3,6 +3,7 @@
 #include "Window/WindowState.h"
 #include "Game/Collision/HitDetection.h"
 #include "Graphics/Sprite/Sprite.h"
+#include "Game/CharacterStatus.h"
 
 // Player.h
 class Player
@@ -24,11 +25,13 @@ public:
     float scaleX = 0.0f;
     float scaleY = 0.0f;
     D3DSURFACE_DESC imageInfo = {};
+    void GetCharacterStatus(CharacterStatus& status) const;
 
 private:
     
     IDirect3DTexture9* playerTexture = nullptr;
     ID3DXSprite* playerSprite = nullptr;
     Library::Graphics::Sprite sprite;
+    CharacterStatus playerStatus{};
    
 };

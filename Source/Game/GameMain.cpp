@@ -29,7 +29,14 @@ void GameDraw()
 {
 	// プレイヤーの描画処理を呼び出す
 	player.Draw();
-	enemy.Draw();
+	if (enemy.IsAlive)
+	{
+		enemy.Draw();
+	}
+	else
+	{
+		// 敵が倒された場合の処理をここに記述
+	}
 }
 
 

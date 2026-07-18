@@ -10,5 +10,11 @@ namespace GameConfig
     constexpr float PlayerScaleRate = 0.25f;
     constexpr float EnemyScaleRate = 0.25f;
 
+
+
+    constexpr int EnemyDamage = 10;
+    constexpr int EnemyHp = 100;
+
     constexpr int PlayerDamage = 10;
+    constexpr int PlayerHp = 10;
 }

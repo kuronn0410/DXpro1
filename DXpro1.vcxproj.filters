@@ -93,6 +93,9 @@
     <ClCompile Include="Library\Graphics\Sprite\Sprite.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Game\CharacterStatus.h">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Utility\help1.h">

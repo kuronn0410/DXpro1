@@ -3,7 +3,6 @@
 #include "Window/WindowState.h"
 #include "Input/Input.h"
 #include <Windows.h>
-
 #include "Game/Collision/Collision.h"
 
 extern Player player;
@@ -15,7 +14,6 @@ void PlayerMove::Update()
 	UpdatePosition();
 }
 
-
 void PlayerMove::player_move_left()
 {
 	if (isXMoving)
@@ -23,7 +21,7 @@ void PlayerMove::player_move_left()
 		return;
 	}
 
-	moveX = -1.5f * player.GetScaleX() * 1000;
+	moveX = -1.5f * player.GetScaleX() * 10000; // ç∂Ç…à⁄ìÆ
 	moveTimer.Start(finisheTime);
 	isXMoving = true;
 }
@@ -35,7 +33,7 @@ void PlayerMove::player_move_right()
 	{
 		return;
 	}
-	moveX = 1.5f * player.GetScaleX() * 1000; // âEÇ…à⁄ìÆ
+	moveX = 1.5f * player.GetScaleX() * 10000; // âEÇ…à⁄ìÆ
 	moveTimer.Start(finisheTime);
 	isXMoving = true;
 }
@@ -46,7 +44,7 @@ void PlayerMove::player_move_up()
 	{
 		return;
 	}	
-	moveY = -1.5f * player.GetScaleY() * 1000; // è„Ç…à⁄ìÆ
+	moveY = -1.5f * player.GetScaleY() * 10000; // è„Ç…à⁄ìÆ
 	moveTimer.Start(finisheTime);
 	isYMoving = true;
 }
@@ -57,7 +55,7 @@ void PlayerMove::player_move_down()
 	{
 		return;
 	}
-	moveY = 1.5f * player.GetScaleY() * 1000; // â∫Ç…à⁄ìÆ
+	moveY = 1.5f * player.GetScaleY() * 10000; // â∫Ç…à⁄ìÆ
 	moveTimer.Start(finisheTime);
 	isYMoving = true;
 }
@@ -75,14 +73,15 @@ void PlayerMove::player_move_update()
 	float movementX =(moveX/ finisheTime) * deltaTime;
 	float movementY = (moveY / finisheTime) * deltaTime;
 
-	
 	if(isXMoving)
 	{
+		
 		player_x += movementX;
 		UpdatePosition();
 		if (!IsInsideScreen(g_windowWidth, g_windowHeight, hitDetection))
 		{
 			player_x -= movementX;
+			moveX *= -1.0f;
 			UpdatePosition();
 		}
 		
@@ -95,6 +94,7 @@ void PlayerMove::player_move_update()
 		if (!IsInsideScreen(g_windowWidth, g_windowHeight, hitDetection))
 		{
 			player_y -= movementY;
+			moveY *= -1.0f;
 			UpdatePosition();
 		}
 		

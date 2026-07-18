@@ -7,12 +7,6 @@ extern TurnManager turnManager;
 
 bool Enemy::Initialize()
 {
-	/*
-	スプライト作成
-	テクスチャ作成
-	FAILED
-	SUCCEEDED
-	*/
 
 	if (!sprite.Init(
 		g_device,
@@ -30,6 +24,10 @@ bool Enemy::Initialize()
 	scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height) * 0.25f;
 	// 敵の当たり判定の初期化
 	enemyMove1.UpdatePosition();
+
+	enemyStatus.hp = GameConfig::EnemyHp;
+	enemyStatus.attack = GameConfig::EnemyDamage;
+
 	return true;
 }
 
@@ -44,6 +42,10 @@ void Enemy::Update()
 		// 状態変更
 		//playerActionManager.SetActionState(ActionState::None);
 	}
+	if(enemyStatus.hp <= 0)
+	{
+		IsAlive = false;
+	}
 
 	// 敵の更新処理をここに記述
 }
@@ -57,4 +59,13 @@ void Enemy::Finalize()
 const HitDetection& Enemy::GetHitDetection() const
 {
 	return enemyMove1.GetHitDetection();
+}
+
+void Enemy::DamageToCharacter(int damage)
+{
+	enemyStatus.hp -= damage;
+	if (enemyStatus.hp <= 0)
+	{
+		IsAlive = false;
+	}
 }

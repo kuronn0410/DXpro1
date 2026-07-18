@@ -11,6 +11,7 @@
 extern PlayerMove playerMove;
 extern Enemy enemy;
 PlayerDealDamage playerDealDamage;
+
 void PlayerHitEnemy::Update()
 {
 	HitEnemy();
@@ -22,9 +23,13 @@ void PlayerHitEnemy::HitEnemy()
 	const HitDetection& enemyHit = enemy.GetHitDetection();
 	const HitDetection& playerHit = playerMove.GetHitDetection();
 	// プレーヤーが敵の座標に接触したかどうかを判定する処理をここに記述
-	if (IsHit(enemyHit, playerHit))
+	if (IsHit(enemyHit, playerHit) && !isDamage)
 	{
 		int damage = playerDealDamage.PlayerDealDamages();
+		enemy.DamageToCharacter(damage);
+		isDamage = true;
+
+
 		char buffer[128];
 		sprintf_s(
 			buffer,

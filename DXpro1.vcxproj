@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Library\Graphics\Sprite\Sprite.cpp" />
+    <ClCompile Include="Source\Game\CharacterStatus.h" />
     <ClCompile Include="Source\Game\Collision\Collision.cpp" />
     <ClCompile Include="Source\Game\Enemy\Enemy.cpp" />
     <ClCompile Include="Source\Game\Enemy\EnemyDraw.cpp" />

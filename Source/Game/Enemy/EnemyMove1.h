@@ -31,5 +31,5 @@ private:
 	HitDetection hitDetection{};
 
 
-	int i;
+	int i=0;
 };

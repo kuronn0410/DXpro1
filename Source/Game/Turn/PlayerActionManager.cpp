@@ -18,7 +18,8 @@ void PlayerActionManager::UpdateAction()
 		playerHitEnemy.Update(); // プレイヤーが敵に当たったかどうかを更新
 		break;
 	case ActionState::End:
-
+		//playerHitEnemy.isDamage = false; // ダメージフラグをリセット
+		currentActionState = ActionState::None; // 状態をNoneに戻す
 		break;
 	default:
 		break;

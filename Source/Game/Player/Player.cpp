@@ -3,11 +3,14 @@
 #include "Game/GameConfig.h"
 #include "Game/Turn/TurnManager.h"
 #include "Game/Turn/EnemyActionManager.h"
+#include "Game/Turn/PlayerActionManager.h"
 
 PlayerMove playerMove;
 extern TurnManager turnManager;
 
 extern EnemyActionManager enemyActionManager;
+
+extern PlayerActionManager playerActionManager;
 
 bool Player::Initialize()
 {
@@ -27,10 +30,14 @@ bool Player::Initialize()
     imageInfo = sprite.GetImageInfo();
 
 
+
     //画面サイズに合わせてスケーリングするための倍率を計算
     scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width) * 0.25f;
     scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height) * 0.25f;
     playerMove.UpdatePosition();
+
+    playerStatus.hp = GameConfig::PlayerHp;
+    playerStatus.attack = GameConfig::PlayerDamage;
 
     return true;
 }
@@ -42,6 +49,8 @@ void Player::Update()
 
     if (playerMove.isMoved)
     {
+        
+		playerActionManager.SetActionState(ActionState::End);
         turnManager.SetTurnState(TurnState::EnemyAction);
         //ターンエンド時にプレイヤーの移動フラグをリセットする
         playerMove.isMoved = false;
@@ -94,5 +103,8 @@ float Player::GetScaleY() const
 }
 
 
-
+void Player::GetCharacterStatus(CharacterStatus& status) const
+{
+	status = playerStatus;
+}
 
