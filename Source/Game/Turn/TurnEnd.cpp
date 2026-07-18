@@ -5,9 +5,10 @@
 #include <cstdio>
 
 extern TurnManager turnManager; // ターン管理オブジェクトのインスタンス
-/*
-敵が生きてるかどうかを確認してターンを進める
-*/
+//そのターンの結果確認
+//敵が残っているか
+//ターン数を進める
+//ステージクリア / 次ステージ判定
 
 void TurnEndCheck()
 {
