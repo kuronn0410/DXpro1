@@ -2,6 +2,7 @@
 #include "Game/Turn/TurnEnd.h"
 #include "Game/Turn/PlayerActionManager.h"
 #include "Game/Turn/EnemyActionManager.h"
+#include "Game/Turn/TurnStart.h"
 
 int currentTurn = 0; // 現在のターンを管理する変数
 // 現在のターン状態
@@ -17,6 +18,7 @@ void TurnManager::UpdateTurn()
 	switch (currentTurnState)
 	{
 	case TurnState::TurnStart:
+		TurnStart();
 		//currentActionState = ActionState::None;
 		break;
 	case TurnState::PlayerSelect:

@@ -1,24 +1,13 @@
 //インプットに関する処理を行うファイルです。
 
 #include "Application/InputManager.h"
-#include <Windows.h>
 #include "Window/win.h"
 #include "Input/Input.h"
-#include "Game/Turn/TurnManager.h"
-#include "Game/Player/PlayerMove.h"
-#include "Game/Turn/PlayerActionManager.h"
 
-#include "Game/Player/PlayerHitEnemy.h"
-
-extern TurnManager turnManager; // ターン管理オブジェクトのインスタンス
-extern PlayerMove playerMove; // プレイヤーの移動管理オブジェクトのインスタンス
-extern PlayerActionManager playerActionManager; // プレイヤーの行動管理オブジェクトのインスタンス
-extern PlayerHitEnemy playerHitEnemy; // プレイヤーが敵に当たったかどうかを管理するオブジェクトのインスタンス
 void InputManager::Update()
 {
 	InputUpdate();
 	ScaleChange();
-	ChangeState();
 }
 
 
@@ -40,26 +29,4 @@ void InputManager::ScaleChange()
 	}
 
 	previous = current;
-}
-
-void InputManager::ChangeState()
-{
-	bool currentTurn = (GetKey('2')) != 0;
-	if (currentTurn && !previousTurn)
-	{
-		playerTurn = !playerTurn;
-		//もし大きかったら小サイズに戻す
-		if (playerTurn)
-		{
-			playerHitEnemy.isDamage = false; // ダメージフラグをリセット
-			turnManager.SetTurnState(TurnState::PlayerAction);
-
-			// 状態変更
-			playerActionManager.SetActionState(ActionState::Move);
-
-			
-		}
-	}
-
-	previousTurn = currentTurn;
 }

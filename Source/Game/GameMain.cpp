@@ -18,6 +18,7 @@ void GameInitialize()
 	// ƒQ[ƒ€‚Ì‰Šú‰»ˆ—‚ğ‚±‚±‚É‹Lq
 	player.Initialize();
 	enemy.Initialize();
+
 }
 
 void GameUpdate()

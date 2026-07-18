@@ -9,9 +9,6 @@ public:
 	
 private:
 	void ScaleChange();
-	void ChangeState();
 	bool previous = false;
 	bool largeWindow = false;
-	bool playerTurn = false;
-	bool previousTurn = false;
 };
