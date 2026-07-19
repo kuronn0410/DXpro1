@@ -6,8 +6,10 @@
 #include "Graphics/dx2.h"
 #include "Game/GameMain.h"
 #include "Application/initialize.h"
+#include "Graphics/Font/Font.h"
 
 extern Background background; // 背景オブジェクトのインスタンス
+extern Font font; // フォントオブジェクトのインスタンス
 int initialize(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
 {
 	
@@ -23,5 +25,6 @@ int initialize(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nC
 		return -1;
 	}
 	GameInitialize();
+	font.Init(g_device);
 	return 0;
 }

@@ -39,6 +39,7 @@
     <ClCompile Include="Source\Game\Player\Player.cpp" />
     <ClCompile Include="Source\Game\Player\PlayerMove.cpp" />
     <ClCompile Include="Source\Game\Turn\TurnManager.cpp" />
+    <ClCompile Include="Source\Graphics\Font\Font.cpp" />
     <ClCompile Include="Source\Utility\help2.cpp" />
     <ClCompile Include="Source\Application\Initialize.cpp" />
     <ClCompile Include="Source\Application\InputManager.cpp" />
@@ -68,6 +69,7 @@
     <ClInclude Include="Source\Game\Player\Player.h" />
     <ClInclude Include="Source\Game\Player\PlayerMove.h" />
     <ClInclude Include="Source\Game\Turn\TurnManager.h" />
+    <ClInclude Include="Source\Graphics\Font\Font.h" />
     <ClInclude Include="Source\Utility\help1.h" />
     <ClInclude Include="Source\Application\Initialize.h" />
     <ClInclude Include="Source\Application\InputManager.h" />

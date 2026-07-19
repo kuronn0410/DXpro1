@@ -9,6 +9,7 @@
 #include "Application/initialize.h"
 #include "Game/GameMain.h"
 #include "Application/Finalize.h"
+#include "Graphics/Font/Font.h"
 
 /*
 mainの関数
@@ -17,6 +18,7 @@ WindowsとGameの更新処理を呼び出す
 
 InputManager inputManager; // インプットマネージャーのインスタンス
 Background background; // 背景オブジェクトのインスタンス
+Font font; // フォントオブジェクトのインスタンス
 
 void Update()
 {
@@ -30,7 +32,10 @@ void Draw()
 	// 描画の更新処理をここに記述
 	background.Draw();
 	GameDraw();
+	font.Draw("Hello, World!", 50, 50); // フォント描画の例
 	DrawEnd();
+	
+
 }
 
 //ウィンドウ用メイン関数
