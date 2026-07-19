@@ -6,7 +6,6 @@
 #include "Game/Turn/TurnManager.h"	
 
 
-
 //そのターンを始めるための準備
 //フラグのリセット
 //行動状態の初期化
@@ -19,8 +18,10 @@ extern EnemyActionManager enemyActionManager;
 extern TurnManager turnManager;
 
 
+
 void TurnStart()
 {
+	//isTurnEnd = false;
 	// プレイヤーの移動フラグをリセット
 	playerMove.isMoved = false;
 	// プレイヤーが敵に当たったかどうかのフラグをリセット

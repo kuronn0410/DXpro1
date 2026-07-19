@@ -32,7 +32,7 @@ void Draw()
 	// 描画の更新処理をここに記述
 	background.Draw();
 	GameDraw();
-	font.Draw("Hello, World!", 50, 50); // フォント描画の例
+	font.Draw("STAGE 1", 10, 10); // フォント描画の例
 	DrawEnd();
 	
 

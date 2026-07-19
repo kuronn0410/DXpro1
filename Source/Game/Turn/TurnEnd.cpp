@@ -23,5 +23,6 @@ void TurnEndCheck()
 	);
 	OutputDebugStringA(buffer);
 	turnManager.SetTurnState(TurnState::TurnStart);
-
+	//isTurnEnd = true;
+	
 }
