@@ -5,7 +5,7 @@
 #include "Game/Turn/EnemyActionManager.h"
 #include "Game/Turn/PlayerActionManager.h"
 
-PlayerMove playerMove;
+//PlayerMove playerMove;
 extern TurnManager turnManager;
 
 extern EnemyActionManager enemyActionManager;
@@ -22,22 +22,28 @@ bool Player::Initialize()
     }
 
     //初期化
-	playerMove.player_x = GameConfig::PlayerStartX;
-	playerMove.player_y = GameConfig::PlayerStartY;
+	startX = GameConfig::PlayerStartX;
+	startY = GameConfig::PlayerStartY;
 
 
     //playerTextureが示してる画像の情報を取得して構造体に入れる
     imageInfo = sprite.GetImageInfo();
-
-
-
     //画面サイズに合わせてスケーリングするための倍率を計算
     scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width) * 0.25f;
     scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height) * 0.25f;
-    playerMove.UpdatePosition();
+    playerMove.Initialize(
+        startX,
+		startY,   
+        static_cast<float>(imageInfo.Width),
+        static_cast<float>(imageInfo.Height),
+        scaleX,
+        scaleY
+    
+    );
 
     playerStatus.hp = GameConfig::PlayerHp;
     playerStatus.attack = GameConfig::PlayerDamage;
+	playerStatus.speed = GameConfig::PlayerSpeed;
 
     return true;
 }
@@ -45,11 +51,16 @@ bool Player::Initialize()
 
 void Player::Update()
 {
-    playerMove.Update();
+    playerMove.Update(
+        scaleX,
+        scaleY,
+        static_cast<float>(imageInfo.Width),
+        static_cast<float>(imageInfo.Height)
+    );
 
     if (playerMove.isMoved)
     {
-        
+     
 		playerActionManager.SetActionState(ActionState::End);
         turnManager.SetTurnState(TurnState::EnemyAction);
         //ターンエンド時にプレイヤーの移動フラグをリセットする
@@ -108,3 +119,14 @@ void Player::GetCharacterStatus(CharacterStatus& status) const
 	status = playerStatus;
 }
 
+const HitDetection& Player::GetHitDetection() const
+{
+        return playerMove.GetHitDetection();
+}
+
+
+
+bool& Player::GetPlayerMove()
+{
+    return playerMove.isMoved;
+}

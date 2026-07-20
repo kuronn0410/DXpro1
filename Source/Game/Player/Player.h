@@ -4,6 +4,7 @@
 #include "Game/Collision/HitDetection.h"
 #include "Graphics/Sprite/Sprite.h"
 #include "Game/CharacterStatus.h"
+#include "Game/Player/PlayerMove.h"
 
 // Player.h
 class Player
@@ -26,6 +27,9 @@ public:
     float scaleY = 0.0f;
     D3DSURFACE_DESC imageInfo = {};
     void GetCharacterStatus(CharacterStatus& status) const;
+    const HitDetection& GetHitDetection() const;
+
+    bool& GetPlayerMove();
 
 private:
     
@@ -33,5 +37,8 @@ private:
     ID3DXSprite* playerSprite = nullptr;
     Library::Graphics::Sprite sprite;
     CharacterStatus playerStatus{};
+	PlayerMove playerMove;
+    float startX = 0.0f;
+	float startY = 0.0f;
    
 };

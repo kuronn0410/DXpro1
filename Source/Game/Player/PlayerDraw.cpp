@@ -3,8 +3,6 @@
 #include "Game/Player/PlayerMove.h"
 
 
-extern PlayerMove playerMove;
-
 void Player::Draw()
 {
 

@@ -1,14 +1,39 @@
-#include "Game/Player/Player.h"
 #include "Game/Player/PlayerMove.h"
 #include "Window/WindowState.h"
 #include "Input/Input.h"
 #include <Windows.h>
 #include "Game/Collision/Collision.h"
 
-extern Player player;
-// プレイヤーがX方向に移動できるかどうかを判定する関数
-void PlayerMove::Update()
+
+void PlayerMove::Initialize(
+	float startX,
+	float startY,
+	float PlayerimageWidth,
+	float PlayerimageHeight,
+	float PlayerScaleX,
+	float PlayerScaleY
+)
 {
+	player_x = startX;
+	player_y = startY;
+	hitDetection.x = player_x;
+	hitDetection.y = player_y;
+	hitDetection.width = PlayerimageWidth * PlayerScaleX;
+	hitDetection.height = PlayerimageHeight * PlayerScaleY;
+}
+
+// プレイヤーがX方向に移動できるかどうかを判定する関数
+void PlayerMove::Update(
+	float PlayerScaleX,
+	float PlayerScaleY,
+	float PlayerimageWidth,
+	float PlayerimageHeight)
+{
+	imageWidth = PlayerimageWidth;
+	imageHeight = PlayerimageHeight;
+	scaleX = PlayerScaleX;
+	scaleY = PlayerScaleY;
+	
 	UpdatePosition();
 	player_move();
 	UpdatePosition();
@@ -21,7 +46,7 @@ void PlayerMove::player_move_left()
 		return;
 	}
 
-	moveX = -1.5f * player.GetScaleX() * 10000; // 左に移動
+	moveX = -1.5f * scaleX * 10000; // 左に移動
 	moveTimer.Start(finisheTime);
 	isXMoving = true;
 }
@@ -33,7 +58,7 @@ void PlayerMove::player_move_right()
 	{
 		return;
 	}
-	moveX = 1.5f * player.GetScaleX() * 10000; // 右に移動
+	moveX = 1.5f * scaleX * 10000; // 右に移動
 	moveTimer.Start(finisheTime);
 	isXMoving = true;
 }
@@ -44,7 +69,7 @@ void PlayerMove::player_move_up()
 	{
 		return;
 	}	
-	moveY = -1.5f * player.GetScaleY() * 10000; // 上に移動
+	moveY = -1.5f * scaleY * 10000; // 上に移動
 	moveTimer.Start(finisheTime);
 	isYMoving = true;
 }
@@ -55,7 +80,7 @@ void PlayerMove::player_move_down()
 	{
 		return;
 	}
-	moveY = 1.5f * player.GetScaleY() * 10000; // 下に移動
+	moveY = 1.5f * scaleY * 10000; // 下に移動
 	moveTimer.Start(finisheTime);
 	isYMoving = true;
 }
@@ -152,8 +177,8 @@ void PlayerMove::UpdatePosition()
 {
 	hitDetection.x = player_x;
 	hitDetection.y = player_y;
-	hitDetection.width = static_cast<float>(player.imageInfo.Width) * player.scaleX;
-	hitDetection.height = static_cast<float>(player.imageInfo.Height) * player.scaleY;
+	hitDetection.width = imageWidth * scaleX;
+	hitDetection.height = imageHeight * scaleY;
 }
 
 

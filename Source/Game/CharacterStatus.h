@@ -3,4 +3,5 @@ struct CharacterStatus
 {
     int hp;
     int attack;
+	int speed;
 };

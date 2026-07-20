@@ -7,7 +7,20 @@
 class PlayerMove
 {
 public:
-	void Update();
+	void Initialize(
+		float startX,
+		float startY,
+		float PlayerimageWidth,
+		float PlayerimageHeight,
+		float PlayerScaleX,
+		float PlayerScaleY
+	);
+	void Update(
+		float PlayerScaleX,
+		float PlayerScaleY,
+		float PlayerimageWidth,
+		float PlayerimageHeight
+	);
 	float player_x; // プレイヤーのX座標
 	float player_y; // プレイヤーのY座標
 	bool isMoved = false; // 一度動いたかどうかを判断する
@@ -34,6 +47,11 @@ private:
 	void player_move_up();
 	void player_move_down();
 	void player_move_update();
+
+	float imageWidth = 0.0f;
+	float imageHeight = 0.0f;
+	float scaleX = 0.0f;
+	float scaleY = 0.0f;
 
 	HitDetection hitDetection{};
 

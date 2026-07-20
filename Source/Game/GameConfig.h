@@ -17,4 +17,5 @@ namespace GameConfig
 
     constexpr int PlayerDamage = 10;
     constexpr int PlayerHp = 10;
+	constexpr int PlayerSpeed = 1;
 }
