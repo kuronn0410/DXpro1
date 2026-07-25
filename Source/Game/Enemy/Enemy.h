@@ -31,10 +31,10 @@ private:
 
 	//HitDetection hitDetection{};
 
-	//画像の中心座標を保持する変数
-	// *範囲追加後いらないかも
-	float centerX = 0.0f;
-	float centerY = 0.0f;
+	////画像の中心座標を保持する変数
+	//// *範囲追加後いらないかも
+	//float centerX = 0.0f;
+	//float centerY = 0.0f;
 
 	CharacterStatus enemyStatus{};
 };

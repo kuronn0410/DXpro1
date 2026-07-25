@@ -5,5 +5,6 @@ public:
 	int PlayerDealDamages();
 
 private:
-	int damageAmount = 30; // プレイヤーが与えるダメージ量
+	// プレイヤーが与えるダメージ量
+	int damageAmount = 30; 
 };

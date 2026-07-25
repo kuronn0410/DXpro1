@@ -15,8 +15,8 @@ namespace Library
 			float scaleX = 0.0f;
 			float scaleY = 0.0f;
 
-			float centerX = 0.0f;
-			float centerY = 0.0f;
+			/*float centerX = 0.0f;
+			float centerY = 0.0f;*/
 		private:
 			D3DSURFACE_DESC imageInfo = {};
 			IDirect3DTexture9* texture = nullptr;

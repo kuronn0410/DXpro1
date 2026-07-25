@@ -66,10 +66,6 @@ namespace Library
                 &position
             );
 
-
-            centerX = position.x + imageInfo.Width * scale.x * 0.5f;
-            centerY = position.y + imageInfo.Height * scale.y * 0.5f;
-
             sprite->Begin(D3DXSPRITE_ALPHABLEND);
             sprite->SetTransform(&Matrix);
 

@@ -10,35 +10,40 @@
 class Player
 {
 public:
+    
     bool Initialize();
     void Update();
     void Draw();
     void Finalize();
 
+    //Spriteの解除
     void OnLostDevice();
     void OnResetDevice();
 
+    //スケールを外部から取得するための関数
     float GetScaleX() const;
     float GetScaleY() const;
-     float centerX = 0.0f;
-    float centerY = 0.0f;
-    //構造体の用意
-    float scaleX = 0.0f;
-    float scaleY = 0.0f;
-    D3DSURFACE_DESC imageInfo = {};
     void GetCharacterStatus(CharacterStatus& status) const;
     const HitDetection& GetHitDetection() const;
-
     bool& GetPlayerMove();
 
 private:
     
+
+    //所持するオブジェクト
     IDirect3DTexture9* playerTexture = nullptr;
     ID3DXSprite* playerSprite = nullptr;
     Library::Graphics::Sprite sprite;
     CharacterStatus playerStatus{};
 	PlayerMove playerMove;
+    D3DSURFACE_DESC imageInfo = {};
+
+    //ゲーム開始時のポジションを保存する引数
     float startX = 0.0f;
 	float startY = 0.0f;
+
+    //画面のスケールに合わせたPlayerのスケール
+    float scaleX = 0.0f;
+    float scaleY = 0.0f;
    
 };
