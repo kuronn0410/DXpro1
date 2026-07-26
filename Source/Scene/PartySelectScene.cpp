@@ -1,5 +1,8 @@
 #include "Scene/PartySelectScene.h"
 #include "Window/WindowState.h"
+#include "Scene/SceneManager.h"
+
+extern SceneManager sceneManager;
 
 bool PartySelectScene::Initialize() 
 {
@@ -16,6 +19,16 @@ bool PartySelectScene::Initialize()
             100.0f                                        // Button height
         );
     }
+    backScecneButton.Initialize(
+        g_device,
+        "Assets\\Textures\\BackButton.png",
+        (g_windowWidth) / 2.0f + 280.0f,  // Position the button at the top-left corner
+        g_windowHeight * 0.03f,  // Position the button at the top-left corner
+        30.0f, // Button width
+        30.0f   // Button height
+    );
+
+   
     return true;
 }
 
@@ -26,6 +39,12 @@ void PartySelectScene::Update()
     {
         PartyButton[i].Update();
     }
+	backScecneButton.Update();
+
+    if (backScecneButton.IsClicked())
+    {
+		sceneManager.ChangeScene(SceneType::Home);
+    }
 }
 
 void PartySelectScene::Draw() 
@@ -35,6 +54,7 @@ void PartySelectScene::Draw()
     {
         PartyButton[i].Draw();
     }
+	backScecneButton.Draw();
 	
     // Draw the Party Select Scene
 }
@@ -46,5 +66,6 @@ void PartySelectScene::Finalize()
         PartyButton[i].Finalize();
     }
 	background.Finalize();
+	backScecneButton.Finalize();
     // Clean up resources for the Party Select Scene
 }
