@@ -13,6 +13,6 @@ public:
 private:
 	Background background;
 	Button PartyButton[4];
-	Button backScecneButton;
+	Button backSceneButton;
 
 };

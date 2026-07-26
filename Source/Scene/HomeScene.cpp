@@ -8,22 +8,22 @@ extern SceneManager sceneManager;
 bool HomeScene::Initialize() 
 {
 	background.Initialize("Assets\\Textures\\Home.png");
-	startButton.Initialize(
+	stageSelectButton.Initialize(
 		g_device,
-		"Assets\\Textures\\GameStartButton.png",
-		(g_windowWidth - 200.0f) / 2.0f, // Center the button horizontally
-		g_windowHeight * 0.7f,          // Position the button at 70% of the window height
-		200.0f,                         // Button width
-		100.0f                          // Button height
+		"Assets\\Textures\\StageSelectButton.png",
+		(g_windowWidth - 200.0f) / 2.0f, 
+		g_windowHeight * 0.7f,          
+		200.0f,                         
+		100.0f                        
 	);
 
 	partyCompositionButton.Initialize(
 		g_device,
 		"Assets\\Textures\\PartyComposition.png",
-		(g_windowWidth - 200.0f) / 2.0f -80.0f, // Center the button horizontally
-		g_windowHeight * 0.72f,         // Position the button at 70% of the window height
-		80.0f,                         // Button width
-		80.0f                          // Button height
+		(g_windowWidth - 200.0f) / 2.0f -80.0f, 
+		g_windowHeight * 0.72f,        
+		80.0f,                        
+		80.0f                       
 	);
 
 	
@@ -31,11 +31,11 @@ bool HomeScene::Initialize()
 }
 void HomeScene::Update()
 {
-	startButton.Update();
+	stageSelectButton.Update();
 	partyCompositionButton.Update();
-	if (startButton.IsClicked())
+	if (stageSelectButton.IsClicked())
 	{
-		sceneManager.ChangeScene(SceneType::Battle);
+		sceneManager.ChangeScene(SceneType::StageSelect);
 	}
 	if (partyCompositionButton.IsClicked())
 	{
@@ -49,7 +49,7 @@ void HomeScene::Draw()
 {
 	
 	background.Draw();
-	startButton.Draw();
+	stageSelectButton.Draw();
 	partyCompositionButton.Draw();
 	
 	
@@ -57,6 +57,6 @@ void HomeScene::Draw()
 void HomeScene::Finalize() 
 {
 	background.Finalize();
-	startButton.Finalize();
+	stageSelectButton.Finalize();
 	partyCompositionButton.Finalize();	
 }

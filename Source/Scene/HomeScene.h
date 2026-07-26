@@ -11,6 +11,6 @@ public:
     void Finalize() override;
 private:
 	Background background;
-	Button startButton;
+	Button stageSelectButton;
 	Button partyCompositionButton;
 };

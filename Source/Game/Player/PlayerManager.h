@@ -7,6 +7,5 @@ public:
 	void Update();
 	void Finalize();
 private:
-	Player player1;
-	Player player2;
+	Player player[4];
 };

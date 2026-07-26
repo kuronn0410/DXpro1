@@ -19,7 +19,7 @@ bool PartySelectScene::Initialize()
             100.0f                                        // Button height
         );
     }
-    backScecneButton.Initialize(
+    backSceneButton.Initialize(
         g_device,
         "Assets\\Textures\\BackButton.png",
         (g_windowWidth) / 2.0f + 280.0f,  // Position the button at the top-left corner
@@ -39,9 +39,9 @@ void PartySelectScene::Update()
     {
         PartyButton[i].Update();
     }
-	backScecneButton.Update();
+	backSceneButton.Update();
 
-    if (backScecneButton.IsClicked())
+    if (backSceneButton.IsClicked())
     {
 		sceneManager.ChangeScene(SceneType::Home);
     }
@@ -54,7 +54,7 @@ void PartySelectScene::Draw()
     {
         PartyButton[i].Draw();
     }
-	backScecneButton.Draw();
+	backSceneButton.Draw();
 	
     // Draw the Party Select Scene
 }
@@ -66,6 +66,6 @@ void PartySelectScene::Finalize()
         PartyButton[i].Finalize();
     }
 	background.Finalize();
-	backScecneButton.Finalize();
+	backSceneButton.Finalize();
     // Clean up resources for the Party Select Scene
 }
