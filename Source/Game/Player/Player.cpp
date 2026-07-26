@@ -73,18 +73,18 @@ void Player::Update()
 
 void Player::Finalize()
 {
-    // プレイヤーの終了処理をここに記述
-    if (playerTexture != nullptr)
-    {
-        playerTexture->Release();
-        playerTexture = nullptr;
-    }
+    //// プレイヤーの終了処理をここに記述
+    //if (playerTexture != nullptr)
+    //{
+    //    playerTexture->Release();
+    //    playerTexture = nullptr;
+    //}
 
-    if (playerSprite != nullptr)
-    {
-        playerSprite->Release();
-        playerSprite = nullptr;
-    }
+    //if (playerSprite != nullptr)
+    //{
+    //    playerSprite->Release();
+    //    playerSprite = nullptr;
+    //}
 }
 
 void Player::OnLostDevice()

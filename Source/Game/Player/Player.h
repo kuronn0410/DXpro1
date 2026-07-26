@@ -30,9 +30,9 @@ public:
 private:
     
 
-    //所持するオブジェクト
-    IDirect3DTexture9* playerTexture = nullptr;
-    ID3DXSprite* playerSprite = nullptr;
+    ////所持するオブジェクト
+    //IDirect3DTexture9* playerTexture = nullptr;
+    //ID3DXSprite* playerSprite = nullptr;
     Library::Graphics::Sprite sprite;
     CharacterStatus playerStatus{};
 	PlayerMove playerMove;

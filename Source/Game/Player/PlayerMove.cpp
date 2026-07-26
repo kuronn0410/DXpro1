@@ -3,6 +3,7 @@
 #include "Input/Input.h"
 #include <Windows.h>
 #include "Game/Collision/Collision.h"
+#include <stdio.h>
 
 
 void PlayerMove::Initialize(
@@ -29,6 +30,7 @@ void PlayerMove::Update(
 	float PlayerimageWidth,
 	float PlayerimageHeight)
 {
+
 	imageWidth = PlayerimageWidth;
 	imageHeight = PlayerimageHeight;
 	scaleX = PlayerScaleX;
@@ -100,7 +102,7 @@ void PlayerMove::player_move_update()
 
 	if(isXMoving)
 	{
-		
+
 		player_x += movementX;
 		UpdatePosition();
 		if (!IsInsideScreen(g_windowWidth, g_windowHeight, hitDetection))

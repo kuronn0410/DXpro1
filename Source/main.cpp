@@ -4,35 +4,36 @@
 #include <Windows.h>
 #include "Window/win.h"
 #include "Application/InputManager.h"
-#include "Graphics/background.h"
 #include "Graphics/dx2.h"
 #include "Application/initialize.h"
-#include "Game/GameMain.h"
+//#include "Game/GameMain.h"
 #include "Application/Finalize.h"
 #include "Graphics/Font/Font.h"
+#include "Scene/SceneManager.h"
 
 /*
 mainの関数
 WindowsとGameの更新処理を呼び出す
 */
 
+SceneManager sceneManager; // シーンマネージャーのインスタンス
 InputManager inputManager; // インプットマネージャーのインスタンス
-Background background; // 背景オブジェクトのインスタンス
 Font font; // フォントオブジェクトのインスタンス
 
 void Update()
 {
-	DrawBegin();
 	WindowUpdate();
-	GameUpdate();
+	//GameUpdate();
+	sceneManager.Update();
 }
 
 void Draw()
 {
-	// 描画の更新処理をここに記述
-	background.Draw();
-	GameDraw();
+	DrawBegin();
+	//GameDraw();
+	sceneManager.Draw();
 	font.Draw("STAGE 1", 10, 10); // フォント描画の例
+	
 	DrawEnd();
 	
 

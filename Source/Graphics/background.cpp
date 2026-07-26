@@ -3,12 +3,12 @@
 
 #include "Graphics/background.h"
 
-bool Background::Initialize()
+bool Background::Initialize(const char* texturePath)
 {
 
     if (!sprite.Init(
         g_device,
-        "Assets\\Textures\\Shiba.png"))
+        texturePath))
     {
         return false;
     }

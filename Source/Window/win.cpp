@@ -5,11 +5,11 @@
 #include <Windows.h>
 #include "Game/Player/Player.h"
 #include "Window/WindowState.h"//ウィンドウの状態を保持する変数
-#include "Graphics/background.h"
+//#include "Graphics/background.h"
 #pragma endregion
 
 extern Player player; // プレイヤーオブジェクトのインスタンス
-extern Background background; // 背景オブジェクトのインスタンス
+//extern Background background; // 背景オブジェクトのインスタンス
 #pragma region ウィンドウ静的定義
 HWND h_WIN = NULL;//プレイ中のウィンドウ
 const char* WIN_TITLE = "CGプログラミング";//ウィンドウバーのタイトル
@@ -55,12 +55,12 @@ LRESULT CALLBACK window_proc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 			{
 				g_windowWidth = LOWORD(lParam);
 				g_windowHeight = HIWORD(lParam);
-				background.OnLostDevice();
+				/*background.OnLostDevice();*/
 				player.OnLostDevice();
 
 				if (DirectXResize(g_windowWidth, g_windowHeight))
 				{
-					background.OnResetDevice();
+					/*background.OnResetDevice();*/
 					player.OnResetDevice();
 				}
 			}

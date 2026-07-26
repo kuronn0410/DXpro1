@@ -4,10 +4,15 @@
 #include "Window/win.h"
 #include "Input/Input.h"
 
+#include "Scene/SceneManager.h"
+
+extern SceneManager sceneManager; // シーンマネージャーのインスタンス
+
 void InputManager::Update()
 {
 	InputUpdate();
 	ScaleChange();
+	InputSceneChange();
 }
 
 
@@ -29,4 +34,23 @@ void InputManager::ScaleChange()
 	}
 
 	previous = current;
+}
+
+void InputManager::InputSceneChange()
+{
+	bool current = (GetKey('Q')) != 0;
+	if (current && !previousScene)
+	{
+		isBattleScene = !isBattleScene;
+		if (isBattleScene)
+		{
+			sceneManager.ChangeScene(SceneType::Battle);
+		}
+		else
+		{
+			sceneManager.ChangeScene(SceneType::Home);
+		}
+	}
+
+	previousScene = current;
 }

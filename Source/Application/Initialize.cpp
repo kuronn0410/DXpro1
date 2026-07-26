@@ -4,12 +4,13 @@
 #include "Window/win.h"
 #include "Graphics/background.h"
 #include "Graphics/dx2.h"
-#include "Game/GameMain.h"
-#include "Application/initialize.h"
 #include "Graphics/Font/Font.h"
+#include "Scene/SceneManager.h"
+#include "Scene/SceneType.h"
 
 extern Background background; // 背景オブジェクトのインスタンス
 extern Font font; // フォントオブジェクトのインスタンス
+extern SceneManager sceneManager; // シーンマネージャーのインスタンス
 int initialize(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
 {
 	
@@ -19,12 +20,8 @@ int initialize(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nC
 	{
 		return -1;
 	}
-
-	if (!background.Initialize())
-	{
-		return -1;
-	}
-	GameInitialize();
+	sceneManager.Initialize(SceneType::Home); // 初期シーンをHomeに設定
+	//GameInitialize();
 	font.Init(g_device);
 	return 0;
 }

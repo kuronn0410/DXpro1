@@ -5,7 +5,7 @@
 class Background
 {
 public:
-	bool Initialize();
+	bool Initialize(const char* texturePath);
 	void Draw();
 	void Finalize();
 

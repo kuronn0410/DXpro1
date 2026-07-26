@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Library\DebugTools\Debug.cpp" />
     <ClCompile Include="Library\Graphics\Sprite\Sprite.cpp" />
     <ClCompile Include="Source\Game\CharacterStatus.h" />
     <ClCompile Include="Source\Game\Collision\Collision.cpp" />
@@ -41,6 +42,11 @@
     <ClCompile Include="Source\Game\Player\PlayerMove.cpp" />
     <ClCompile Include="Source\Game\Turn\TurnManager.cpp" />
     <ClCompile Include="Source\Graphics\Font\Font.cpp" />
+    <ClCompile Include="Source\Scene\BattleScene.cpp" />
+    <ClCompile Include="Source\Scene\HomeScene.cpp" />
+    <ClCompile Include="Source\Scene\SceneManager.cpp" />
+    <ClCompile Include="Source\Scene\StageSelectScene.cpp" />
+    <ClCompile Include="Source\UI\Button\Button.cpp" />
     <ClCompile Include="Source\Utility\help2.cpp" />
     <ClCompile Include="Source\Application\Initialize.cpp" />
     <ClCompile Include="Source\Application\InputManager.cpp" />
@@ -51,6 +57,7 @@
     <ClCompile Include="Library\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Library\DebugTools\Debug.h" />
     <ClInclude Include="Library\Graphics\Sprite\Sprite.h" />
     <ClInclude Include="Source\Game\Collision\Collision.h" />
     <ClInclude Include="Source\Game\Collision\HitDetection.h" />
@@ -73,6 +80,13 @@
     <ClInclude Include="Source\Game\Player\PlayerMove.h" />
     <ClInclude Include="Source\Game\Turn\TurnManager.h" />
     <ClInclude Include="Source\Graphics\Font\Font.h" />
+    <ClInclude Include="Source\Scene\BattleScene.h" />
+    <ClInclude Include="Source\Scene\HomeScene.h" />
+    <ClInclude Include="Source\Scene\IScene.h" />
+    <ClInclude Include="Source\Scene\SceneManager.h" />
+    <ClInclude Include="Source\Scene\SceneType.h" />
+    <ClInclude Include="Source\Scene\StageSelectScene.h" />
+    <ClInclude Include="Source\UI\Button\Button.h" />
     <ClInclude Include="Source\Utility\help1.h" />
     <ClInclude Include="Source\Application\Initialize.h" />
     <ClInclude Include="Source\Application\InputManager.h" />

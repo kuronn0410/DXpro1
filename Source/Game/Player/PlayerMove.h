@@ -21,15 +21,17 @@ public:
 		float PlayerimageWidth,
 		float PlayerimageHeight
 	);
-	float player_x; // プレイヤーのX座標
-	float player_y; // プレイヤーのY座標
-	bool isMoved = false; // 一度動いたかどうかを判断する
+
 	// プレイヤーの移動処理時の当たり判定に使用する数値の計算をする関数
 	void UpdatePosition();
 	const HitDetection& GetHitDetection() const;
+	//start処理でリセットする
+	bool isMoved = false; // 一度動いたかどうかを判断する
+	float player_x; // プレイヤーのX座標
+	float player_y; // プレイヤーのY座標
 
 private:
-	
+
 	float moveX = 0.0f; // X方向の進む量
 	float moveY = 0.0f; // Y方向の進む量
 
