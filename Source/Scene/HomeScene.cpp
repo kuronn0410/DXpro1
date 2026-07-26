@@ -20,10 +20,10 @@ bool HomeScene::Initialize()
 	partyCompositionButton.Initialize(
 		g_device,
 		"Assets\\Textures\\PartyComposition.png",
-		(g_windowWidth - 200.0f) / 2.0f -100.0f, // Center the button horizontally
-		g_windowHeight * 0.7f,         // Position the button at 70% of the window height
-		100.0f,                         // Button width
-		100.0f                          // Button height
+		(g_windowWidth - 200.0f) / 2.0f -80.0f, // Center the button horizontally
+		g_windowHeight * 0.72f,         // Position the button at 70% of the window height
+		80.0f,                         // Button width
+		80.0f                          // Button height
 	);
 
 	
