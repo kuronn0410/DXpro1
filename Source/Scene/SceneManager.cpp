@@ -9,7 +9,7 @@ bool SceneManager::Initialize(SceneType initialSceneType)
 		currentScene = std::make_unique<HomeScene>();
 		break;
 	case SceneType::PartySelect:
-
+		currentScene = std::make_unique<PartySelectScene>();
 		break;
 	case SceneType::StageSelect:
 		currentScene = std::make_unique<StageSelectScene>();
@@ -74,7 +74,7 @@ void SceneManager::ChangeScene(SceneType nextSceneType)
 		currentScene = std::make_unique<HomeScene>();
 		break;
 	case SceneType::PartySelect:
-		
+		currentScene = std::make_unique<PartySelectScene>();
 		break;
 	case SceneType::StageSelect:
 		currentScene = std::make_unique<StageSelectScene>();

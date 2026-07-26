@@ -1,8 +1,9 @@
 #pragma once
+#pragma once
 #include "Scene/IScene.h"
 #include "Graphics/background.h"
 #include "UI/Button/Button.h"
-class HomeScene : public IScene
+class PartySelectScene : public IScene
 {
 public:
     bool Initialize() override;
@@ -11,6 +12,6 @@ public:
     void Finalize() override;
 private:
 	Background background;
-	Button startButton;
-	Button partyCompositionButton;
+	Button PartyButton[4];
+
 };
