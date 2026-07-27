@@ -42,6 +42,8 @@
     <ClCompile Include="Source\Game\Player\PlayerMove.cpp" />
     <ClCompile Include="Source\Game\Turn\TurnManager.cpp" />
     <ClCompile Include="Source\Graphics\Font\Font.cpp" />
+    <ClCompile Include="Source\Party\CharacterManager.cpp" />
+    <ClCompile Include="Source\Party\CharacterType.h" />
     <ClCompile Include="Source\Scene\BattleScene.cpp" />
     <ClCompile Include="Source\Scene\HomeScene.cpp" />
     <ClCompile Include="Source\Scene\PartySelectScene.cpp" />
@@ -82,6 +84,8 @@
     <ClInclude Include="Source\Game\Player\PlayerMove.h" />
     <ClInclude Include="Source\Game\Turn\TurnManager.h" />
     <ClInclude Include="Source\Graphics\Font\Font.h" />
+    <ClInclude Include="Source\Party\CharacterManager.h" />
+    <ClInclude Include="Source\Party\CharacterStatus.h" />
     <ClInclude Include="Source\Scene\BattleScene.h" />
     <ClInclude Include="Source\Scene\HomeScene.h" />
     <ClInclude Include="Source\Scene\IScene.h" />

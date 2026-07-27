@@ -2,6 +2,7 @@
 #include "Window/WindowState.h"
 #include "Scene/SceneManager.h"
 
+
 extern SceneManager sceneManager;
 
 bool RewardScene::Initialize()
