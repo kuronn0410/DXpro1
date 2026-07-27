@@ -45,6 +45,7 @@
     <ClCompile Include="Source\Scene\BattleScene.cpp" />
     <ClCompile Include="Source\Scene\HomeScene.cpp" />
     <ClCompile Include="Source\Scene\PartySelectScene.cpp" />
+    <ClCompile Include="Source\Scene\RewardScene.cpp" />
     <ClCompile Include="Source\Scene\SceneManager.cpp" />
     <ClCompile Include="Source\Scene\StageSelectScene.cpp" />
     <ClCompile Include="Source\UI\Button\Button.cpp" />
@@ -85,6 +86,7 @@
     <ClInclude Include="Source\Scene\HomeScene.h" />
     <ClInclude Include="Source\Scene\IScene.h" />
     <ClInclude Include="Source\Scene\PartySelectScene.h" />
+    <ClInclude Include="Source\Scene\RewardScene.h" />
     <ClInclude Include="Source\Scene\SceneManager.h" />
     <ClInclude Include="Source\Scene\SceneType.h" />
     <ClInclude Include="Source\Scene\StageSelectScene.h" />

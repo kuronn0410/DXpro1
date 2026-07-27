@@ -5,7 +5,7 @@
 #include "Scene/StageSelectScene.h"
 #include "Scene/BattleScene.h"
 #include "Scene/PartySelectScene.h"
-//#include "Scene/RewardScene.h"
+#include "Scene/RewardScene.h"
 #include <memory>
 
 
