@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -42,8 +42,12 @@
     <ClCompile Include="Source\Game\Player\PlayerMove.cpp" />
     <ClCompile Include="Source\Game\Turn\TurnManager.cpp" />
     <ClCompile Include="Source\Graphics\Font\Font.cpp" />
+    <ClCompile Include="Source\Party\CharacterData.h" />
+    <ClCompile Include="Source\Party\CharacterDatabase.cpp" />
+    <ClCompile Include="Source\Party\CharacterDatabase.h" />
     <ClCompile Include="Source\Party\CharacterManager.cpp" />
     <ClCompile Include="Source\Party\CharacterType.h" />
+    <ClCompile Include="Source\Party\PlayerStatusInitializer.cpp" />
     <ClCompile Include="Source\Scene\BattleScene.cpp" />
     <ClCompile Include="Source\Scene\HomeScene.cpp" />
     <ClCompile Include="Source\Scene\PartySelectScene.cpp" />
@@ -86,6 +90,7 @@
     <ClInclude Include="Source\Graphics\Font\Font.h" />
     <ClInclude Include="Source\Party\CharacterManager.h" />
     <ClInclude Include="Source\Party\CharacterStatus.h" />
+    <ClInclude Include="Source\Party\PlayerStatusInitializer.h" />
     <ClInclude Include="Source\Scene\BattleScene.h" />
     <ClInclude Include="Source\Scene\HomeScene.h" />
     <ClInclude Include="Source\Scene\IScene.h" />

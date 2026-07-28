@@ -84,7 +84,7 @@ void SceneManager::ChangeScene(SceneType nextSceneType)
 		currentScene = std::make_unique<BattleScene>();
 		break;
 	case SceneType::Reward:
-		currentScene = std::make_unique<RewardScene>(); // RewardƒV[ƒ“‚Í‚Ü‚¾À‘•‚³‚ê‚Ä‚¢‚È‚¢‚½‚ßAnullptr‚Éİ’è
+		currentScene = std::make_unique<RewardScene>(); 
 		break;
 	default:
 		break;		

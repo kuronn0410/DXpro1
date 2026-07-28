@@ -1,11 +1,30 @@
 #pragma once
+#include <vector>
+#include "Party/CharacterStatus.h"
+#include "Party/PlayerStatusInitializer.h"
+
 
 class CharacterManager
 {
 public:
-	bool Init();
-	void Update();
+	// ゲーム開始時にキャラクター情報を初期化する関数
+	bool Initialize();
+	
+	// パーティーに編成画面で全キャラ表示するための関数
+	const std::vector<CharacterStatus>& GetAllCharacters() const;
+	const CharacterStatus* GetAllPartyCharacter() const;
+	bool AddCharacterToParty(int characterIndex);
+	bool RemoveCharacterFromParty(int partyIndex);
+
+	//メモリの解放
 	void Finalize();
 private:
-	List<CharacterStatus> characters;
+	PlayerStatusInitializer playerStatusInitializer;
+	//キャラクター全体の情報を格納する配列
+	std::vector<CharacterStatus> characters;
+	// パーティーに編成するキャラクターの情報を格納する配列
+	CharacterStatus partyCharacter[4];
+
+	int partyCount;
+
 };
