@@ -1,3 +1,5 @@
 #pragma once
 
-void finalize();
+#include "Scene/SceneManager.h"	
+
+void finalize(SceneManager& sceneManager);

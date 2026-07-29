@@ -8,10 +8,10 @@
 #include "Scene/SceneManager.h"
 #include "Scene/SceneType.h"
 
+
 extern Background background; // 背景オブジェクトのインスタンス
 extern Font font; // フォントオブジェクトのインスタンス
-extern SceneManager sceneManager; // シーンマネージャーのインスタンス
-int initialize(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
+int initialize(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow, SceneManager& sceneManager)
 {
 	
 	WindowInitialize(hWnd);

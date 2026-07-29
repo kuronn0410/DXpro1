@@ -9,10 +9,6 @@ public:
 	
 private:
 	void ScaleChange();
-	void InputSceneChange();
 	bool previous = false;
 	bool largeWindow = false;
-
-	bool isBattleScene = false;
-	bool previousScene = false;
 };

@@ -14,6 +14,8 @@ public:
 	// キャラクター編成UIの描画を行う関数
 	void Draw();
 	void Finalize();
+
+	bool CheckIsCharacterInParty(int characterIndex) const;
 private:
 	std::vector<CharacterStatus> characters;
 	int TotalCharacterNumber = 0;
@@ -23,4 +25,6 @@ private:
 	void AddCharacterToParty(int characterIndex);
 	//入れられるかどうか判定する値を受け取る
 	int partyCount = 0;
+	//パーティに追加されたキャラクターのインデックスを保持する配列
+	int AddpartyIndex[4] = {};
 };

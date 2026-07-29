@@ -52,12 +52,33 @@ void CharacterCompositionUI::Update()
 		characterButton[i].Update();
 		if(characterButton[i].IsClicked())
 		{
-			if (partyCount < 4)
+			if (partyCount < 4 && !CheckIsCharacterInParty(i))
 			{
 				AddCharacterToParty(i);
+				// 追加されたキャラクターのインデックスを保存
+				AddpartyIndex[partyCount - 1] = i;
 			}
-			
-			
+		}
+
+		
+		
+	}
+	if(partyCount > 0)
+	{
+		for(int i = 0; i < partyCount; ++i)
+		{
+			partyButton[i].Update();
+			if(partyButton[i].IsClicked())
+			{
+				characterManager->RemoveCharacterFromParty(i);
+				// パーティーから削除されたキャラクターのインデックスを削除
+				for (int j = i; j < partyCount - 1; ++j)
+				{
+					AddpartyIndex[j] = AddpartyIndex[j + 1];
+				}
+				AddpartyIndex[partyCount - 1] = -1; // 最後の要素を初期化
+				partyCount--;
+			}
 		}
 	}
 
@@ -80,10 +101,20 @@ void CharacterCompositionUI::AddCharacterToParty(int characterIndex)
 			80.0f
 		);
 		partyCount++;
-		
 	}
 }
 
+bool CharacterCompositionUI::CheckIsCharacterInParty(int characterIndex) const
+{
+	for (int i = 0; i < partyCount; ++i)
+	{
+		if (AddpartyIndex[i] == characterIndex)
+		{
+			return true;
+		}
+	}
+	return false;
+}
 
 void CharacterCompositionUI::Draw()
 {

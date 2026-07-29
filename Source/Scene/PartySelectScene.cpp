@@ -3,8 +3,6 @@
 #include "Scene/SceneManager.h"
 #include "DebugTools/Debug.h"
 
-extern SceneManager sceneManager;
-
 bool PartySelectScene::Initialize() 
 {
     Library::DebugTools::DebugLog("PartySelectScene Initialize");

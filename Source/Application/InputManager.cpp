@@ -12,7 +12,6 @@ void InputManager::Update()
 {
 	InputUpdate();
 	ScaleChange();
-	InputSceneChange();
 }
 
 
@@ -32,25 +31,5 @@ void InputManager::ScaleChange()
 			win_resize(640, 480);
 		}
 	}
-
 	previous = current;
-}
-
-void InputManager::InputSceneChange()
-{
-	bool current = (GetKey('Q')) != 0;
-	if (current && !previousScene)
-	{
-		isBattleScene = !isBattleScene;
-		if (isBattleScene)
-		{
-			sceneManager.ChangeScene(SceneType::Battle);
-		}
-		else
-		{
-			sceneManager.ChangeScene(SceneType::Home);
-		}
-	}
-
-	previousScene = current;
 }

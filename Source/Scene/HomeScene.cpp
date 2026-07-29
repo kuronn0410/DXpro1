@@ -3,7 +3,7 @@
 #include "Scene/SceneManager.h"
 #include "DebugTools/Debug.h"
 
-extern SceneManager sceneManager;
+//extern SceneManager sceneManager;
 
 bool HomeScene::Initialize() 
 {

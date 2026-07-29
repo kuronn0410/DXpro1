@@ -5,12 +5,8 @@
 #include "Scene/SceneManager.h"
 
 extern Player player; // プレイヤーオブジェクトのインスタンス
-//extern Background background; // 背景オブジェクトのインスタンス
-extern SceneManager sceneManager; // シーンマネージャーのインスタンス
-void finalize()
+void finalize(SceneManager& sceneManager)
 {
-	//GameFinalize();
 	sceneManager.Finalize();
-	//background.Finalize();
 	DirectXFinalize();
 }
