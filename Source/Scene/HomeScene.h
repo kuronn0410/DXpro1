@@ -2,6 +2,7 @@
 #include "Scene/IScene.h"
 #include "Graphics/background.h"
 #include "UI/Button/Button.h"
+
 class HomeScene : public IScene
 {
 public:
@@ -13,4 +14,5 @@ private:
 	Background background;
 	Button stageSelectButton;
 	Button partyCompositionButton;
+    
 };

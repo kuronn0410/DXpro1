@@ -3,7 +3,7 @@
 #include "Window/WindowState.h"
 #include "Game/Collision/HitDetection.h"
 #include "Graphics/Sprite/Sprite.h"
-#include "Game/CharacterStatus.h"
+#include "Party/CharacterStatus.h"
 #include "Game/Player/PlayerMove.h"
 
 // Player.h

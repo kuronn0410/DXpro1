@@ -1,11 +1,13 @@
 #include "Scene/PartySelectScene.h"
 #include "Window/WindowState.h"
 #include "Scene/SceneManager.h"
+#include "DebugTools/Debug.h"
 
 extern SceneManager sceneManager;
 
 bool PartySelectScene::Initialize() 
 {
+    Library::DebugTools::DebugLog("PartySelectScene Initialize");
 	background.Initialize("Assets\\Textures\\PartySelect.png");
     // Initialize resources for the Party Select Scene
     for (int i = 0; i < 4; ++i)
@@ -28,6 +30,9 @@ bool PartySelectScene::Initialize()
         30.0f   // Button height
     );
 
+	
+	characterManager.Initialize();  
+	characterCompositionUI.Initialize(characterManager);
    
     return true;
 }
@@ -45,6 +50,7 @@ void PartySelectScene::Update()
     {
 		sceneManager.ChangeScene(SceneType::Home);
     }
+	characterCompositionUI.Update();
 }
 
 void PartySelectScene::Draw() 
@@ -55,6 +61,7 @@ void PartySelectScene::Draw()
         PartyButton[i].Draw();
     }
 	backSceneButton.Draw();
+	characterCompositionUI.Draw();
 	
     // Draw the Party Select Scene
 }
@@ -65,6 +72,8 @@ void PartySelectScene::Finalize()
     {
         PartyButton[i].Finalize();
     }
+    characterCompositionUI.Finalize();
+    characterManager.Finalize();
 	background.Finalize();
 	backSceneButton.Finalize();
     // Clean up resources for the Party Select Scene

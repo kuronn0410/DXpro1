@@ -1,8 +1,11 @@
+#pragma once
 #include "CharacterDatabase.h"
+#include "DebugTools/Debug.h"
 
 bool CharacterDatabase::Initialize()
 {
 	CreateCharacterDatabase();
+	Library::DebugTools::DebugLog("CharacterDatabase Initialize");
 	return true;
 }
 

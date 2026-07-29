@@ -1,4 +1,6 @@
 #include "Party/PlayerStatusInitializer.h"
+#include "DebugTools/Debug.h"
+
 /*
 所持しているキャラクター(PlayerStatus)の初期化を行い実態を作成するクラス
 */
@@ -6,6 +8,9 @@
 void PlayerStatusInitializer::Initialize()
 {
 	characterDatabase.Initialize(); // CharacterDatabaseの初期化
+	playerCharacters.clear();
+	playerCharacters.resize(6);
+	
 	// 所持キャラクターの初期化処理をここに記述
 	for(int i = 0; i < 6; ++i)
 	{
@@ -14,7 +19,9 @@ void PlayerStatusInitializer::Initialize()
 		if (data)
 		{
 			playerCharacters[i].type = data->type; // キャラクターの種類を設定
+			playerCharacters[i].spritePath = data->spritePath; // スプライトパスを設定
 			playerCharacters[i].level = possessionCharacters[i].level; // レベルを設定
+
 			int level = possessionCharacters[i].level; // レベルを取得
 			playerCharacters[i].currentHp = (data->maxHp)+(level*10); // 初期HPを設定
 			playerCharacters[i].maxHp = (data->maxHp)+(level*10); // 最大HPを設定
@@ -22,7 +29,9 @@ void PlayerStatusInitializer::Initialize()
 			playerCharacters[i].spd = (data->spd)+(level*1); // 速度を設定
 			
 		}
+		Library::DebugTools::DebugLog("CharacterManager Initialize");
 	}
+	
 }
 
 //CharacteManagerでキャラクターの情報を取得するための関数

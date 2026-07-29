@@ -4,7 +4,7 @@
 #include "Game/Collision/HitDetection.h"
 #include "Game/Enemy/EnemyMove1.h"
 #include "Graphics/Sprite/Sprite.h"
-#include "Game/CharacterStatus.h"
+#include "Party/CharacterStatus.h"
 
 class Enemy
 {

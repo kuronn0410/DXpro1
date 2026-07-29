@@ -1,4 +1,7 @@
 #include "Debug.h"
+#include <Windows.h>
+#include <cstdio>
+
 
 namespace Library
 {
@@ -6,9 +9,15 @@ namespace Library
 	{
 		void DebugLog(const char* message)
 		{
-			// デバッグメッセージを出力する処理を実装
-			// ここでは標準出力に出力する例を示す
-			printf("[DEBUG] %s\n", message);
+			char buffer[512];
+
+			sprintf_s(
+				buffer,
+				"[DEBUG] %s\n",
+				message
+			);
+
+			OutputDebugStringA(buffer);
 		}
 	}
 }

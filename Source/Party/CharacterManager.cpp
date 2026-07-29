@@ -1,4 +1,5 @@
 #include "Party/CharacterManager.h"
+#include "DebugTools/Debug.h"
 
 /*
 ゲーム開始時にキャラクター情報を初期化する関数
@@ -13,6 +14,7 @@
 // ゲーム開始時にキャラクター情報を初期化する関数
 bool CharacterManager::Initialize()
 {
+	Library::DebugTools::DebugLog("CharacterManager Initialize");
 	playerStatusInitializer.Initialize();
 	// 所持キャラクターの情報を取得
 	characters = playerStatusInitializer.GetPlayerCharacters();

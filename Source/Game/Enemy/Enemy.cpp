@@ -25,8 +25,8 @@ bool Enemy::Initialize()
 	// “G‚Ì“–‚½‚è”»’è‚Ì‰Šú‰»
 	enemyMove1.UpdatePosition();
 
-	enemyStatus.hp = GameConfig::EnemyHp;
-	enemyStatus.attack = GameConfig::EnemyDamage;
+	enemyStatus.maxHp = GameConfig::EnemyHp;
+	enemyStatus.atk = GameConfig::EnemyDamage;
 
 	return true;
 }
@@ -42,7 +42,7 @@ void Enemy::Update()
 		// ó‘Ô•ÏX
 		//playerActionManager.SetActionState(ActionState::None);
 	}
-	if(enemyStatus.hp <= 0)
+	if(enemyStatus.maxHp <= 0)
 	{
 		IsAlive = false;
 	}
@@ -63,8 +63,8 @@ const HitDetection& Enemy::GetHitDetection() const
 
 void Enemy::DamageToCharacter(int damage)
 {
-	enemyStatus.hp -= damage;
-	if (enemyStatus.hp <= 0)
+	enemyStatus.maxHp -= damage;
+	if (enemyStatus.maxHp <= 0)
 	{
 		IsAlive = false;
 	}

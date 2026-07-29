@@ -41,9 +41,9 @@ bool Player::Initialize()
     
     );
 
-    playerStatus.hp = GameConfig::PlayerHp;
-    playerStatus.attack = GameConfig::PlayerDamage;
-	playerStatus.speed = GameConfig::PlayerSpeed;
+    playerStatus.maxHp = GameConfig::PlayerHp;
+    playerStatus.atk = GameConfig::PlayerDamage;
+	playerStatus.spd = GameConfig::PlayerSpeed;
 
     return true;
 }

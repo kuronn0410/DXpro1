@@ -25,6 +25,6 @@ private:
 	// パーティーに編成するキャラクターの情報を格納する配列
 	CharacterStatus partyCharacter[4];
 
-	int partyCount;
+	int partyCount = 0;
 
 };
