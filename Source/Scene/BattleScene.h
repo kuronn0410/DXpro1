@@ -2,7 +2,6 @@
 #include "Scene/IScene.h"
 #include "Graphics/background.h"    
 #include "UI/Button/Button.h"
-#include "Scene/SceneManager.h"
 
 class SceneManager;
 

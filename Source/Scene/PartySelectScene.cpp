@@ -13,19 +13,19 @@ bool PartySelectScene::Initialize()
         PartyButton[i].Initialize(
             g_device,
             "Assets\\Textures\\CharacterFrame.png",
-            (g_windowWidth - 400.0f) / 2.0f + i * 100.0f, // Position buttons horizontally
-            g_windowHeight * 0.7f,                        // Position buttons at 70% of the window height
-            100.0f,                                       // Button width
-            100.0f                                        // Button height
+            (g_windowWidth - 400.0f) / 2.0f + i * 100.0f, 
+            g_windowHeight * 0.7f,                       
+            100.0f,                                      
+            100.0f                                        
         );
     }
     backSceneButton.Initialize(
         g_device,
         "Assets\\Textures\\BackButton.png",
-        (g_windowWidth) / 2.0f + 280.0f,  // Position the button at the top-left corner
-        g_windowHeight * 0.03f,  // Position the button at the top-left corner
-        30.0f, // Button width
-        30.0f   // Button height
+        (g_windowWidth) / 2.0f + 280.0f, 
+        g_windowHeight * 0.03f,  
+        30.0f, 
+        30.0f   
     );
 
 	

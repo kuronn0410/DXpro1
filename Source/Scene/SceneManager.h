@@ -12,6 +12,7 @@
 class SceneManager
 {
 public:
+	SceneManager(CharacterManager& characterManager) : characterManager(characterManager) {};
 	bool Initialize(SceneType initialSceneType);
 	void Update();
 	void Draw();
@@ -21,6 +22,9 @@ public:
 private:
 	//現在のシーンオブジェクト　unique_ptr <memory>
 	std::unique_ptr<IScene> currentScene;
+	
+	//キャラクターマネージャーへの参照
+	CharacterManager& characterManager;
 
 	//現在のシーンタイプ
 	//SceneType currentSceneType;

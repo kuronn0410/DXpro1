@@ -5,14 +5,15 @@
 #include "UI/Button/Button.h"
 #include "Party/UI/CharacterCompositionUI.h"
 #include "Party/CharacterManager.h"
-#include "Scene/SceneManager.h"
 
 class SceneManager;
+class CharacterManager;
 
 class PartySelectScene : public IScene
 {
 public:
-	PartySelectScene(SceneManager& sceneManager) : sceneManager(sceneManager) {};
+	PartySelectScene(SceneManager& sceneManager, CharacterManager& characterManager) 
+		: sceneManager(sceneManager), characterManager(characterManager) {};
     bool Initialize() override;
     void Update() override;
     void Draw() override;
@@ -24,6 +25,6 @@ private:
 	Button PartyButton[4];
     SceneManager& sceneManager;
 	Button backSceneButton;
-	CharacterManager characterManager;
+	CharacterManager& characterManager;
     CharacterCompositionUI characterCompositionUI;
 };
