@@ -5,14 +5,16 @@
 #include "Graphics/Sprite/Sprite.h"
 #include "Party/CharacterStatus.h"
 #include "Game/Player/PlayerMove.h"
+#include "Party/CharacterStatus.h"
+#include "Game/StartPos.h"
 
 // Player.h
 class Player
 {
 public:
     
-    bool Initialize();
-    void Update();
+    bool Initialize(CharacterStatus status, StartPos startPos);
+    bool Update();
     void Draw();
     void Finalize();
 
@@ -34,7 +36,7 @@ private:
     //IDirect3DTexture9* playerTexture = nullptr;
     //ID3DXSprite* playerSprite = nullptr;
     Library::Graphics::Sprite sprite;
-    CharacterStatus playerStatus{};
+    CharacterStatus playerStatus{};  
 	PlayerMove playerMove;
     D3DSURFACE_DESC imageInfo = {};
 

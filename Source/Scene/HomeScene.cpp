@@ -32,6 +32,8 @@ void HomeScene::Update()
 {
 	stageSelectButton.Update();
 	partyCompositionButton.Update();
+
+
 	if (stageSelectButton.IsClicked())
 	{
 		sceneManager.ChangeScene(SceneType::StageSelect);

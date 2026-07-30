@@ -28,6 +28,7 @@
     <ClCompile Include="Source\Game\Player\PlayerDealDamage.cpp" />
     <ClCompile Include="Source\Game\Player\PlayerHitEnemy.cpp" />
     <ClCompile Include="Source\Game\Player\PlayerManager.cpp" />
+    <ClCompile Include="Source\Game\StartPos.h" />
     <ClCompile Include="Source\Game\Turn\EnemyActionManager.cpp" />
     <ClCompile Include="Source\Game\Turn\TurnStart.cpp" />
     <ClCompile Include="Source\Graphics\background.cpp" />

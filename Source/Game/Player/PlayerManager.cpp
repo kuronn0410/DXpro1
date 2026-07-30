@@ -1,19 +1,39 @@
 #include "Game/Player/PlayerManager.h"
 
-bool PlayerManager:: Init()
+bool PlayerManager:: Init(const CharacterStatus* characterStatus)
 {
+	if (characterStatus == nullptr)
+	{
+		return false;
+	}
+
+
 	for(int i = 0; i < 4; i++)
 	{
-		player[i].Initialize();
+		playerStatus[i] = characterStatus[i];
+		
+		if (!player[i].Initialize(playerStatus[i],startpos[i]))
+		{
+			return false;
+		}
 	}
 	return true;
 }
 
-void PlayerManager::Update()
+bool PlayerManager::Update()
 {
 	for(int i = 0; i < 4; i++)
 	{
 		player[i].Update();
+	}
+	return true;
+}
+
+void PlayerManager::Draw()
+{
+	for(int i = 0; i < 4; i++)
+	{
+		player[i].Draw();
 	}
 }
 

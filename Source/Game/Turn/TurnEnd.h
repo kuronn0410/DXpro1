@@ -1,5 +1,5 @@
 #pragma once
 
-void TurnEndCheck();
-
-//bool isTurnEnd = false;
+//void TurnEndCheck();
+//
+////bool isTurnEnd = false;

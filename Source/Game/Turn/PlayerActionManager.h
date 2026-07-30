@@ -1,4 +1,5 @@
 #pragma once
+#include "Game/Player/PlayerManager.h"
 //PlayerAction“à‚Ìó‘Ô‚ğŠÇ—‚·‚é—ñ‹“Œ^
 enum class ActionState
 {
@@ -8,10 +9,12 @@ enum class ActionState
     End
 };
 
+
+
 class PlayerActionManager 
 {
 public:
-    void UpdateAction();
+    void UpdateAction(/*PlayerManager& playerManager*/);
     void SetActionState(ActionState state);
 
     ActionState currentActionState;

@@ -6,24 +6,24 @@
 #include "Game/Turn/PlayerActionManager.h"
 
 //PlayerMove playerMove;
-extern TurnManager turnManager;
+//extern TurnManager turnManager;
+//
+//extern EnemyActionManager enemyActionManager;
+//
+//extern PlayerActionManager playerActionManager;
 
-extern EnemyActionManager enemyActionManager;
-
-extern PlayerActionManager playerActionManager;
-
-bool Player::Initialize()
+bool Player::Initialize(CharacterStatus status,StartPos startPos)
 {
     if (!sprite.Init(
         g_device,
-        "Assets\\Textures\\soccer.png"))
+        status.spritePath.c_str()))
     {
         return false;
     }
 
     //初期化
-	startX = GameConfig::PlayerStartX;
-	startY = GameConfig::PlayerStartY;
+	startX = startPos.startx;
+	startY = startPos.starty;
 
 
     //playerTextureが示してる画像の情報を取得して構造体に入れる
@@ -41,15 +41,16 @@ bool Player::Initialize()
     
     );
 
-    playerStatus.maxHp = GameConfig::PlayerHp;
-    playerStatus.atk = GameConfig::PlayerDamage;
-	playerStatus.spd = GameConfig::PlayerSpeed;
+    status.maxHp = GameConfig::PlayerHp;
+    status.atk = GameConfig::PlayerDamage;
+	status.spd = GameConfig::PlayerSpeed;
+	playerStatus = status;
 
     return true;
 }
 
 
-void Player::Update()
+bool Player::Update()
 {
     playerMove.Update(
         scaleX,
@@ -61,13 +62,14 @@ void Player::Update()
     if (playerMove.isMoved)
     {
      
-		playerActionManager.SetActionState(ActionState::End);
-        turnManager.SetTurnState(TurnState::EnemyAction);
+		/*playerActionManager.SetActionState(ActionState::End);
+        turnManager.SetTurnState(TurnState::EnemyAction);*/
         //ターンエンド時にプレイヤーの移動フラグをリセットする
         playerMove.isMoved = false;
         // 状態変更
-        enemyActionManager.SetActionState(EnemyActionState::Move);
+        /*enemyActionManager.SetActionState(EnemyActionState::Move);*/
     }
+    return true;
 
 }
 
@@ -116,7 +118,7 @@ float Player::GetScaleY() const
 
 void Player::GetCharacterStatus(CharacterStatus& status) const
 {
-	status = playerStatus;
+	status = status;
 }
 
 const HitDetection& Player::GetHitDetection() const

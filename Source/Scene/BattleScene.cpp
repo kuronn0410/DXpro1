@@ -2,9 +2,10 @@
 #include "Game/GameMain.h"
 
 
+
 bool BattleScene::Initialize()
 {
-	GameInitialize();
+	gameMain.Initialize();
 	background.Initialize("Assets\\Textures\\Shiba.png");
 		// Initialize resources for the Battle Scene
 	return true;
@@ -12,17 +13,17 @@ bool BattleScene::Initialize()
 void BattleScene::Update()
 {
 		// Update logic for the Battle Scene
-	GameUpdate();
+	gameMain.Update();
 }
 void BattleScene::Draw()
 {
 		// Draw the Battle Scene
 	background.Draw();
-	GameDraw();
+	gameMain.Draw();
 }
 void BattleScene::Finalize()
 {
 	background.Finalize();
-	GameFinalize();
+	gameMain.Finalize();
 		// Clean up resources for the Battle Scene
 }

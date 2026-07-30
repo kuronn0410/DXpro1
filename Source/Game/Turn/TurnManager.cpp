@@ -1,43 +1,44 @@
 #include "Game/Turn/TurnManager.h"
-#include "Game/Turn/TurnEnd.h"
-#include "Game/Turn/PlayerActionManager.h"
-#include "Game/Turn/EnemyActionManager.h"
-#include "Game/Turn/TurnStart.h"
+//#include "Game/Turn/TurnEnd.h"
+//#include "Game/Turn/TurnStart.h"
 
-int currentTurn = 0; // 現在のターンを管理する変数
+
+//int currentTurn = 0; // 現在のターンを管理する変数
 // 現在のターン状態
-TurnState currentTurnState = TurnState::TurnStart;
+//TurnState currentTurnState = TurnState::TurnStart;
 
 // 現在の行動状態
 //ActionState currentActionState = ActionState::None;
+//void TurnManager::UpdateTurn(PlayerManager& playerManager)
+//{
+//	//switch (currentTurnState)
+//	//{
+//	//case TurnState::TurnStart:
+//	//	TurnStart();
+//	//	//currentActionState = ActionState::None;
+//	//	break;
+//	//case TurnState::PlayerSelect:
+//	//	break;
+//	//case TurnState::PlayerAction:
+//	//	// プレイヤーの行動を更新
+//	//	playerActionManager.UpdateAction(playerManager);
+//	//	break;
+//	//case TurnState::EnemyAction:
+//	//	enemyActionManager.UpdateAction();
+//	//	break;
+//	//case TurnState::TurnEnd:
+//	//	TurnEndCheck();
+//	//	break;
+//	//default:
+//	//	break;
+//	//}
+//}
 
-PlayerActionManager playerActionManager; // プレイヤーの行動管理オブジェクトのインスタンス
-EnemyActionManager enemyActionManager; // 敵の行動管理オブジェクトのインスタンス
-void TurnManager::UpdateTurn()
+
+const TurnState& TurnManager::GetTurnState() const
 {
-	switch (currentTurnState)
-	{
-	case TurnState::TurnStart:
-		TurnStart();
-		//currentActionState = ActionState::None;
-		break;
-	case TurnState::PlayerSelect:
-		break;
-	case TurnState::PlayerAction:
-		// プレイヤーの行動を更新
-		playerActionManager.UpdateAction();
-		break;
-	case TurnState::EnemyAction:
-		enemyActionManager.UpdateAction();
-		break;
-	case TurnState::TurnEnd:
-		TurnEndCheck();
-		break;
-	default:
-		break;
-	}
+	return currentTurnState;
 }
-
 
 // 状態変更
 void TurnManager::SetTurnState(TurnState state)
