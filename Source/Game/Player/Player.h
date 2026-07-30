@@ -29,6 +29,8 @@ public:
     const HitDetection& GetHitDetection() const;
     bool& GetPlayerMove();
 
+    void StartTurn();
+
 private:
     
 

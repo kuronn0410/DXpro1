@@ -24,7 +24,10 @@ bool PlayerManager::Update()
 {
 	for(int i = 0; i < 4; i++)
 	{
-		player[i].Update();
+		if(!player[i].Update())
+		{
+			return false;
+		}	
 	}
 	return true;
 }
@@ -42,6 +45,14 @@ void PlayerManager::Finalize()
 	for(int i = 0; i < 4; i++)
 	{
 		player[i].Finalize();
+	}
+}
+
+void PlayerManager::StartTurn()
+{
+	for(int i = 0; i < 4; i++)
+	{
+		player[i].StartTurn();
 	}
 }
 

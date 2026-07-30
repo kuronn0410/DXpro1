@@ -13,9 +13,14 @@ class PlayerManager
 {
 public: 
 	bool Init(const CharacterStatus* characterStatuses);
+	/// <summary>
+	/// 全プレーヤーの更新処理
+	/// </summary>
+	/// <returns>動いてない間はtrueを返す/動いたらfalseを返す</returns>
 	bool Update();
 	void Draw();
 	void Finalize();
+	void StartTurn();
 private:
 
 	//出撃するキャラクター

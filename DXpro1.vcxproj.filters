@@ -307,5 +307,53 @@
     <Image Include="Assets\Textures\Goal.png">
       <Filter>リソース ファイル</Filter>
     </Image>
+    <Image Include="Assets\Textures\BackButton.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\CharacterFrame.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\GameStartButton.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\Home.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\PartyComposition.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\PartyFrame.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\PartySelect.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\StageSelect.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\StageSelectButton.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\Character\ARCHER.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\Character\ASSASSIN.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\Character\ASTRA.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\Character\Gemini_Generated_Image_hes5c0hes5c0hes5.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\Character\Gemini_Generated_Image_kryny4kryny4kryn.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\Character\MARTIAL.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Assets\Textures\Character\SWORD.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
   </ItemGroup>
 </Project>

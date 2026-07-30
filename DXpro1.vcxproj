@@ -116,9 +116,25 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Users\24rd179\Downloads\soccer.png" />
+    <Image Include="Assets\Textures\BackButton.png" />
+    <Image Include="Assets\Textures\CharacterFrame.png" />
+    <Image Include="Assets\Textures\Character\ARCHER.png" />
+    <Image Include="Assets\Textures\Character\ASSASSIN.png" />
+    <Image Include="Assets\Textures\Character\ASTRA.png" />
+    <Image Include="Assets\Textures\Character\Gemini_Generated_Image_hes5c0hes5c0hes5.png" />
+    <Image Include="Assets\Textures\Character\Gemini_Generated_Image_kryny4kryny4kryn.png" />
+    <Image Include="Assets\Textures\Character\MARTIAL.png" />
+    <Image Include="Assets\Textures\Character\SWORD.png" />
+    <Image Include="Assets\Textures\GameStartButton.png" />
     <Image Include="Assets\Textures\Goal.png" />
+    <Image Include="Assets\Textures\Home.png" />
+    <Image Include="Assets\Textures\PartyComposition.png" />
+    <Image Include="Assets\Textures\PartyFrame.png" />
+    <Image Include="Assets\Textures\PartySelect.png" />
     <Image Include="Assets\Textures\Shiba.png" />
     <Image Include="Assets\Textures\soccer.png" />
+    <Image Include="Assets\Textures\StageSelect.png" />
+    <Image Include="Assets\Textures\StageSelectButton.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

@@ -29,7 +29,7 @@ public:
 	bool isMoved = false; // 一度動いたかどうかを判断する
 	float player_x; // プレイヤーのX座標
 	float player_y; // プレイヤーのY座標
-
+	void ResetAction();
 private:
 
 	float moveX = 0.0f; // X方向の進む量

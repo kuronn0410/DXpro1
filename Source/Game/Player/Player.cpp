@@ -61,13 +61,9 @@ bool Player::Update()
 
     if (playerMove.isMoved)
     {
-     
-		/*playerActionManager.SetActionState(ActionState::End);
-        turnManager.SetTurnState(TurnState::EnemyAction);*/
         //ターンエンド時にプレイヤーの移動フラグをリセットする
-        playerMove.isMoved = false;
-        // 状態変更
-        /*enemyActionManager.SetActionState(EnemyActionState::Move);*/
+		return false;
+        /*playerMove.isMoved = false;*/
     }
     return true;
 
@@ -131,4 +127,9 @@ const HitDetection& Player::GetHitDetection() const
 bool& Player::GetPlayerMove()
 {
     return playerMove.isMoved;
+}
+
+void Player::StartTurn()
+{
+    playerMove.ResetAction();
 }

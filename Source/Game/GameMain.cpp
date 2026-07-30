@@ -27,7 +27,7 @@ void GameMain::Update()
 			break;
 		case TurnState::PlayerAction:
 			//playerActionManager.UpdateAction(playerManager);
-			if (playerManager.Update())
+			if (!playerManager.Update())
 			{
 				turnManager.SetTurnState(TurnState::EnemyAction);
 			}
@@ -73,6 +73,6 @@ void GameMain::Finalize()
 
 bool GameMain::TurnStartCheck()
 {
-
+	playerManager.StartTurn();
 	return true;
 }

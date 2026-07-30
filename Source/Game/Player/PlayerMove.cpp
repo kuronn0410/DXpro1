@@ -183,5 +183,10 @@ void PlayerMove::UpdatePosition()
 	hitDetection.height = imageHeight * scaleY;
 }
 
+void PlayerMove::ResetAction()
+{
+	isMoved = false;
+}
+
 
 

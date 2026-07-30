@@ -23,7 +23,7 @@ private:
 	PlayerManager playerManager;
 	//EnemyManager enemyManager;‚É•Ï‚¦‚é
 	/*Enemy enemy;*/
-	EnemyActionManager enemyActionManager;
+	/*EnemyActionManager enemyActionManager;*/
 	PlayerActionManager playerActionManager;
 	CharacterManager& characterManager;
 
