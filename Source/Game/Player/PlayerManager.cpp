@@ -11,7 +11,7 @@ bool PlayerManager:: Init(const CharacterStatus* characterStatus)
 	for(int i = 0; i < 4; i++)
 	{
 		playerStatus[i] = characterStatus[i];
-		
+
 		if (!player[i].Initialize(playerStatus[i],startpos[i]))
 		{
 			return false;
@@ -24,10 +24,20 @@ bool PlayerManager::Update()
 {
 	for(int i = 0; i < 4; i++)
 	{
-		if(!player[i].Update())
+		if (i == moveIndex)
 		{
-			return false;
-		}	
+			player[i].PlayerSelectTurn(true);
+			if (!player[i].Update())
+			{
+				return false;
+			}
+		}
+		else
+		{
+			player[i].PlayerSelectTurn(false);
+
+		}
+	
 	}
 	return true;
 }
@@ -56,3 +66,7 @@ void PlayerManager::StartTurn()
 	}
 }
 
+void PlayerManager::PlayerSelectTurn(int Index)
+{
+	moveIndex = Index;
+}

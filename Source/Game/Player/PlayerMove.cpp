@@ -37,6 +37,10 @@ void PlayerMove::Update(
 	scaleY = PlayerScaleY;
 	
 	UpdatePosition();
+	if(!canMove)
+	{
+		return;
+	}
 	player_move();
 	UpdatePosition();
 }
@@ -170,11 +174,6 @@ void PlayerMove::player_move()
 		
 }
 
-const HitDetection& PlayerMove::GetHitDetection() const
-{
-	return hitDetection;
-}
-
 void PlayerMove::UpdatePosition()
 {
 	hitDetection.x = player_x;
@@ -183,6 +182,21 @@ void PlayerMove::UpdatePosition()
 	hitDetection.height = imageHeight * scaleY;
 }
 
+/*-----éÊìæÅAéwé¶ÇÃéÛït-----*/
+
+bool PlayerMove::GetisMoved() const
+{
+	return isMoved;
+}
+const HitDetection& PlayerMove::GetHitDetection() const
+{
+	return hitDetection;
+}
+
+void PlayerMove::SetCanMoveState(bool state)
+{
+	canMove = state;
+}
 void PlayerMove::ResetAction()
 {
 	isMoved = false;

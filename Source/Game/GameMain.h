@@ -29,4 +29,5 @@ private:
 
 	bool TurnStartCheck();
 	int currentTurn = 1; // 現在のターン数を管理する変数
+	int moveIndex = 0; // 動かすキャラクターのインデックスを管理する変数
 };

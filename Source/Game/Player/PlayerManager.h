@@ -21,12 +21,14 @@ public:
 	void Draw();
 	void Finalize();
 	void StartTurn();
+	void PlayerSelectTurn(int Index);
 private:
 
 	//出撃するキャラクター
 	Player player[4];
 	//パーティーに編成されたキャラクターのデータの構造体
 	CharacterStatus playerStatus[4];
+	int moveIndex = 0; //動かすキャラクターのインデックスを管理する変数
 
 	StartPos startpos[4] = {
 	{ 100.0f, 300.0f },

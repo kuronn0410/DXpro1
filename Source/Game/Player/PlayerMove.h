@@ -24,17 +24,30 @@ public:
 
 	// プレイヤーの移動処理時の当たり判定に使用する数値の計算をする関数
 	void UpdatePosition();
+
+	/*-----取得、指示の受付-----*/
 	const HitDetection& GetHitDetection() const;
-	//start処理でリセットする
-	bool isMoved = false; // 一度動いたかどうかを判断する
+	void ResetAction();// プレイヤーの移動フラグをリセットする関数
+	/// <summary>
+	/// プレイヤーが移動できるかどうかを管理してるboolを変更する
+	/// </summary>
+	/// <param name="state">Ture 移動可能/False 移動不可</param>
+	void SetCanMoveState(bool state); 
+	/// <summary>
+	/// isMovedの値を取得する関数
+	/// </summary>
+	/// <returns></returns>
+	bool GetisMoved() const;
+	
 	float player_x; // プレイヤーのX座標
 	float player_y; // プレイヤーのY座標
-	void ResetAction();
+	
 private:
 
 	float moveX = 0.0f; // X方向の進む量
 	float moveY = 0.0f; // Y方向の進む量
 
+	// プレイヤーの移動に関するタイマー
 	Timer moveTimer;
 	float deltaTime = 0.01f;
 	float finisheTime = 3.0f;
@@ -42,6 +55,8 @@ private:
 	bool isXMoving = false;
 	bool isYMoving = false;
 
+	bool isMoved = false; // 一度動いたかどうかを判断する
+	bool canMove = true; // プレイヤーが移動できるかどうかを判断する
 
 	void player_move();
 	void player_move_left();

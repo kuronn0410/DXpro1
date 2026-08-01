@@ -2,11 +2,20 @@
 
 #include "Game/Turn/TurnEnd.h"
 #include <string>
+#include "DebugTools/Debug.h"
 
 void GameMain::Initialize()
 {
 	// ƒQ[ƒ€‚Ì‰Šú‰»ˆ—‚ğ‚±‚±‚É‹Lq
-	playerManager.Init(characterManager.GetAllPartyCharacter());
+	bool result = playerManager.Init(characterManager.GetAllPartyCharacter());
+	if (result)
+	{
+		Library::DebugTools::DebugLog("PlayerManager Initialize");
+	}
+	else
+	{
+		Library::DebugTools::DebugLog("PlayerManager Initialize Failed");
+	}
 	/*enemy.Initialize();*/
 	turnFont.Init(g_device);
 }
@@ -23,6 +32,15 @@ void GameMain::Update()
 			}
 			break;
 		case TurnState::PlayerSelect:
+			playerManager.PlayerSelectTurn(moveIndex);
+			if(moveIndex < 3)
+			{
+				moveIndex++;
+			}
+			else
+			{
+				moveIndex = 0;
+			}
 			turnManager.SetTurnState(TurnState::PlayerAction);
 			break;
 		case TurnState::PlayerAction:

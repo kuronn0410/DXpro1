@@ -22,13 +22,13 @@ public:
     void OnLostDevice();
     void OnResetDevice();
 
+    /*-----取得、指示の受付-----*/
     //スケールを外部から取得するための関数
     float GetScaleX() const;
     float GetScaleY() const;
     void GetCharacterStatus(CharacterStatus& status) const;
     const HitDetection& GetHitDetection() const;
-    bool& GetPlayerMove();
-
+    void PlayerSelectTurn(bool state);
     void StartTurn();
 
 private:
