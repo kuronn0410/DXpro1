@@ -6,12 +6,19 @@
 
 class SceneManager;
 class CharacterManager;
+class EnemyStatusInitializer;
 
 class BattleScene : public IScene
 {
 public:
-	BattleScene(SceneManager& sceneManager, CharacterManager& characterManager)
-		: sceneManager(sceneManager), characterManager(characterManager), gameMain(characterManager){};
+	BattleScene(
+		SceneManager& sceneManager, 
+		CharacterManager& characterManager,
+		EnemyStatusInitializer& enemyStatusInitializer):
+		sceneManager(sceneManager), 
+		characterManager(characterManager), 
+		enemyStatusInitializer(enemyStatusInitializer),
+		gameMain(characterManager, enemyStatusInitializer){};
     bool Initialize() override;
     void Update() override;
     void Draw() override;
@@ -19,6 +26,7 @@ public:
 private:
 	SceneManager& sceneManager;
 	CharacterManager& characterManager;
+	EnemyStatusInitializer& enemyStatusInitializer;
 	Background background;
 	GameMain gameMain;
 

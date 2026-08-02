@@ -1,22 +1,20 @@
 #include "Game/GameMain.h"
 
-#include "Game/Turn/TurnEnd.h"
+//#include "Game/Turn/TurnEnd.h"
 #include <string>
 #include "DebugTools/Debug.h"
 
-void GameMain::Initialize()
+void GameMain::Initialize(/*int stageNum*/)
 {
-	// ゲームの初期化処理をここに記述
+	/*--プレーヤー*/
 	bool result = playerManager.Init(characterManager.GetAllPartyCharacter());
-	if (result)
-	{
-		Library::DebugTools::DebugLog("PlayerManager Initialize");
-	}
-	else
+	if (!result)
 	{
 		Library::DebugTools::DebugLog("PlayerManager Initialize Failed");
 	}
-	/*enemy.Initialize();*/
+	/*--敵--*/ 
+	enemyManager.Initialize(enemyStatusInitializer.GetEnemyStatuses());
+	/*--その他--*/
 	turnFont.Init(g_device);
 }
 
@@ -50,9 +48,11 @@ void GameMain::Update()
 				turnManager.SetTurnState(TurnState::EnemyAction);
 			}
 			break;
-		case TurnState::EnemyAction:
-			//enemyActionManager.UpdateAction();
-			turnManager.SetTurnState(TurnState::TurnEnd);
+		case TurnState::EnemyAction:		
+			if (!enemyManager.Update())
+			{
+				turnManager.SetTurnState(TurnState::TurnEnd);
+			}
 			break;
 		case TurnState::TurnEnd:
 			//turnManager.UpdateTurn(playerManager);
@@ -65,6 +65,7 @@ void GameMain::Update()
 void GameMain::Draw()
 {
 	// プレイヤーの描画処理を呼び出す
+	enemyManager.Draw();
 	playerManager.Draw();
 	std::string turntext = "Turn: " + std::to_string(currentTurn);
 	turnFont.Draw(turntext.c_str(), 10, 60); // ターン数を描画
@@ -85,7 +86,7 @@ void GameMain::Finalize()
 {
 	// ゲームの終了処理をここに記述
 	playerManager.Finalize();
-	/*enemy.Finalize();*/
+	enemyManager.Finalize();
 }
 
 

@@ -1,12 +1,12 @@
-//#include "Game/Enemy/Enemy.h"
-//void Enemy::Draw()
-//{
-//    /*
-//	imageInfo構造体を用意する
-//	構造体に画像の情報を入れる
-//    */
-//    scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width) * 0.25f;
-//    scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height) * 0.25f;
-//
-//	sprite.Draw(enemyMove1.Enemy_X, enemyMove1.Enemy_Y, scaleX, scaleY);
-//}
+#include "Game/Enemy/Enemy.h"
+void Enemy::Draw()
+{
+    /*
+	imageInfo構造体を用意する
+	構造体に画像の情報を入れる
+    */
+    scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width) * 0.25f;
+    scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height) * 0.25f;
+
+	sprite.Draw(Enemy_x, Enemy_y, scaleX, scaleY);
+}

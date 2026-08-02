@@ -25,7 +25,8 @@ Font font; // フォントオブジェクトのインスタンス
 int APIENTRY WinMain(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
 {
 	CharacterManager characterManager;
-	SceneManager sceneManager(characterManager); // シーンマネージャーのインスタンス
+	EnemyStatusInitializer enemyStatusInitializer;
+	SceneManager sceneManager(characterManager, enemyStatusInitializer); // シーンマネージャーのインスタンス
 	
 	// 初期化処理
 	initialize(hWnd, hPrevInstance, lpCmdLine, nCmdShow, sceneManager);

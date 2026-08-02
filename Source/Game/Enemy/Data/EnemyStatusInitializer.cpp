@@ -1,5 +1,6 @@
 #include "Game/Enemy/Data/EnemyStatusInitializer.h"
 
+//ゲームの開始時に敵のステータスを初期化する関数
 bool EnemyStatusInitializer::Initialize()
 {
 	if (!enemyDatabase.Initialize())
@@ -11,10 +12,13 @@ bool EnemyStatusInitializer::Initialize()
 	{
 		return false;
 	}
+	
 	return true;
 }
 
-bool EnemyStatusInitializer::CreateEnemyStatuses(int stageNum)
+
+//それぞれのステージに入るときに敵のステータスを作成する関数
+bool EnemyStatusInitializer::CreateEnemyStatuses(/*int stageNum*/)
 {
 	enemyStatuses.clear();
 	const auto* stageEnemyMap = stageEnemyData.GetStageEnemyMap(stageNum);
@@ -58,4 +62,9 @@ bool EnemyStatusInitializer::CreateEnemyStatuses(int stageNum)
 const std::vector<EnemyStatus>& EnemyStatusInitializer::GetEnemyStatuses() const
 {
 	return enemyStatuses;
+}
+
+void EnemyStatusInitializer::SetStageNum(int stage)
+{
+	stageNum = stage;
 }

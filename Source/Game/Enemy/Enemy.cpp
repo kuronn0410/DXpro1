@@ -1,35 +1,36 @@
 #include "Game/Enemy/Enemy.h"
-#include "Game/GameConfig.h"
-#include "Game/Turn/TurnManager.h"
 
 
 //extern TurnManager turnManager;
 
-//bool Enemy::Initialize()
-//{
-//
-//	if (!sprite.Init(
-//		g_device,
-//		"Assets\\Textures\\Goal.png"))
-//	{
-//		return false;
-//	}
-//
-//	enemyMove1.Enemy_X = GameConfig::EnemyStartX;
-//	enemyMove1.Enemy_Y = GameConfig::EnemyStartY;
-//	//init‚ÉˆÚ‚·
-//	
-//	imageInfo = sprite.GetImageInfo();
-//	scaleX = static_cast<float>(g_windowWidth) / static_cast<float>(imageInfo.Width) * 0.25f;
-//	scaleY = static_cast<float>(g_windowHeight) / static_cast<float>(imageInfo.Height) * 0.25f;
-//	// “G‚Ì“–‚½‚è”»’è‚Ì‰Šú‰»
-//	enemyMove1.UpdatePosition();
-//
-//	enemyStatus.maxHp = GameConfig::EnemyHp;
-//	enemyStatus.atk = GameConfig::EnemyDamage;
-//
-//	return true;
-//}
+bool Enemy::Initialize(EnemyStatus enemyStatus)
+{
+
+	if (!sprite.Init(
+		g_device,
+		enemyStatus.spritePath.c_str()))
+	{
+		return false;
+	}
+	enemyMove1.Initialize(imageInfo.Width, imageInfo.Height, scaleX, scaleY);
+	Enemy_x = enemyStatus.position.startx;
+	Enemy_y = enemyStatus.position.starty;
+	
+	imageInfo = sprite.GetImageInfo();
+
+	imageWidth = static_cast<float>(imageInfo.Width);
+	imageHeight = static_cast<float>(imageInfo.Height);
+
+	scaleX = static_cast<float>(g_windowWidth) / imageWidth * 0.25f;
+	scaleY = static_cast<float>(g_windowHeight) / imageHeight * 0.25f;
+	// “G‚Ì“–‚½‚è”»’è‚Ì‰Šú‰»
+	/*enemyMove1.UpdatePosition();*/
+
+	enemyStatus.maxHp = enemyStatus.maxHp;
+	enemyStatus.atk = enemyStatus.atk;
+
+	return true;
+}
 //
 //void Enemy::Update()
 //{
@@ -69,3 +70,27 @@
 //		IsAlive = false;
 //	}
 //}
+
+
+//bool Enemy::Initialize()
+//{
+//	return true;
+//}
+
+bool Enemy::Update()
+{
+	enemyMove1.Update(Enemy_x, Enemy_y);
+	return true;
+}
+
+void Enemy::Finalize()
+{
+
+}
+
+
+/*-----æ“¾Aw¦‚Ìó•t-----*/
+bool Enemy::GetIsAlive() const
+{
+	return IsAlive;
+}

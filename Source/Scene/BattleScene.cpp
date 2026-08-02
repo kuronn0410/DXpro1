@@ -5,9 +5,9 @@
 
 bool BattleScene::Initialize()
 {
+	enemyStatusInitializer.CreateEnemyStatuses();
 	gameMain.Initialize();
 	background.Initialize("Assets\\Textures\\Shiba.png");
-		// Initialize resources for the Battle Scene
 	return true;
 }
 void BattleScene::Update()

@@ -12,8 +12,9 @@ class EnemyStatusInitializer
 {
 public:
 	bool Initialize();
-	bool CreateEnemyStatuses(int stageNum);	
+	bool CreateEnemyStatuses(/*int stageNum*/);	
 	const std::vector<EnemyStatus>& GetEnemyStatuses() const;
+	void SetStageNum(int stage);
 private:
 	//ゲーム側に渡す敵のステータスリスト
 	std::vector<EnemyStatus> enemyStatuses;
@@ -21,4 +22,5 @@ private:
 	/*---実体---*/
 	EnemyDatabase enemyDatabase;
 	StageEnemyData stageEnemyData;
+	int stageNum = 1; // 挑むステージの番号を管理する変数
 };

@@ -12,10 +12,10 @@ bool SceneManager::Initialize(SceneType initialSceneType)
 		currentScene = std::make_unique<PartySelectScene>(*this, characterManager);
 		break;
 	case SceneType::StageSelect:
-		currentScene = std::make_unique<StageSelectScene>(*this);
+		currentScene = std::make_unique<StageSelectScene>(*this, enemyStatusInitializer);
 		break;
 	case SceneType::Battle:
-		currentScene = std::make_unique<BattleScene>(*this, characterManager);
+		currentScene = std::make_unique<BattleScene>(*this, characterManager, enemyStatusInitializer);
 		break;
 	case SceneType::Reward:
 		currentScene = std::make_unique<RewardScene>(*this);
@@ -78,10 +78,10 @@ void SceneManager::ChangeScene(SceneType nextSceneType)
 		currentScene = std::make_unique<PartySelectScene>(*this, characterManager);
 		break;
 	case SceneType::StageSelect:
-		currentScene = std::make_unique<StageSelectScene>(*this);
+		currentScene = std::make_unique<StageSelectScene>(*this, enemyStatusInitializer);
 		break;
 	case SceneType::Battle:
-		currentScene = std::make_unique<BattleScene>(*this, characterManager);
+		currentScene = std::make_unique<BattleScene>(*this, characterManager, enemyStatusInitializer);
 		break;
 	case SceneType::Reward:
 		currentScene = std::make_unique<RewardScene>(*this); 

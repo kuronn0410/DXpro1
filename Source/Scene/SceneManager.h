@@ -12,7 +12,12 @@
 class SceneManager
 {
 public:
-	SceneManager(CharacterManager& characterManager) : characterManager(characterManager) {};
+	SceneManager(
+		CharacterManager& characterManager, 
+		EnemyStatusInitializer& enemyStatusInitializer): 
+		characterManager(characterManager), 
+		enemyStatusInitializer(enemyStatusInitializer) {};
+
 	bool Initialize(SceneType initialSceneType);
 	void Update();
 	void Draw();
@@ -25,6 +30,7 @@ private:
 	
 	//キャラクターマネージャーへの参照
 	CharacterManager& characterManager;
+	EnemyStatusInitializer& enemyStatusInitializer;
 
 	//現在のシーンタイプ
 	//SceneType currentSceneType;
