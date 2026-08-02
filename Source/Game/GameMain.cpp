@@ -93,5 +93,6 @@ void GameMain::Finalize()
 bool GameMain::TurnStartCheck()
 {
 	playerManager.StartTurn();
+	enemyManager.StartTurn();
 	return true;
 }

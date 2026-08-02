@@ -51,7 +51,7 @@ public:
 	void Finalize();
 	/*-----æ“¾Aw¦‚Ìó•t-----*/
 	bool GetIsAlive() const;
-
+	void StartTurn();
 private:
 
 	

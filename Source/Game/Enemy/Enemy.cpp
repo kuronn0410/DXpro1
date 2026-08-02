@@ -80,6 +80,10 @@ bool Enemy::Initialize(EnemyStatus enemyStatus)
 bool Enemy::Update()
 {
 	enemyMove1.Update(Enemy_x, Enemy_y);
+	if(enemyMove1.GetisMoved())
+	{
+		return false;
+	}
 	return true;
 }
 
@@ -93,4 +97,9 @@ void Enemy::Finalize()
 bool Enemy::GetIsAlive() const
 {
 	return IsAlive;
+}
+
+void Enemy::StartTurn()
+{
+	enemyMove1.ResetAction();
 }

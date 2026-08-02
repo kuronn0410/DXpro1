@@ -12,7 +12,7 @@ public:
 	void Finalize();
 
 	/*-----取得、指示の受付-----*/
-
+	void StartTurn();
 private:
 
 	//実体の敵キャラクターを保持するベクター

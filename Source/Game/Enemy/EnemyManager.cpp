@@ -17,7 +17,10 @@ bool EnemyManager::Update()
 {
 	for(auto& enemy : enemies)
 	{
-		enemy.Update();
+		if(!enemy.Update())
+		{
+			return false;
+		}
 	}
 	return true;
 }
@@ -39,3 +42,10 @@ void EnemyManager::Finalize()
 }
 
 
+void EnemyManager::StartTurn()
+{
+	for (auto& enemy : enemies)
+	{
+		enemy.StartTurn();
+	}
+}

@@ -39,7 +39,7 @@ private:
 	float scaleY = 0.0f; // 敵の画像のスケールY
 
 	/*-----取得、指示の受付-----*/
-	bool canMove = false; // 敵が移動できるかどうかを判断する
+	bool canMove = true; // 敵が移動できるかどうかを判断する
 	int moveDirection = 0;
 	bool isMoved = false; // 一度動いたかどうかを判断する
 	HitDetection hitDetection{};
