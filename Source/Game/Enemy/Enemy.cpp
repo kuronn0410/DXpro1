@@ -12,7 +12,7 @@ bool Enemy::Initialize(EnemyStatus enemyStatus)
 	{
 		return false;
 	}
-	enemyMove1.Initialize(imageInfo.Width, imageInfo.Height, scaleX, scaleY);
+	
 	Enemy_x = enemyStatus.position.startx;
 	Enemy_y = enemyStatus.position.starty;
 	
@@ -28,7 +28,7 @@ bool Enemy::Initialize(EnemyStatus enemyStatus)
 
 	enemyStatus.maxHp = enemyStatus.maxHp;
 	enemyStatus.atk = enemyStatus.atk;
-
+	enemyMove1.Initialize(imageInfo.Width, imageInfo.Height, scaleX, scaleY);
 	return true;
 }
 //
@@ -102,4 +102,9 @@ bool Enemy::GetIsAlive() const
 void Enemy::StartTurn()
 {
 	enemyMove1.ResetAction();
+}
+
+const HitDetection& Enemy::GetHitDetection() const
+{
+	return enemyMove1.GetHitDetection();
 }

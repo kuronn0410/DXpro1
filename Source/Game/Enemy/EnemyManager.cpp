@@ -41,11 +41,21 @@ void EnemyManager::Finalize()
 	}
 }
 
-
+/*-----æ“¾Aw¦‚Ìó•t-----*/
 void EnemyManager::StartTurn()
 {
 	for (auto& enemy : enemies)
 	{
 		enemy.StartTurn();
 	}
+}
+
+const HitDetection& EnemyManager::GetHitDetection(int Index) const
+{
+	return enemies[Index].GetHitDetection();
+}
+
+const int EnemyManager::GetEnemyCount() const
+{
+	return static_cast<int>(enemies.size());
 }

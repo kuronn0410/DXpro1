@@ -9,6 +9,7 @@
 #include "Game/Turn/PlayerActionManager.h"
 #include "Game/Turn/TurnEnd.h"
 #include "Game/Turn/TurnStart.h"
+#include "Game/Collision/CollisionManager.h"
 
 
 //たぶんいらない
@@ -33,6 +34,7 @@ private:
 	EnemyManager enemyManager;
 	CharacterManager& characterManager;
 	EnemyStatusInitializer& enemyStatusInitializer;
+	CollisionManager collisionManager;
 	bool TurnStartCheck();
 	int currentTurn = 1; // 現在のターン数を管理する変数
 	int moveIndex = 0; // 動かすキャラクターのインデックスを管理する変数

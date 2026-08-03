@@ -52,6 +52,7 @@ public:
 	/*-----æ“¾Aw¦‚Ìó•t-----*/
 	bool GetIsAlive() const;
 	void StartTurn();
+	const HitDetection& GetHitDetection() const;
 private:
 
 	

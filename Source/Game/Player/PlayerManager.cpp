@@ -58,6 +58,8 @@ void PlayerManager::Finalize()
 	}
 }
 
+
+/*-----æ“¾Aw¦‚Ìó•t-----*/
 void PlayerManager::StartTurn()
 {
 	for(int i = 0; i < 4; i++)
@@ -69,4 +71,14 @@ void PlayerManager::StartTurn()
 void PlayerManager::PlayerSelectTurn(int Index)
 {
 	moveIndex = Index;
+}
+
+const HitDetection& PlayerManager::GetHitDetection(int Index) const
+{
+	return player[Index].GetHitDetection();
+}
+
+const int PlayerManager::GetPlayerCount() const
+{
+	return 4;
 }

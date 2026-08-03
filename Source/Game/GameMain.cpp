@@ -43,16 +43,19 @@ void GameMain::Update()
 			break;
 		case TurnState::PlayerAction:
 			//playerActionManager.UpdateAction(playerManager);
+			
 			if (!playerManager.Update())
 			{
 				turnManager.SetTurnState(TurnState::EnemyAction);
 			}
+			collisionManager.Update(playerManager, enemyManager);
 			break;
 		case TurnState::EnemyAction:		
 			if (!enemyManager.Update())
 			{
 				turnManager.SetTurnState(TurnState::TurnEnd);
 			}
+			collisionManager.Update(playerManager, enemyManager);
 			break;
 		case TurnState::TurnEnd:
 			//turnManager.UpdateTurn(playerManager);

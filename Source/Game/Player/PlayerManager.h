@@ -2,10 +2,9 @@
 #include "Game/Player/Player.h"
 #include "Party/CharacterStatus.h"
 #include "Game/StartPos.h"
+#include "Game/Collision/HitDetection.h"
+#include <vector>
 
-#include "Game/Turn/TurnManager.h"
-#include "Game/Turn/EnemyActionManager.h"
-#include "Game/Turn/PlayerActionManager.h"
 /*
 必要な情報、画像、ステータス
 */
@@ -20,8 +19,12 @@ public:
 	bool Update();
 	void Draw();
 	void Finalize();
+
+	/*-----取得、指示の受付-----*/
 	void StartTurn();
 	void PlayerSelectTurn(int Index);
+	const HitDetection& GetHitDetection(int Index) const;
+	const int GetPlayerCount() const; // プレイヤーの数を取得する関数	
 private:
 
 	//出撃するキャラクター
@@ -29,7 +32,6 @@ private:
 	//パーティーに編成されたキャラクターのデータの構造体
 	CharacterStatus playerStatus[4];
 	int moveIndex = 0; //動かすキャラクターのインデックスを管理する変数
-
 	StartPos startpos[4] = {
 	{ 100.0f, 300.0f },
 	{ 200.0f, 300.0f },

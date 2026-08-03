@@ -22,6 +22,7 @@
     <ClCompile Include="Library\DebugTools\Debug.cpp" />
     <ClCompile Include="Library\Graphics\Sprite\Sprite.cpp" />
     <ClCompile Include="Source\Game\Collision\Collision.cpp" />
+    <ClCompile Include="Source\Game\Collision\CollisionManager.cpp" />
     <ClCompile Include="Source\Game\Enemy\Data\EnemyStatusInitializer.cpp" />
     <ClCompile Include="Source\Game\Enemy\Enemy.cpp" />
     <ClCompile Include="Source\Game\Enemy\Data\EnemyDatabase.cpp" />
@@ -77,6 +78,7 @@
     <ClInclude Include="Library\DebugTools\Debug.h" />
     <ClInclude Include="Library\Graphics\Sprite\Sprite.h" />
     <ClInclude Include="Source\Game\Collision\Collision.h" />
+    <ClInclude Include="Source\Game\Collision\CollisionManager.h" />
     <ClInclude Include="Source\Game\Collision\HitDetection.h" />
     <ClInclude Include="Source\Game\Enemy\Data\EnemyStatusInitializer.h" />
     <ClInclude Include="Source\Game\Enemy\Enemy.h" />
