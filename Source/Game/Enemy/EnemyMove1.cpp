@@ -1,4 +1,6 @@
 #include "Game/Enemy/EnemyMove1.h"
+#include <random>
+#include "Game/Collision/Collision.h"
 
 bool EnemyMove1::Initialize(
     float EnemyimageWidth, 
@@ -14,6 +16,7 @@ bool EnemyMove1::Initialize(
 	isMoved = false;
 	return true;
 }
+
 
 void EnemyMove1::Update(float& x,float& y)
 {
@@ -33,45 +36,58 @@ void EnemyMove1::enemy_move(float& x,float& y)
         return;
     }
 
-    const float movement = moveSpeed * deltaTime;
+    const float movementX = velocityX * deltaTime;
+    const float movementY = velocityY * deltaTime;
 
-    switch (moveDirection)
+    // X方向の移動
+    if (movementX != 0.0f)
     {
-    case 0:
-        // 右へ移動
-        x += movement;
-        break;
-    case 1:
-        // 下へ移動
-        y += movement;
-        break;
-    case 2:
-        // 左へ移動
-        x -= movement;
-        break;
+        x += movementX;
+        UpdatePosition(x, y);
 
-    case 3:
-        // 上へ移動
-        y -= movement;
-        break;
+        if (!IsInsideScreen(
+            static_cast<float>(g_windowWidth),
+            static_cast<float>(g_windowHeight),
+            hitDetection))
+        {
+            // 画面外へ出た移動を取り消す
+            x -= movementX;
+
+            // 左右を反転
+            velocityX *= -1.0f;
+
+            UpdatePosition(x, y);
+        }
     }
-    UpdatePosition(x, y);
+
+    // Y方向の移動
+    if (movementY != 0.0f)
+    {
+        y += movementY;
+        UpdatePosition(x, y);
+
+        if (!IsInsideScreen(
+            static_cast<float>(g_windowWidth),
+            static_cast<float>(g_windowHeight),
+            hitDetection))
+        {
+            // 画面外へ出た移動を取り消す
+            y -= movementY;
+
+            // 上下を反転
+            velocityY *= -1.0f;
+
+            UpdatePosition(x, y);
+        }
+    }
+
     moveTimer.Update(deltaTime);
 
     if (moveTimer.IsFinished())
     {
-        ++moveDirection;
-
-        if (moveDirection >= 4)
-        {
-            // 4辺を移動し終わった
-            moveDirection = 0;
-            isMoved = true;
-            return;
-        }
-
-        // 次の1辺を計測し始める
-        moveTimer.Start(sideMoveTime);
+        velocityX = 0.0f;
+        velocityY = 0.0f;
+        isMoved = true;
     }
 	
 }
@@ -83,6 +99,41 @@ void EnemyMove1::UpdatePosition(float x, float y)
 	hitDetection.y = y;
 	hitDetection.width = imageWidth * scaleX;
 	hitDetection.height = imageHeight * scaleY;
+}
+
+
+void EnemyMove1::SelectRandomDirection()
+{
+    static std::mt19937 randomEngine{ std::random_device{}() };
+    std::uniform_int_distribution<int> directionDistribution(0, 3);
+
+    const int direction = directionDistribution(randomEngine);
+
+    velocityX = 0.0f;
+    velocityY = 0.0f;
+
+    switch (direction)
+    {
+    case 0:
+        // 左
+        velocityX = -moveSpeed;
+        break;
+
+    case 1:
+        // 右
+        velocityX = moveSpeed;
+        break;
+
+    case 2:
+        // 上
+        velocityY = -moveSpeed;
+        break;
+
+    case 3:
+        // 下
+        velocityY = moveSpeed;
+        break;
+    }
 }
 
 /*-----取得、指示の受付-----*/
@@ -97,7 +148,9 @@ const HitDetection& EnemyMove1::GetHitDetection() const
 const void EnemyMove1::	ResetAction()
 {
 	isMoved = false;
-    moveDirection = 0;
+
+    SelectRandomDirection();
+    moveTimer.Start(moveTime);
 }
 const void EnemyMove1::SetcanMove(bool state)
 {

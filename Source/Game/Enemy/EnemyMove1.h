@@ -28,9 +28,12 @@ private:
 	
 	void enemy_move(float& x,float& y);
 	Timer moveTimer;
-	float deltaTime = 0.01f;
+	float velocityX = 0.0f;
+	float velocityY = 0.0f;
+
 	float moveSpeed = 100.0f;
-	float sideMoveTime = 1.75f; // 1•Ó‚ğˆÚ“®‚·‚éŠÔ
+	float moveTime = 3.0f;
+	float deltaTime = 0.01f;
 
 
 	float imageWidth = 0.0f; // “G‚Ì‰æ‘œ‚Ì•
@@ -44,4 +47,5 @@ private:
 	bool isMoved = false; // ˆê“x“®‚¢‚½‚©‚Ç‚¤‚©‚ğ”»’f‚·‚é
 	HitDetection hitDetection{};
 	void UpdatePosition(float x, float y);
+	void SelectRandomDirection();
 };

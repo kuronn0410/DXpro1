@@ -31,12 +31,7 @@ private:
 	TurnManager turnManager;
 	PlayerManager playerManager;
 	EnemyManager enemyManager;
-	/*Enemy enemy;*/
-	/*EnemyActionManager enemyActionManager;*/
-	/*PlayerActionManager playerActionManager;*/
 	CharacterManager& characterManager;
-
-	/*EnemyStatusInitializer& enemyStatusInitializer;*/
 	EnemyStatusInitializer& enemyStatusInitializer;
 	bool TurnStartCheck();
 	int currentTurn = 1; // Œ»İ‚Ìƒ^[ƒ“”‚ğŠÇ—‚·‚é•Ï”
