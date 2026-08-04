@@ -21,10 +21,6 @@ public:
 	const void ResetAction();
 	const void SetcanMove(bool state);
 private:
-	//float moveX = 0.0f; // X•ûŒü‚Ìi‚Ş—Ê
-	//float moveY = 0.0f; // Y•ûŒü‚Ìi‚Ş—Ê
-	//float actualMovementX = 0.0f; // ÀÛ‚ÉˆÚ“®‚·‚é—Ê
-	//float actualMovementY = 0.0f; // ÀÛ‚ÉˆÚ“®‚·‚é—Ê
 	
 	void enemy_move(float& x,float& y);
 	Timer moveTimer;

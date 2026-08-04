@@ -1,6 +1,7 @@
 #include "Game/Enemy/EnemyManager.h"
+#include <algorithm>
 
-bool EnemyManager::Initialize(std::vector<EnemyStatus> statuses)
+bool EnemyManager::Initialize(const std::vector<EnemyStatus>& statuses)
 {
 	enemyStatuses = statuses;
 	for(auto& status : enemyStatuses)
@@ -15,13 +16,27 @@ bool EnemyManager::Initialize(std::vector<EnemyStatus> statuses)
 
 bool EnemyManager::Update()
 {
-	for(auto& enemy : enemies)
+	for (auto it = enemies.begin();
+		it != enemies.end();)
 	{
-		if(!enemy.Update())
+		if (!it->GetIsAlive())
+		{
+			it = enemies.erase(it);
+			if(enemies.size() == 0)
+			{
+				isAnnihilation = true;
+			}
+			continue;
+		}
+
+		if (!it->Update())
 		{
 			return false;
 		}
+
+		++it;
 	}
+
 	return true;
 }
 
@@ -58,4 +73,15 @@ const HitDetection& EnemyManager::GetHitDetection(int Index) const
 const int EnemyManager::GetEnemyCount() const
 {
 	return static_cast<int>(enemies.size());
+}
+
+void EnemyManager::TakeDamage(int Index,int damage) 
+{
+	enemies[Index].TakeDamage(damage);
+}
+
+
+bool EnemyManager::GetEnemyAnnihilation() const
+{
+	return isAnnihilation;
 }

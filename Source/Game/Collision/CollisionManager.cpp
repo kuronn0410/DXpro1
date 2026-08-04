@@ -19,23 +19,10 @@ void CollisionManager::Update(
 
 			if(IsHit(playerHitDetection, enemiesHitDetection))
 			{
-				//// Õ“Ë‚ª”­¶‚µ‚½ê‡‚Ìˆ—
-				//playerManager.HandleCollisionWithEnemy(enemyManager, i, j);
-				//enemyManager.HandleCollisionWithPlayer(playerManager, j, i);
+				enemyManager.TakeDamage(j, playerManager.GetAttack(i));
+
 				Library::DebugTools::DebugLog("HIT");
 			}
 		}
 	}
-
-	// ƒvƒŒƒCƒ„[‚Æ“G‚ÌÕ“Ë”»’è
-	//for (const auto& enemy : enemies)
-	//{
-	//	const auto& enemyHitDetection = enemy.GetHitDetection();
-	//	if (playerHitDetection.Intersects(enemyHitDetection))
-	//	{
-	//		// Õ“Ë‚ª”­¶‚µ‚½ê‡‚Ìˆ—
-	//		playerManager.HandleCollisionWithEnemy(enemy);
-	//		enemy.HandleCollisionWithPlayer(playerManager);
-	//	}
-	//}
 }

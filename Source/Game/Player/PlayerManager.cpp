@@ -82,3 +82,8 @@ const int PlayerManager::GetPlayerCount() const
 {
 	return 4;
 }
+
+int PlayerManager::GetAttack(int Index) const
+{
+	return player[Index].GetAttack();
+}

@@ -50,8 +50,8 @@ void GameMain::Update()
 			}
 			collisionManager.Update(playerManager, enemyManager);
 			break;
-		case TurnState::EnemyAction:		
-			if (!enemyManager.Update())
+		case TurnState::EnemyAction:	
+			if (!enemyManager.Update() || enemyManager.GetEnemyAnnihilation())
 			{
 				turnManager.SetTurnState(TurnState::TurnEnd);
 			}
@@ -59,6 +59,13 @@ void GameMain::Update()
 			break;
 		case TurnState::TurnEnd:
 			//turnManager.UpdateTurn(playerManager);
+			if(enemyManager.GetEnemyAnnihilation())
+			{
+				
+				// 敵が全滅した場合の処理をここに記述
+				Library::DebugTools::DebugLog("All enemies defeated!");
+				isGameFinished = true; // ゲーム終了フラグを立てる
+			}
 			currentTurn++;
 			turnManager.SetTurnState(TurnState::TurnStart);
 			break;
@@ -72,15 +79,6 @@ void GameMain::Draw()
 	playerManager.Draw();
 	std::string turntext = "Turn: " + std::to_string(currentTurn);
 	turnFont.Draw(turntext.c_str(), 10, 60); // ターン数を描画
-	//turnFont.Draw("STAGE 1", 10, 60); // フォント描画の例
-	//if (enemy.IsAlive)
-	//{
-	//	enemy.Draw();
-	//}
-	//else
-	//{
-	//	// 敵が倒された場合の処理をここに記述
-	//}
 	
 }
 
@@ -98,4 +96,9 @@ bool GameMain::TurnStartCheck()
 	playerManager.StartTurn();
 	enemyManager.StartTurn();
 	return true;
+}
+
+const bool GameMain::GameFinished() const
+{
+	return isGameFinished;
 }

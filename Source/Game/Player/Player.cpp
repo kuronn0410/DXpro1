@@ -101,6 +101,8 @@ void Player::OnResetDevice()
     }*/
 }
 
+
+/*-----æ“¾Aw¦‚Ìó•t-----*/
 float Player::GetScaleX() const
 {
     return scaleX;
@@ -114,7 +116,7 @@ float Player::GetScaleY() const
 
 void Player::GetCharacterStatus(CharacterStatus& status) const
 {
-	status = status;
+	status = playerStatus;
 }
 
 const HitDetection& Player::GetHitDetection() const
@@ -131,4 +133,9 @@ void Player::StartTurn()
 void Player::PlayerSelectTurn(bool state)
 {
     playerMove.SetCanMoveState(state);
+}
+
+int Player::GetAttack() const
+{
+        return playerStatus.atk;
 }

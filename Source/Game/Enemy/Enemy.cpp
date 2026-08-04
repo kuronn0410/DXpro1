@@ -3,18 +3,18 @@
 
 //extern TurnManager turnManager;
 
-bool Enemy::Initialize(EnemyStatus enemyStatus)
+bool Enemy::Initialize(EnemyStatus status)
 {
 
 	if (!sprite.Init(
 		g_device,
-		enemyStatus.spritePath.c_str()))
+		status.spritePath.c_str()))
 	{
 		return false;
 	}
 	
-	Enemy_x = enemyStatus.position.startx;
-	Enemy_y = enemyStatus.position.starty;
+	Enemy_x = status.position.startx;
+	Enemy_y = status.position.starty;
 	
 	imageInfo = sprite.GetImageInfo();
 
@@ -26,56 +26,11 @@ bool Enemy::Initialize(EnemyStatus enemyStatus)
 	// 敵の当たり判定の初期化
 	/*enemyMove1.UpdatePosition();*/
 
-	enemyStatus.maxHp = enemyStatus.maxHp;
-	enemyStatus.atk = enemyStatus.atk;
+	enemyStatus.maxHp = status.maxHp;
+	enemyStatus.atk = status.atk;
 	enemyMove1.Initialize(imageInfo.Width, imageInfo.Height, scaleX, scaleY);
 	return true;
 }
-//
-//void Enemy::Update()
-//{
-//	enemyMove1.Update();
-//	if (enemyMove1.isMoved)
-//	{
-//		turnManager.SetTurnState(TurnState::TurnEnd);
-//		//ターンエンド時にプレイヤーの移動フラグをリセットする
-//		enemyMove1.isMoved = false;
-//		// 状態変更
-//		//playerActionManager.SetActionState(ActionState::None);
-//	}
-//	if(enemyStatus.maxHp <= 0)
-//	{
-//		IsAlive = false;
-//	}
-//
-//	// 敵の更新処理をここに記述
-//}
-//
-//
-//void Enemy::Finalize()
-//{
-//	sprite.Release();
-//}
-//
-//const HitDetection& Enemy::GetHitDetection() const
-//{
-//	return enemyMove1.GetHitDetection();
-//}
-//
-//void Enemy::DamageToCharacter(int damage)
-//{
-//	enemyStatus.maxHp -= damage;
-//	if (enemyStatus.maxHp <= 0)
-//	{
-//		IsAlive = false;
-//	}
-//}
-
-
-//bool Enemy::Initialize()
-//{
-//	return true;
-//}
 
 bool Enemy::Update()
 {
@@ -107,4 +62,13 @@ void Enemy::StartTurn()
 const HitDetection& Enemy::GetHitDetection() const
 {
 	return enemyMove1.GetHitDetection();
+}
+
+void Enemy::TakeDamage(int damage)
+{
+	enemyStatus.currentHp -= damage;
+	if (enemyStatus.currentHp <= 0)
+	{
+		IsAlive = false;
+	}
 }

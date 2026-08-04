@@ -30,6 +30,7 @@ public:
     const HitDetection& GetHitDetection() const;
     void PlayerSelectTurn(bool state);
     void StartTurn();
+    int GetAttack() const;
 
 private:
     

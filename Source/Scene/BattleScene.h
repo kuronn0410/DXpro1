@@ -3,6 +3,9 @@
 #include "Graphics/background.h"    
 #include "UI/Button/Button.h"
 #include "Game/GameMain.h"
+#include "Scene/SceneType.h"
+
+#include "Scene/SceneManager.h"
 
 class SceneManager;
 class CharacterManager;

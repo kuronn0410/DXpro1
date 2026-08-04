@@ -25,6 +25,7 @@ public:
 	void PlayerSelectTurn(int Index);
 	const HitDetection& GetHitDetection(int Index) const;
 	const int GetPlayerCount() const; // プレイヤーの数を取得する関数	
+	int GetAttack(int Index) const; // 指定したプレイヤーの攻撃力を取得する関数
 private:
 
 	//出撃するキャラクター

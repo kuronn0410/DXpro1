@@ -14,6 +14,10 @@ void BattleScene::Update()
 {
 		// Update logic for the Battle Scene
 	gameMain.Update();
+	if(gameMain.GameFinished())
+	{
+		sceneManager.ChangeScene(SceneType::Reward);
+	}
 }
 void BattleScene::Draw()
 {
