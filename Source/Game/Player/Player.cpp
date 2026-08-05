@@ -5,12 +5,6 @@
 #include "Game/Turn/EnemyActionManager.h"
 #include "Game/Turn/PlayerActionManager.h"
 
-//PlayerMove playerMove;
-//extern TurnManager turnManager;
-//
-//extern EnemyActionManager enemyActionManager;
-//
-//extern PlayerActionManager playerActionManager;
 
 bool Player::Initialize(CharacterStatus status,StartPos startPos)
 {
@@ -41,10 +35,10 @@ bool Player::Initialize(CharacterStatus status,StartPos startPos)
     
     );
 
-    status.maxHp = GameConfig::PlayerHp;
-    status.atk = GameConfig::PlayerDamage;
-	status.spd = GameConfig::PlayerSpeed;
-	playerStatus = status;
+    playerStatus.maxHp = status.maxHp;
+    playerStatus.currentHp = status.currentHp;
+    playerStatus.atk = status.atk;
+	playerStatus.spd = status.spd;
 
     return true;
 }
@@ -102,7 +96,7 @@ void Player::OnResetDevice()
 }
 
 
-/*-----取得、指示の受付-----*/
+/*-----取得-----*/
 float Player::GetScaleX() const
 {
     return scaleX;
@@ -112,7 +106,6 @@ float Player::GetScaleY() const
 {
     return scaleY;
 }
-
 
 void Player::GetCharacterStatus(CharacterStatus& status) const
 {
@@ -124,6 +117,26 @@ const HitDetection& Player::GetHitDetection() const
         return playerMove.GetHitDetection();
 }
 
+int Player::GetAttack() const
+{
+        return playerStatus.atk;
+}
+
+bool Player::GetIsAlive() const
+{
+        return IsAlive;
+}
+
+
+/*-----指示の受付-----*/
+void Player::TakeDamage(int damage)
+{
+        playerStatus.currentHp -= damage;
+        if(playerStatus.currentHp <= 0)
+        {
+            IsAlive = false;
+		}
+}
 
 void Player::StartTurn()
 {
@@ -133,9 +146,4 @@ void Player::StartTurn()
 void Player::PlayerSelectTurn(bool state)
 {
     playerMove.SetCanMoveState(state);
-}
-
-int Player::GetAttack() const
-{
-        return playerStatus.atk;
 }

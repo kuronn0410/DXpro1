@@ -2,15 +2,19 @@
 #include "Game/Player/PlayerManager.h"
 #include "Game/Enemy/EnemyManager.h"
 #include "Game/Collision/Collision.h"
-
+#include "Game/Turn/TurnManager.h"
 	
 class CollisionManager
 {
 public:
 	void Update(
 		PlayerManager& playerManager, 
-		EnemyManager& enemyManager
+		EnemyManager& enemyManager,
+		TurnState turnState
 	);
-private:
 
+	
+private:
+	void PlayerTurnCollision(PlayerManager& playerManager, EnemyManager& enemyManager);
+	void EnemyTurnCollision(PlayerManager& playerManager, EnemyManager& enemyManager);
 };

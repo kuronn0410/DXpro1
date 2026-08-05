@@ -23,7 +23,10 @@ public:
 	void Update();
 	void Draw();
 	void Finalize();
+	/*---Žæ“¾---*/
+	/*---ŽwŽ¦‚ÌŽó•t---*/
 	const bool GameFinished() const;
+
 private:
 	Font turnFont;
 	TurnManager turnManager;

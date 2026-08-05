@@ -12,11 +12,14 @@ public:
 	bool Update();
 	void Draw();
 	void Finalize();
-	/*-----取得、指示の受付-----*/
+	/*-----取得-----*/
 	bool GetIsAlive() const;
-	void StartTurn();
 	const HitDetection& GetHitDetection() const;
+	int GetAttack() const;
+	/*-----指示の受付-----*/ 
 	void TakeDamage(int damage);
+	void StartTurn();
+
 private:
 
 	

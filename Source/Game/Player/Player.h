@@ -22,16 +22,21 @@ public:
     void OnLostDevice();
     void OnResetDevice();
 
-    /*-----取得、指示の受付-----*/
+    /*-----取得-----*/
     //スケールを外部から取得するための関数
     float GetScaleX() const;
     float GetScaleY() const;
     void GetCharacterStatus(CharacterStatus& status) const;
     const HitDetection& GetHitDetection() const;
+    int GetAttack() const;
+	bool GetIsAlive() const;
+	
+
+	/*-----指示の受付-----*/ 
     void PlayerSelectTurn(bool state);
     void StartTurn();
-    int GetAttack() const;
-
+    void TakeDamage(int damage);
+    
 private:
     
 
@@ -48,5 +53,8 @@ private:
     //画面のスケールに合わせたPlayerのスケール
     float scaleX = 0.0f;
     float scaleY = 0.0f;
+
+    /*-----取得-----*/
+	bool IsAlive = true; // プレイヤーが生きているかどうかを判断するフラグ
    
 };

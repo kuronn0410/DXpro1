@@ -1,14 +1,15 @@
 #include "Game/Player/PlayerManager.h"
 
-bool PlayerManager:: Init(const CharacterStatus* characterStatus)
+bool PlayerManager:: Init(const CharacterStatus* characterStatus, int partyCount)
 {
 	if (characterStatus == nullptr)
 	{
 		return false;
 	}
+	playerCount = partyCount;
 
 
-	for(int i = 0; i < 4; i++)
+	for(int i = 0; i < playerCount; i++)
 	{
 		playerStatus[i] = characterStatus[i];
 
@@ -22,10 +23,20 @@ bool PlayerManager:: Init(const CharacterStatus* characterStatus)
 
 bool PlayerManager::Update()
 {
-	for(int i = 0; i < 4; i++)
+	if (CheckAnnihilation())
+	{
+		isAnnihilation = true;	
+		return false;
+	}
+	for(int i = 0; i < playerCount; i++)
 	{
 		if (i == moveIndex)
 		{
+			if(!player[i].GetIsAlive())
+			{
+				return false;
+			}
+
 			player[i].PlayerSelectTurn(true);
 			if (!player[i].Update())
 			{
@@ -44,25 +55,51 @@ bool PlayerManager::Update()
 
 void PlayerManager::Draw()
 {
-	for(int i = 0; i < 4; i++)
+	for(int i = 0; i < playerCount; i++)
 	{
+		if (!player[i].GetIsAlive())
+		{
+			continue;
+		}
 		player[i].Draw();
+		
 	}
 }
 
 void PlayerManager::Finalize()
 {
-	for(int i = 0; i < 4; i++)
+	for(int i = 0; i < playerCount; i++)
 	{
 		player[i].Finalize();
 	}
 }
 
 
-/*-----取得、指示の受付-----*/
+/*-----取得-----*/
+const HitDetection& PlayerManager::GetHitDetection(int Index) const
+{
+	return player[Index].GetHitDetection();
+}
+
+const int PlayerManager::GetPlayerCount() const
+{
+	return playerCount;
+}
+
+int PlayerManager::GetAttack(int Index) const
+{
+	return player[Index].GetAttack();
+}
+
+bool PlayerManager::GetAnnihilation() const
+{
+	return isAnnihilation;
+}
+
+/*-----指示の受付-----*/
 void PlayerManager::StartTurn()
 {
-	for(int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		player[i].StartTurn();
 	}
@@ -73,17 +110,21 @@ void PlayerManager::PlayerSelectTurn(int Index)
 	moveIndex = Index;
 }
 
-const HitDetection& PlayerManager::GetHitDetection(int Index) const
+void PlayerManager::TakeDamage(int Index, int damage)
 {
-	return player[Index].GetHitDetection();
+	player[Index].TakeDamage(damage);
 }
 
-const int PlayerManager::GetPlayerCount() const
+/*--その他--*/
+bool PlayerManager::CheckAnnihilation() const
 {
-	return 4;
-}
+	for (int i = 0; i < playerCount; ++i)
+	{
+		if (player[i].GetIsAlive())
+		{
+			return false;
+		}
+	}
 
-int PlayerManager::GetAttack(int Index) const
-{
-	return player[Index].GetAttack();
+	return true;
 }

@@ -21,12 +21,30 @@ bool CharacterManager::Initialize()
 	return true;
 }
 
+//メモリの解放
+void CharacterManager::Finalize()
+{
+
+}
+
+/*--取得--*/
+int CharacterManager::GetPartyCount() const
+{
+	return partyCount;
+}
+
 // パーティーに編成画面で全キャラ表示するための関数
 const std::vector<CharacterStatus>& CharacterManager::GetAllCharacters() const
 {
 	return characters;
 }
 
+const CharacterStatus* CharacterManager::GetAllPartyCharacter() const
+{
+	return partyCharacter;
+}
+
+/*--指示受付--*/
 bool CharacterManager::AddCharacterToParty(int characterIndex)
 {
 	if (partyCount < 4)
@@ -54,15 +72,4 @@ bool CharacterManager::RemoveCharacterFromParty(int partyIndex)
 		return true;
 	}
 	return false;
-}
-
-const CharacterStatus* CharacterManager::GetAllPartyCharacter() const
-{
-	return partyCharacter;
-}
-
-//メモリの解放
-void CharacterManager::Finalize()
-{
-
 }

@@ -7,7 +7,7 @@
 void GameMain::Initialize(/*int stageNum*/)
 {
 	/*--プレーヤー*/
-	bool result = playerManager.Init(characterManager.GetAllPartyCharacter());
+	bool result = playerManager.Init(characterManager.GetAllPartyCharacter(), characterManager.GetPartyCount());
 	if (!result)
 	{
 		Library::DebugTools::DebugLog("PlayerManager Initialize Failed");
@@ -24,14 +24,17 @@ void GameMain::Update()
 	switch (turnManager.GetTurnState())
 	{
 		case TurnState::TurnStart:
+		{
 			if (TurnStartCheck())
 			{
 				turnManager.SetTurnState(TurnState::PlayerSelect);
 			}
 			break;
+		}
 		case TurnState::PlayerSelect:
+		{
 			playerManager.PlayerSelectTurn(moveIndex);
-			if(moveIndex < 3)
+			if (moveIndex < playerManager.GetPlayerCount() - 1)
 			{
 				moveIndex++;
 			}
@@ -41,27 +44,46 @@ void GameMain::Update()
 			}
 			turnManager.SetTurnState(TurnState::PlayerAction);
 			break;
+		}
 		case TurnState::PlayerAction:
+		{
 			//playerActionManager.UpdateAction(playerManager);
-			
-			if (!playerManager.Update())
+
+			const bool isMoving =
+				playerManager.Update();
+
+			collisionManager.Update(playerManager, enemyManager, turnManager.GetTurnState());
+
+			if (!isMoving)
 			{
 				turnManager.SetTurnState(TurnState::EnemyAction);
 			}
-			collisionManager.Update(playerManager, enemyManager);
+			if (playerManager.GetAnnihilation())
+			{
+				isGameFinished = true;
+			}
+
 			break;
-		case TurnState::EnemyAction:	
-			if (!enemyManager.Update() || enemyManager.GetEnemyAnnihilation())
+		}
+		case TurnState::EnemyAction:
+		{
+			bool isEnemyMoving = enemyManager.Update();
+
+			collisionManager.Update(playerManager, enemyManager, turnManager.GetTurnState());
+
+			if (!isEnemyMoving || enemyManager.GetEnemyAnnihilation())
 			{
 				turnManager.SetTurnState(TurnState::TurnEnd);
 			}
-			collisionManager.Update(playerManager, enemyManager);
+
 			break;
+		}
 		case TurnState::TurnEnd:
+		{
 			//turnManager.UpdateTurn(playerManager);
-			if(enemyManager.GetEnemyAnnihilation())
+			if (enemyManager.GetEnemyAnnihilation())
 			{
-				
+
 				// 敵が全滅した場合の処理をここに記述
 				Library::DebugTools::DebugLog("All enemies defeated!");
 				isGameFinished = true; // ゲーム終了フラグを立てる
@@ -69,6 +91,7 @@ void GameMain::Update()
 			currentTurn++;
 			turnManager.SetTurnState(TurnState::TurnStart);
 			break;
+		}
 	}
 	
 }

@@ -48,20 +48,27 @@ void Enemy::Finalize()
 }
 
 
-/*-----取得、指示の受付-----*/
+/*-----取得-----*/
 bool Enemy::GetIsAlive() const
 {
 	return IsAlive;
 }
 
-void Enemy::StartTurn()
-{
-	enemyMove1.ResetAction();
-}
-
 const HitDetection& Enemy::GetHitDetection() const
 {
 	return enemyMove1.GetHitDetection();
+}
+
+int Enemy::GetAttack() const
+{
+	return enemyStatus.atk;
+}
+
+
+/*-----指示の受付-----*/
+void Enemy::StartTurn()
+{
+	enemyMove1.ResetAction();
 }
 
 void Enemy::TakeDamage(int damage)

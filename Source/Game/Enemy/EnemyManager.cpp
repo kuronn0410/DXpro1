@@ -56,15 +56,7 @@ void EnemyManager::Finalize()
 	}
 }
 
-/*-----取得、指示の受付-----*/
-void EnemyManager::StartTurn()
-{
-	for (auto& enemy : enemies)
-	{
-		enemy.StartTurn();
-	}
-}
-
+/*-----取得-----*/
 const HitDetection& EnemyManager::GetHitDetection(int Index) const
 {
 	return enemies[Index].GetHitDetection();
@@ -75,13 +67,27 @@ const int EnemyManager::GetEnemyCount() const
 	return static_cast<int>(enemies.size());
 }
 
-void EnemyManager::TakeDamage(int Index,int damage) 
-{
-	enemies[Index].TakeDamage(damage);
-}
-
 
 bool EnemyManager::GetEnemyAnnihilation() const
 {
 	return isAnnihilation;
+}
+
+int EnemyManager::GetAttack(int Index) const
+{
+	return enemies[Index].GetAttack();
+}
+
+/*-----指示の受付-----*/
+void EnemyManager::TakeDamage(int Index, int damage)
+{
+	enemies[Index].TakeDamage(damage);
+}
+
+void EnemyManager::StartTurn()
+{
+	for (auto& enemy : enemies)
+	{
+		enemy.StartTurn();
+	}
 }
