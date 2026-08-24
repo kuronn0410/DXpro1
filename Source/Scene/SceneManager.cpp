@@ -5,6 +5,9 @@ bool SceneManager::Initialize(SceneType initialSceneType)
 	//currentSceneType = initialSceneType;
 	switch (initialSceneType)
 	{
+	case SceneType::Title:
+		currentScene = std::make_unique<TitleScene>(*this);
+		break;
 	case SceneType::Home:
 		currentScene = std::make_unique<HomeScene>(*this);
 		break;
@@ -71,6 +74,9 @@ void SceneManager::ChangeScene(SceneType nextSceneType)
 	}
 	switch (nextSceneType)
 	{
+	case SceneType::Title:
+		currentScene = std::make_unique<TitleScene>(*this);
+		break;
 	case SceneType::Home:
 		currentScene = std::make_unique<HomeScene>(*this);
 		break;

@@ -20,7 +20,7 @@ int initialize(HINSTANCE hWnd, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nC
 	{
 		return -1;
 	}
-	sceneManager.Initialize(SceneType::Home); // 初期シーンをHomeに設定
+	sceneManager.Initialize(SceneType::Title); // 初期シーンをTitleに設定
 	//GameInitialize();
 	font.Init(g_device);
 	return 0;

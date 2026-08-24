@@ -61,6 +61,7 @@
     <ClCompile Include="Source\Scene\RewardScene.cpp" />
     <ClCompile Include="Source\Scene\SceneManager.cpp" />
     <ClCompile Include="Source\Scene\StageSelectScene.cpp" />
+    <ClCompile Include="Source\Scene\TitleScene.cpp" />
     <ClCompile Include="Source\UI\Button\Button.cpp" />
     <ClCompile Include="Source\UI\Image\Image.cpp" />
     <ClCompile Include="Source\Utility\help2.cpp" />
@@ -112,6 +113,7 @@
     <ClInclude Include="Source\Scene\SceneManager.h" />
     <ClInclude Include="Source\Scene\SceneType.h" />
     <ClInclude Include="Source\Scene\StageSelectScene.h" />
+    <ClInclude Include="Source\Scene\TitleScene.h" />
     <ClInclude Include="Source\UI\Button\Button.h" />
     <ClInclude Include="Source\UI\Image\Image.h" />
     <ClInclude Include="Source\Utility\help1.h" />
@@ -145,6 +147,8 @@
     <Image Include="Assets\Textures\soccer.png" />
     <Image Include="Assets\Textures\StageSelect.png" />
     <Image Include="Assets\Textures\StageSelectButton.png" />
+    <Image Include="Assets\Textures\Title\TitleClear.jpe" />
+    <Image Include="Assets\Textures\Title\TitleNormal.jpe" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
